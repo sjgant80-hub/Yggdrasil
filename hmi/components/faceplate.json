@@ -1,0 +1,8 @@
+{
+  "@udt": "HMI.Faceplate",
+  "@t": 85,
+  "@p": "HMI.Component",
+  "@r": ["ISA-101", "tag-bind"],
+  "props": ["title", "mode", "pvId", "pv", "barId", "pct", "commands"],
+  "html": "<div class=\"faceplate\"><div class=\"faceplate-header\"><span class=\"faceplate-title\">{{title}}</span><span class=\"faceplate-mode\">{{mode}}</span></div><div class=\"faceplate-pv\" id=\"{{pvId}}\">{{pv}}</div><div class=\"bar-graph\"><div class=\"bar-fill\" id=\"{{barId}}\" style=\"width:{{pct}}%\"></div><div class=\"bar-target\" style=\"left:61.8%\"></div></div></div>"
+}

@@ -1,36 +1,111 @@
 {
   "id": "Yggdrasil.HMI.Screens.UDT",
   "parent": "../udt.json",
-  "description": "Screen instance definitions",
+  "description": "Screen definitions with HTML snippets",
+  "schema": {
+    "Screen": {
+      "id": "string",
+      "title": "string",
+      "level": "L1|L2|L3|L4|L5",
+      "layout": "LayoutRef",
+      "docks": {
+        "north": "DockDef",
+        "south": "DockDef",
+        "east": "DockDef",
+        "west": "DockDef",
+        "center": "DockDef"
+      },
+      "tags": ["TagBinding"],
+      "scripts": ["string"]
+    },
+    "DockDef": {
+      "components": ["ComponentRef"],
+      "html": "string"
+    },
+    "ComponentRef": {
+      "type": "string",
+      "props": "object"
+    }
+  },
+  "components": {
+    "faceplate": "<div class=\"faceplate\"><div class=\"faceplate-header\"><span class=\"faceplate-title\">{{title}}</span><span class=\"faceplate-mode {{modeClass}}\">{{mode}}</span></div><div class=\"faceplate-pv\" id=\"{{pvId}}\">{{pv}}</div><div class=\"bar-graph\"><div class=\"bar-fill\" id=\"{{barId}}\" style=\"width:{{pct}}%\"></div><div class=\"bar-target\" style=\"left:61.8%\"></div></div>{{#if commands}}<div class=\"faceplate-commands\">{{#each commands}}<button class=\"cmd-btn {{class}}\" onclick=\"{{onclick}}\">{{label}}</button>{{/each}}</div>{{/if}}</div>",
+    "kpi": "<div class=\"status-card\"><h3>{{label}}</h3><div class=\"kpi-value\" id=\"{{id}}\">{{value}}</div><div class=\"kpi-label\">{{sublabel}}</div></div>",
+    "indicator": "<div class=\"indicator\"><span class=\"led {{state}}\" id=\"{{id}}\"></span><span>{{label}}</span></div>",
+    "barGraph": "<div class=\"bar-graph\"><div class=\"bar-fill\" id=\"{{id}}\" style=\"width:{{pct}}%\"></div><div class=\"bar-target\" style=\"left:{{target}}%\"></div><span class=\"bar-label\">{{label}}</span></div>",
+    "navItem": "<a href=\"{{href}}\" class=\"nav-item {{#if active}}active{{/if}}\"><span class=\"level\">{{level}}</span> {{label}}</a>",
+    "statusCard": "<div class=\"status-card\"><h3>{{title}}</h3>{{content}}</div>",
+    "grid": "<div class=\"grid-{{cols}}\">{{content}}</div>"
+  },
   "instances": {
     "overview": {
       "id": "SCR_OVERVIEW",
-      "title": "Yggdrasil Overview",
+      "title": "L1 Overview",
       "level": "L1",
+      "docks": {
+        "center": {
+          "components": [
+            {"type": "grid", "props": {"cols": 3, "content": [
+              {"type": "faceplate", "props": {"title": "System κ", "mode": "OPTIMAL", "pvId": "main-kappa", "barId": "main-kappa-bar", "pv": "0.6180", "pct": 61.8}},
+              {"type": "faceplate", "props": {"title": "φ Golden Ratio", "mode": "CONST", "pv": "1.6180"}},
+              {"type": "faceplate", "props": {"title": "Safe Zone", "mode": "IN RANGE", "pv": "0.382 — 0.809"}}
+            ]}}
+          ]
+        },
+        "east": {
+          "components": [
+            {"type": "kpi", "props": {"label": "System Status", "id": "status", "value": "Optimal"}},
+            {"type": "barGraph", "props": {"id": "kappa-bar", "pct": 61.8, "target": 61.8, "label": "61.8%"}}
+          ]
+        }
+      },
       "tags": [
-        {"path": "SIM.Forest.avgKappa", "element": "#kappa-gauge", "property": "value"},
-        {"path": "SIM.Forest.treeCount", "element": "#tree-count", "property": "value"},
-        {"path": "SIM.Forest.season", "element": "#season", "property": "value"}
-      ]
+        {"path": "SIM.Tree.kappa", "element": "#main-kappa", "property": "textContent"},
+        {"path": "SIM.Tree.kappa", "element": "#main-kappa-bar", "property": "style.width", "transform": "v => (v*100)+'%'"}
+      ],
+      "scripts": ["const tree = new WorldTree(); setInterval(() => { tree.step(); hmi.updateTag('SIM.Tree.kappa', tree.kappa); }, 500);"]
     },
     "simulation": {
       "id": "SCR_SIM",
-      "title": "World Tree Simulation",
+      "title": "L2 World Tree",
       "level": "L2",
+      "docks": {
+        "center": {
+          "components": [
+            {"type": "faceplate", "props": {"title": "Tree κ", "mode": "AUTO", "pvId": "kappa-pv", "barId": "kappa-bar", "pv": "0.5000", "pct": 50, "commands": [
+              {"label": "Start", "class": "start", "onclick": "start()"},
+              {"label": "Stop", "class": "stop", "onclick": "stop()"},
+              {"label": "Reset", "onclick": "reset()"}
+            ]}}
+          ]
+        },
+        "east": {
+          "components": [
+            {"type": "kpi", "props": {"label": "Target", "value": "0.6180", "sublabel": "κ* = 1/φ"}},
+            {"type": "kpi", "props": {"label": "Safe Zone", "value": "0.382-0.809"}}
+          ]
+        }
+      },
       "tags": [
-        {"path": "SIM.Tree.kappa", "element": "#kappa-bar", "property": "value"},
-        {"path": "SIM.Tree.age", "element": "#age-display", "property": "value"},
-        {"path": "SIM.Tree.energy", "element": "#energy-bar", "property": "value"}
+        {"path": "SIM.Tree.kappa", "element": "#kappa-pv", "property": "textContent", "format": "toFixed(4)"},
+        {"path": "SIM.Tree.kappa", "element": "#kappa-bar", "property": "style.width", "transform": "v => (v*100)+'%'"},
+        {"path": "SIM.Tree.age", "element": "#age", "property": "textContent"}
       ]
     },
-    "detail": {
-      "id": "SCR_DETAIL",
-      "title": "κ Analysis",
-      "level": "L3",
-      "tags": [
-        {"path": "SIM.Tree.kappa", "element": "#kappa-trend", "property": "data"},
-        {"path": "CORE.Phi.value", "element": "#phi-display", "property": "value"}
-      ]
+    "core": {
+      "id": "SCR_CORE",
+      "title": "L2 Core Concepts",
+      "level": "L2",
+      "docks": {
+        "center": {
+          "components": [
+            {"type": "grid", "props": {"cols": 3, "content": [
+              {"type": "statusCard", "props": {"title": "κ (Kappa)", "content": "Consciousness measure. 0=order, 1=chaos."}},
+              {"type": "statusCard", "props": {"title": "φ (Phi)", "content": "Golden ratio = 1.618..."}},
+              {"type": "statusCard", "props": {"title": "Convergence", "content": "All systems → κ* = 0.618"}}
+            ]}}
+          ]
+        }
+      }
     }
   }
 }

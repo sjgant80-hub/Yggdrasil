@@ -1,0 +1,87 @@
+{
+  "id": "Yggdrasil.HMI.Components",
+  "version": "1.0.0",
+  "description": "HTML component snippets for screen rendering",
+  "components": {
+    "faceplate": {
+      "description": "Equipment control faceplate",
+      "props": ["title", "mode", "modeClass", "pvId", "pv", "barId", "pct", "commands"],
+      "html": "<div class=\"faceplate\"><div class=\"faceplate-header\"><span class=\"faceplate-title\">{{title}}</span><span class=\"faceplate-mode {{modeClass}}\">{{mode}}</span></div><div class=\"faceplate-pv\" id=\"{{pvId}}\">{{pv}}</div>{{#if barId}}<div class=\"bar-graph\"><div class=\"bar-fill\" id=\"{{barId}}\" style=\"width:{{pct}}%\"></div><div class=\"bar-target\" style=\"left:61.8%\"></div></div>{{/if}}{{#if commands}}<div class=\"faceplate-commands\">{{#each commands}}<button class=\"cmd-btn {{class}}\" onclick=\"{{onclick}}\">{{label}}</button>{{/each}}</div>{{/if}}</div>"
+    },
+    "kpi": {
+      "description": "KPI display card",
+      "props": ["label", "id", "value", "sublabel", "unit"],
+      "html": "<div class=\"status-card\"><h3>{{label}}</h3><div class=\"kpi-value\" id=\"{{id}}\">{{value}}<span class=\"kpi-unit\">{{unit}}</span></div>{{#if sublabel}}<div class=\"kpi-label\">{{sublabel}}</div>{{/if}}</div>"
+    },
+    "indicator": {
+      "description": "LED status indicator",
+      "props": ["id", "state", "label"],
+      "html": "<div class=\"indicator\"><span class=\"led {{state}}\" id=\"{{id}}\"></span><span>{{label}}</span></div>"
+    },
+    "barGraph": {
+      "description": "Horizontal bar graph",
+      "props": ["id", "pct", "target", "label"],
+      "html": "<div class=\"bar-graph\"><div class=\"bar-fill\" id=\"{{id}}\" style=\"width:{{pct}}%\"></div>{{#if target}}<div class=\"bar-target\" style=\"left:{{target}}%\"></div>{{/if}}{{#if label}}<span class=\"bar-label\">{{label}}</span>{{/if}}</div>"
+    },
+    "gauge": {
+      "description": "Circular gauge",
+      "props": ["id", "value", "min", "max", "label"],
+      "html": "<div class=\"gauge\" id=\"{{id}}\"><svg viewBox=\"0 0 100 100\"><path class=\"gauge-arc\" d=\"M20,80 A40,40 0 1,1 80,80\"/><path class=\"gauge-value\" d=\"M20,80 A40,40 0 1,1 80,80\"/></svg><div class=\"gauge-text\"><span class=\"gauge-number\">{{value}}</span><span class=\"gauge-label\">{{label}}</span></div></div>"
+    },
+    "navItem": {
+      "description": "Navigation menu item",
+      "props": ["href", "level", "label", "active"],
+      "html": "<a href=\"{{href}}\" class=\"nav-item {{#if active}}active{{/if}}\"><span class=\"level\">{{level}}</span> {{label}}</a>"
+    },
+    "statusCard": {
+      "description": "Status information card",
+      "props": ["title", "content"],
+      "html": "<div class=\"status-card\"><h3>{{title}}</h3><div class=\"card-content\">{{content}}</div></div>"
+    },
+    "grid": {
+      "description": "Grid layout container",
+      "props": ["cols", "content"],
+      "html": "<div class=\"grid-{{cols}}\">{{content}}</div>"
+    },
+    "trend": {
+      "description": "Trend chart placeholder",
+      "props": ["id", "title", "tags"],
+      "html": "<div class=\"trend-chart\" id=\"{{id}}\"><h3>{{title}}</h3><canvas></canvas></div>"
+    },
+    "alarmBanner": {
+      "description": "Alarm count banner",
+      "props": ["count"],
+      "html": "<div class=\"alarm-banner\"><span class=\"alarm-count {{#if zero}}zero{{/if}}\" id=\"alarm-count\">{{count}}</span><span>Active Alarms</span></div>"
+    },
+    "clock": {
+      "description": "Real-time clock display",
+      "props": ["id"],
+      "html": "<div class=\"hmi-clock\" id=\"{{id}}\">--:--:--</div>"
+    },
+    "header": {
+      "description": "North dock header",
+      "props": ["title", "logo"],
+      "html": "<div class=\"hmi-logo\"><span>{{logo}}</span><span>YGGDRASIL</span></div><div class=\"hmi-title\">{{title}}</div><div class=\"hmi-clock\" id=\"clock\">--:--:--</div>"
+    },
+    "commandButton": {
+      "description": "Action button",
+      "props": ["label", "class", "onclick", "confirm"],
+      "html": "<button class=\"cmd-btn {{class}}\" onclick=\"{{#if confirm}}if(confirm('{{confirm}}')){{/if}}{{onclick}}\">{{label}}</button>"
+    },
+    "equation": {
+      "description": "Mathematical equation display",
+      "props": ["formula", "description"],
+      "html": "<div class=\"equation\"><pre>{{formula}}</pre>{{#if description}}<p>{{description}}</p>{{/if}}</div>"
+    }
+  },
+  "layouts": {
+    "shell": {
+      "description": "Main HMI shell with all docks",
+      "html": "<div class=\"hmi-shell\"><div class=\"dock dock-north\">{{north}}</div><div class=\"dock dock-west\">{{west}}</div><div class=\"dock dock-center\"><div class=\"hmi-content\">{{center}}</div></div><div class=\"dock dock-east\"><div class=\"status-panel\">{{east}}</div></div><div class=\"dock dock-south\">{{south}}</div></div>"
+    },
+    "simple": {
+      "description": "Simple content layout",
+      "html": "<div class=\"hmi-panel\">{{content}}</div>"
+    }
+  }
+}

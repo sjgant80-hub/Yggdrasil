@@ -18,23 +18,34 @@
       "position": "north|south|east|west|center",
       "size": "number",
       "collapsed": "boolean",
-      "components": ["Component"]
+      "components": ["ComponentRef"],
+      "html": "string"
     },
     "Screen": {
       "id": "string",
       "title": "string",
       "level": "L1|L2|L3|L4|L5",
       "layout": "Layout",
+      "docks": "object",
       "tags": ["TagBinding"],
-      "alarms": ["AlarmBinding"]
+      "scripts": ["string"]
     },
-    "Component": {
-      "type": "nav|status|trend|faceplate|alarm|kpi",
-      "config": "object"
+    "ComponentRef": {
+      "type": "string",
+      "props": "object"
+    },
+    "TagBinding": {
+      "path": "string",
+      "element": "string",
+      "property": "string",
+      "format": "string",
+      "transform": "string"
     }
   },
   "children": [
+    "hmi/components.json",
     "hmi/graphics/udt.json",
     "hmi/screens/udt.json"
-  ]
+  ],
+  "renderer": "assets/js/screen-renderer.js"
 }

@@ -1,0 +1,16 @@
+{
+  "@udt": "HMI.Components.Index",
+  "@t": 45,
+  "@p": "HMI.UDT",
+  "@r": ["loader"],
+  "components": [
+    "faceplate.json",
+    "kpi.json",
+    "indicator.json",
+    "bar.json",
+    "nav.json",
+    "grid.json",
+    "card.json"
+  ],
+  "load": "async(base)=>{const c={};for(const f of this.components){const r=await fetch(base+f);c[(await r.json())['@udt'].split('.').pop()]=await r.json();}return c;}"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "Yggdrasil.UDT.File",
+  "description": "File header UDT for all files",
+  "schema": {
+    "header": {
+      "id": "string",
+      "tokens": "number",
+      "parent": "string|null",
+      "requires": ["string"],
+      "exports": ["string"],
+      "rules": ["string"],
+      "log": ["string"]
+    }
+  },
+  "format": "/* @udt {id} @t {tokens} @p {parent} @r {rules} */",
+  "example": "/* @udt HMI.Faceplate @t 45 @p HMI.Component @r ISA-101 */",
+  "maxTokens": 250
+}

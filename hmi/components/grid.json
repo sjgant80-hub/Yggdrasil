@@ -1,0 +1,8 @@
+{
+  "@udt": "HMI.Grid",
+  "@t": 18,
+  "@p": "HMI.Component",
+  "@r": ["layout"],
+  "props": ["cols", "content"],
+  "html": "<div class=\"grid-{{cols}}\">{{content}}</div>"
+}

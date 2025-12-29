@@ -1,0 +1,8 @@
+{
+  "@udt": "HMI.Card",
+  "@t": 22,
+  "@p": "HMI.Component",
+  "@r": ["ISA-101"],
+  "props": ["title", "content"],
+  "html": "<div class=\"status-card\"><h3>{{title}}</h3><div>{{content}}</div></div>"
+}

@@ -3,7 +3,29 @@
 <!--
 USAGE: Copy template, replace {{params}}, execute
 These are composable building blocks for complex operations
+MAX_TOKENS: 250 per file
 -->
+
+## File Header Format
+
+All files must include a header UDT comment:
+```
+/* @udt {id} @t {tokens} @p {parent} @r [{rules}] */
+// or for JSON:
+{ "@udt": "ID", "@t": 45, "@p": "Parent", "@r": ["rule1"] }
+```
+
+### Create Modular File
+```json
+{
+  "@udt": "{{Section}}.{{Name}}",
+  "@t": {{tokenCount}},
+  "@p": "{{parent}}",
+  "@r": [{{rules}}],
+  "props": [{{props}}],
+  "html": "{{template}}"
+}
+```
 
 ## UDT Operations
 
@@ -187,6 +209,40 @@ const tree = new WorldTree({{startKappa}});
 for (let i = 0; i < {{steps}}; i++) tree.step();
 const diff = Math.abs(tree.kappa - 0.618033988749895);
 if (diff > {{tolerance}}) throw new Error(`κ=${tree.kappa}, diff=${diff}`);
+```
+
+## Modular Renderer
+
+### Create Renderer Module
+```javascript
+/* @udt Render.{{Name}} @t {{tokens}} @p Render.Base @r [{{rules}}] */
+const {{Name}}Module = {
+  init(r) {
+    r.{{method}} = ({{params}}) => {
+      {{body}}
+    };
+  }
+};
+window.{{Name}}Module = {{Name}}Module;
+```
+
+### Create Screen UDT
+```json
+{
+  "@udt": "Screen.{{Name}}",
+  "@t": {{tokens}},
+  "@p": "HMI.Screen",
+  "@r": ["{{level}}"],
+  "id": "SCR_{{ID}}",
+  "title": "{{title}}",
+  "level": "{{level}}",
+  "docks": {
+    "center": {"components": [{{components}}]},
+    "east": {"components": [{{eastComponents}}]}
+  },
+  "tags": [{{tagBindings}}],
+  "render": "(r,el)=>{{{renderCode}}}"
+}
 ```
 
 ## Constants Reference

@@ -1,0 +1,25 @@
+{
+  "@udt": "Screen.Overview",
+  "@t": 95,
+  "@p": "HMI.Screen",
+  "@r": ["L1", "κ-live"],
+  "id": "SCR_OVERVIEW",
+  "title": "L1 Overview",
+  "level": "L1",
+  "docks": {
+    "center": {
+      "components": [
+        {"type": "grid", "props": {"cols": 3, "content": [
+          {"type": "faceplate", "props": {"title": "System κ", "mode": "OPTIMAL", "pvId": "main-k", "pv": "0.618", "barId": "k-bar", "pct": 61.8}},
+          {"type": "faceplate", "props": {"title": "φ", "mode": "CONST", "pv": "1.618"}},
+          {"type": "kpi", "props": {"label": "Safe Zone", "value": "0.382—0.809"}}
+        ]}}
+      ]
+    }
+  },
+  "tags": [
+    {"path": "SIM.kappa", "element": "#main-k", "property": "textContent", "format": "toFixed(4)"},
+    {"path": "SIM.kappa", "element": "#k-bar", "property": "style.width", "transform": "v=>(v*100)+'%'"}
+  ],
+  "render": "(r,el)=>{const t=new WorldTree();setInterval(()=>{t.step();r.updateTag('SIM.kappa',t.kappa);},500);}"
+}

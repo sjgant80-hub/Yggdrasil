@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Screen Viewer | Yggdrasil</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/scada.css">
+</head>
+<body>
+  <div id="app">Loading...</div>
+
+  <script src="../../assets/js/yggdrasil.js"></script>
+  <script src="../../assets/js/render/base.js"></script>
+  <script src="../../assets/js/render/loader.js"></script>
+  <script src="../../assets/js/render/screen.js"></script>
+  <script src="../../assets/js/render/tags.js"></script>
+  <script>
+    (async () => {
+      // Create modular renderer
+      const r = new RenderBase()
+        .use(LoaderModule)
+        .use(ScreenModule)
+        .use(TagsModule);
+
+      // Load components
+      await r.loadComponents('../components/index.json');
+
+      // Get screen from URL or default
+      const id = new URLSearchParams(location.search).get('screen') || 'overview';
+
+      // Load screen UDT
+      const scr = await (await fetch(`./${id}.json`)).json();
+
+      // Render with per-screen hooks
+      r.renderScreen(scr, document.getElementById('app'));
+
+      window.r = r;
+    })();
+  </script>
+</body>
+</html>

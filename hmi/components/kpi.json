@@ -1,0 +1,8 @@
+{
+  "@udt": "HMI.KPI",
+  "@t": 42,
+  "@p": "HMI.Component",
+  "@r": ["ISA-101"],
+  "props": ["label", "id", "value", "sublabel", "unit"],
+  "html": "<div class=\"status-card\"><h3>{{label}}</h3><div class=\"kpi-value\" id=\"{{id}}\">{{value}}<span class=\"kpi-unit\">{{unit}}</span></div><div class=\"kpi-label\">{{sublabel}}</div></div>"
+}

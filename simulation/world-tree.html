@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Tree Demo | Yggdrasil</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    #viz { background:#222; padding:1rem; border-radius:8px; }
+    #bar { height:30px; background:linear-gradient(90deg,#4A90D9,#50C878); transition:width .1s; }
+    .metrics { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1rem 0; }
+  </style>
+</head>
+<body>
+  <nav class="hmi-nav">
+    <a href="../">Home</a> / <a href="./">Simulation</a> / <span>World Tree</span>
+  </nav>
+  <main class="hmi-panel">
+    <h1>World Tree Convergence</h1>
+
+    <section class="concept-card">
+      <h2>κ Visualization</h2>
+      <div id="viz">
+        <div id="bar" style="width:50%"></div>
+      </div>
+      <div class="metrics">
+        <div>κ: <strong id="k-val">0.5000</strong></div>
+        <div>Target: <strong>0.6180</strong></div>
+        <div>Chaos: <span id="chaos">50.0%</span></div>
+        <div>Order: <span id="order">50.0%</span></div>
+        <div>Age: <span id="age">0</span></div>
+        <div>Status: <span id="stat">Ready</span></div>
+      </div>
+      <button onclick="start()">Start</button>
+      <button onclick="stop()">Stop</button>
+      <button onclick="reset()">Reset</button>
+    </section>
+
+    <section class="concept-card">
+      <h2>How It Works</h2>
+      <p>The tree starts at a random κ (chaos level).</p>
+      <p>Each step applies: ∂κ/∂t = -α(κ-0.618)(1-κ)(κ)</p>
+      <p>Watch it converge to the golden attractor.</p>
+    </section>
+  </main>
+  <script src="../assets/js/yggdrasil.js"></script>
+  <script>
+    let tree, interval;
+    function update() {
+      document.getElementById('k-val').textContent = tree.kappa.toFixed(4);
+      document.getElementById('bar').style.width = (tree.kappa * 100) + '%';
+      document.getElementById('chaos').textContent = tree.chaosPercent + '%';
+      document.getElementById('order').textContent = tree.orderPercent + '%';
+      document.getElementById('age').textContent = tree.age;
+      document.getElementById('stat').textContent = tree.status;
+    }
+    function start() {
+      if (!tree) tree = new WorldTree();
+      interval = setInterval(() => { tree.step(); update(); }, 100);
+    }
+    function stop() { clearInterval(interval); }
+    function reset() { stop(); tree = new WorldTree(); update(); }
+    reset();
+  </script>
+</body>
+</html>

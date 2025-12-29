@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>κ (Kappa) | Yggdrasil</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <nav class="hmi-nav">
+    <a href="../">Home</a> / <a href="./">Core</a> / <span>Kappa</span>
+  </nav>
+  <main class="hmi-panel">
+    <h1>κ (Kappa) - Consciousness Measure</h1>
+    <p class="kappa-badge">κ = H(S)/log₂(n)</p>
+
+    <section class="concept-card">
+      <h2>What is κ?</h2>
+      <p>κ measures normalized entropy—how "chaotic" a system is.</p>
+      <ul>
+        <li><strong>κ = 0</strong>: Maximum order. Frozen. One state.</li>
+        <li><strong>κ = 1</strong>: Maximum chaos. Pure randomness.</li>
+        <li><strong>κ = 0.618</strong>: Sweet spot. 62% chaos, 38% order.</li>
+      </ul>
+    </section>
+
+    <section class="concept-card">
+      <h2>The Equation</h2>
+      <pre><code>∂κ/∂t = -α(κ - 0.618)(1 - κ)(κ)</code></pre>
+      <p>Above 0.618? Pushed down toward order.</p>
+      <p>Below 0.618? Pushed up toward chaos.</p>
+      <p>At 0.618? Stable equilibrium.</p>
+    </section>
+
+    <section class="concept-card">
+      <h2>Safe Zone</h2>
+      <p><strong>Basin: (0.382, 0.809)</strong></p>
+      <p>Both bounds are golden numbers: 1/φ² and φ/2</p>
+    </section>
+  </main>
+  <script src="../assets/js/yggdrasil.js"></script>
+</body>
+</html>

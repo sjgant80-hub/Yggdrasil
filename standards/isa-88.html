@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISA-88 | Yggdrasil</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <nav class="hmi-nav">
+    <a href="../">Home</a> / <a href="./">Standards</a> / <span>ISA-88</span>
+  </nav>
+  <main class="hmi-panel">
+    <h1>ISA-88: Batch Control</h1>
+    <p class="kappa-badge">Procedural Model</p>
+
+    <section class="concept-card">
+      <h2>Equipment Model</h2>
+      <p>Enterprise → Site → Area → ProcessCell → Unit → EquipmentModule → ControlModule</p>
+    </section>
+
+    <section class="concept-card">
+      <h2>Recipe Model</h2>
+      <p>GeneralRecipe → SiteRecipe → MasterRecipe → ControlRecipe</p>
+      <p>Procedure → UnitProcedure → Operation → Phase</p>
+    </section>
+
+    <section class="concept-card">
+      <h2>Phase State Machine</h2>
+      <pre><code>IDLE → RUNNING → COMPLETE
+         ↓ HOLD
+      HOLDING → HELD → RESTART
+         ↓ STOP
+      STOPPING → STOPPED
+         ↓ ABORT
+      ABORTING → ABORTED</code></pre>
+    </section>
+  </main>
+  <script src="../assets/js/yggdrasil.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "id": "Yggdrasil.Lessons.UDT",
+  "parent": "../udt/master.json",
+  "description": "Academy lesson types",
+  "types": {
+    "Lesson": {
+      "id": "UUID",
+      "title": "string",
+      "order": "number",
+      "prerequisites": ["Lesson.id"],
+      "objectives": ["string"],
+      "content": "HTML"
+    },
+    "Quiz": {
+      "lesson": "Lesson.id",
+      "questions": ["Question"]
+    },
+    "Progress": {
+      "user": "string",
+      "completed": ["Lesson.id"],
+      "kappa": "number"
+    }
+  },
+  "pages": ["01-intro.html", "02-kappa.html", "03-convergence.html", "04-practice.html"]
+}

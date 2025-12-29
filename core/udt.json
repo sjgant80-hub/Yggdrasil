@@ -1,0 +1,24 @@
+{
+  "id": "Yggdrasil.Core.UDT",
+  "parent": "../udt/master.json",
+  "description": "Core concept types",
+  "types": {
+    "Kappa": {
+      "range": [0, 1],
+      "optimal": 0.618033988749895,
+      "safe_min": 0.381966011250105,
+      "safe_max": 0.809016994374947
+    },
+    "Phi": {
+      "value": 1.618033988749895,
+      "inverse": 0.618033988749895,
+      "squared": 2.618033988749895
+    },
+    "Convergence": {
+      "attractor": 0.618033988749895,
+      "basin": [0.382, 0.809],
+      "rate": "exponential"
+    }
+  },
+  "pages": ["kappa.html", "phi.html", "convergence.html"]
+}

@@ -1,0 +1,101 @@
+/* Yggdrasil | κ=0.618 | ISA-101 HMI Compliant */
+:root {
+  --phi: 1.618;
+  --kappa: 0.618;
+  --bg: #2d2d2d;
+  --panel: #3a3a3a;
+  --text: #e0e0e0;
+  --accent: #4A90D9;
+  --good: #50C878;
+  --warn: #FFB347;
+  --alarm: #CC4444;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.618;
+}
+
+.hmi-header {
+  background: var(--panel);
+  padding: 2rem;
+  text-align: center;
+  border-bottom: 2px solid var(--accent);
+}
+
+.hmi-header h1 { font-size: 2.5rem; }
+.subtitle { color: var(--accent); font-size: 1.2rem; }
+.tagline { opacity: 0.8; margin-top: 0.5rem; }
+
+.hmi-nav, .hmi-nav-main {
+  background: var(--panel);
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hmi-nav a, .hmi-nav-main a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.hmi-panel {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.kappa-badge {
+  background: var(--accent);
+  color: #fff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.grid-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.nav-card, .udt-card, .concept-card {
+  background: var(--panel);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-card:hover { border-left-color: var(--good); }
+
+.hmi-footer {
+  text-align: center;
+  padding: 2rem;
+  opacity: 0.6;
+}
+
+code {
+  background: #222;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+pre {
+  background: #222;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+h2 { margin: 1.5rem 0 1rem; }
+p { margin: 0.5rem 0; }

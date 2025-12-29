@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kono AI | Yggdrasil</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/ai-chat.css">
+</head>
+<body>
+  <nav class="hmi-nav">
+    <a href="../">Home</a> / <span>Kono AI</span>
+  </nav>
+
+  <div id="kono" style="display:flex;flex-direction:column;height:80vh;max-width:600px;margin:1rem auto;background:var(--panel);border-radius:12px;overflow:hidden">
+    <div class="ai-overlay">
+      <div class="ai-spinner"></div>
+      <div>Loading Kono AI...</div>
+      <div class="ai-progress"><div class="ai-progress-bar"></div></div>
+    </div>
+
+    <div class="ai-header">
+      <div class="ai-avatar">🌳</div>
+      <div style="flex:1">
+        <strong>Kono</strong>
+        <div class="ai-status">
+          <span class="ai-dot"></span>
+          <span class="ai-status-text">Loading...</span>
+        </div>
+      </div>
+      <select id="model" style="padding:6px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:6px;color:#fff">
+        <option value="SmolLM2-360M-Instruct-q4f16_1-MLC">SmolLM2 360M</option>
+        <option value="Llama-3.2-1B-Instruct-q4f16_1-MLC">Llama 3.2 1B</option>
+      </select>
+    </div>
+
+    <div class="ai-messages">
+      <div class="ai-msg ai"><div class="bubble">I'm Kono, your κ=0.618 guide. Ask me about the golden attractor!</div></div>
+      <div class="ai-typing" style="display:none"><div class="dots"><span></span><span></span><span></span></div></div>
+    </div>
+
+    <div class="ai-input">
+      <div class="ai-input-row">
+        <textarea id="input" placeholder="Ask about κ..." rows="1"></textarea>
+        <button id="send" disabled>Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/yggdrasil.js"></script>
+  <script type="module" src="../assets/js/ai-chat.js"></script>
+  <script type="module">
+    import '../assets/js/ai-chat.js';
+    const ai = new KonoAI('kono');
+    ai.loadModel();
+    document.getElementById('send').onclick = () => {
+      ai.send(document.getElementById('input').value);
+      document.getElementById('input').value = '';
+    };
+    document.getElementById('input').onkeydown = (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        document.getElementById('send').click();
+      }
+    };
+    document.getElementById('model').onchange = (e) => {
+      ai.loadModel(e.target.value);
+    };
+  </script>
+</body>
+</html>

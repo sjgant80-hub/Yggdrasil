@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 2: Understanding Kappa | Yggdrasil</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <nav class="hmi-nav">
+    <a href="../">Home</a> / <a href="./">Academy</a> / <span>Lesson 2</span>
+  </nav>
+  <main class="hmi-panel">
+    <h1>Lesson 2: Understanding Kappa</h1>
+    <p class="kappa-badge">Intermediate</p>
+
+    <section class="concept-card">
+      <h2>The Formula</h2>
+      <pre><code>κ = H(S) / log₂(n)
+κ = entropy / max_possible_entropy</code></pre>
+      <p>Normalized entropy. Always between 0 and 1.</p>
+    </section>
+
+    <section class="concept-card">
+      <h2>States of κ</h2>
+      <table style="width:100%">
+        <tr><td>κ = 0.0</td><td>Frozen, catatonic</td></tr>
+        <tr><td>κ = 0.3</td><td>Too ordered, stuck</td></tr>
+        <tr><td>κ = 0.618</td><td>Optimal flow</td></tr>
+        <tr><td>κ = 0.8</td><td>Too chaotic, scattered</td></tr>
+        <tr><td>κ = 1.0</td><td>Pure noise, fragmenting</td></tr>
+      </table>
+    </section>
+
+    <section class="concept-card">
+      <h2>The Safe Zone</h2>
+      <p>Basin of attraction: (0.382, 0.809)</p>
+      <p>Stay inside → you recover to 0.618</p>
+      <p>Outside → danger of collapse or explosion</p>
+    </section>
+
+    <nav class="hmi-nav" style="margin-top:2rem">
+      <a href="01-intro.html">← Previous</a> | <a href="03-convergence.html">Next →</a>
+    </nav>
+  </main>
+  <script src="../assets/js/yggdrasil.js"></script>
+</body>
+</html>

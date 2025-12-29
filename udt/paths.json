@@ -1,0 +1,28 @@
+{
+  "id": "Yggdrasil.UDT.Paths",
+  "parent": "udt/master.json",
+  "description": "Path UDTs for navigation automation",
+  "types": {
+    "PATH": {
+      "format": "{root}/{section}/{module}/{item}",
+      "delimiter": "/",
+      "resolve": "hierarchical"
+    },
+    "NAV": {
+      "parent": "PATH|null",
+      "siblings": ["PATH"],
+      "children": ["PATH"],
+      "breadcrumb": ["PATH"]
+    }
+  },
+  "routes": {
+    "/": {"title": "Home", "hmi": "index.html"},
+    "/udt": {"title": "Types", "hmi": "udt/index.html"},
+    "/core": {"title": "Core", "hmi": "core/index.html"},
+    "/standards": {"title": "Standards", "hmi": "standards/index.html"},
+    "/lessons": {"title": "Academy", "hmi": "lessons/index.html"},
+    "/simulation": {"title": "Simulation", "hmi": "simulation/index.html"},
+    "/ai": {"title": "Kono AI", "hmi": "ai/index.html"},
+    "/prompts": {"title": "Prompts", "hmi": "prompts/index.html"}
+  }
+}

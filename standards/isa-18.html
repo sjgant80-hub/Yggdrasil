@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISA-18.2 | Yggdrasil</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <nav class="hmi-nav">
+    <a href="../">Home</a> / <a href="./">Standards</a> / <span>ISA-18.2</span>
+  </nav>
+  <main class="hmi-panel">
+    <h1>ISA-18.2: Alarm Management</h1>
+    <p class="kappa-badge">Alert Lifecycle</p>
+
+    <section class="concept-card">
+      <h2>Alarm Priorities</h2>
+      <ul>
+        <li><strong>P1 Emergency</strong>: &lt;1min response</li>
+        <li><strong>P2 High</strong>: &lt;10min response</li>
+        <li><strong>P3 Medium</strong>: &lt;1hr response</li>
+        <li><strong>P4 Low</strong>: Shift awareness</li>
+      </ul>
+    </section>
+
+    <section class="concept-card">
+      <h2>State Machine</h2>
+      <pre><code>NORMAL → [trigger] → UNACK_ALARM
+                          ↓ [ack]
+                     ACKED_ALARM
+                          ↓ [clear]
+                        NORMAL</code></pre>
+    </section>
+
+    <section class="concept-card">
+      <h2>Rules</h2>
+      <ul>
+        <li>Every alarm must be documented</li>
+        <li>Every alarm must be actionable</li>
+        <li>Target: &lt;6 alarms/operator/hour</li>
+      </ul>
+    </section>
+  </main>
+  <script src="../assets/js/yggdrasil.js"></script>
+</body>
+</html>

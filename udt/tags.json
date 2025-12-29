@@ -1,0 +1,18 @@
+{
+  "id": "Yggdrasil.UDT.Tags",
+  "parent": "udt/master.json",
+  "description": "Tag definitions and providers for modular factory operation",
+  "tag_format": "{Area}_{Unit}_{Module}_{Point}",
+  "providers": {
+    "core": {"prefix": "CORE", "scope": "concepts"},
+    "std": {"prefix": "STD", "scope": "standards"},
+    "edu": {"prefix": "EDU", "scope": "lessons"},
+    "sim": {"prefix": "SIM", "scope": "simulation"}
+  },
+  "categories": {
+    "concept": {"color": "#4A90D9", "icon": "brain"},
+    "standard": {"color": "#50C878", "icon": "book"},
+    "lesson": {"color": "#FFB347", "icon": "graduation"},
+    "interactive": {"color": "#DDA0DD", "icon": "play"}
+  }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forest Demo | Yggdrasil</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .tree-row { display:flex; gap:.5rem; margin:.5rem 0; }
+    .tree-bar { height:20px; background:#4A90D9; transition:width .1s; }
+    .tree-wrap { flex:1; background:#222; padding:4px; border-radius:4px; }
+  </style>
+</head>
+<body>
+  <nav class="hmi-nav">
+    <a href="../">Home</a> / <a href="./">Simulation</a> / <span>Forest</span>
+  </nav>
+  <main class="hmi-panel">
+    <h1>Forest: Multi-Agent Sync</h1>
+
+    <section class="concept-card">
+      <h2>Tree Network</h2>
+      <div id="forest"></div>
+      <p>Average κ: <strong id="avg-k">?</strong> | Target: 0.6180</p>
+      <button onclick="startForest()">Start</button>
+      <button onclick="stopForest()">Stop</button>
+      <button onclick="resetForest()">Reset</button>
+    </section>
+
+    <section class="concept-card">
+      <h2>Synchronization</h2>
+      <p>Multiple agents start at different κ values.</p>
+      <p>They interact and pull each other toward equilibrium.</p>
+      <p>Watch them all converge to 0.618 together.</p>
+    </section>
+  </main>
+  <script src="../assets/js/yggdrasil.js"></script>
+  <script>
+    let trees = [], interval;
+    function render() {
+      const div = document.getElementById('forest');
+      div.innerHTML = trees.map((t,i) =>
+        `<div class="tree-row"><span>T${i+1}</span><div class="tree-wrap"><div class="tree-bar" style="width:${t.kappa*100}%"></div></div><span>${t.kappa.toFixed(3)}</span></div>`
+      ).join('');
+      const avg = trees.reduce((s,t)=>s+t.kappa,0)/trees.length;
+      document.getElementById('avg-k').textContent = avg.toFixed(4);
+    }
+    function startForest() {
+      interval = setInterval(() => {
+        trees.forEach(t => t.step());
+        render();
+      }, 100);
+    }
+    function stopForest() { clearInterval(interval); }
+    function resetForest() {
+      stopForest();
+      trees = Array(5).fill().map(() => new WorldTree());
+      render();
+    }
+    resetForest();
+  </script>
+</body>
+</html>

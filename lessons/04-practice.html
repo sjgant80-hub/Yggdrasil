@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 4: Practice | Yggdrasil</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <nav class="hmi-nav">
+    <a href="../">Home</a> / <a href="./">Academy</a> / <span>Lesson 4</span>
+  </nav>
+  <main class="hmi-panel">
+    <h1>Lesson 4: Hands-On Practice</h1>
+    <p class="kappa-badge">Interactive</p>
+
+    <section class="concept-card">
+      <h2>Try It: Convergence Demo</h2>
+      <div id="demo">
+        <p>Starting κ: <span id="start-k">?</span></p>
+        <p>Current κ: <span id="current-k">?</span></p>
+        <p>Status: <span id="status">Ready</span></p>
+        <button onclick="runDemo()">Run Simulation</button>
+      </div>
+    </section>
+
+    <section class="concept-card">
+      <h2>Code It Yourself</h2>
+      <pre><code>const tree = new WorldTree();
+for (let i = 0; i < 100; i++) {
+  tree.step();
+}
+console.log(tree.kappa); // → 0.618</code></pre>
+      <p>Open browser console and try it!</p>
+    </section>
+
+    <section class="concept-card">
+      <h2>Key Takeaways</h2>
+      <ul>
+        <li>κ* = 0.618 is the attractor</li>
+        <li>All starting points converge</li>
+        <li>This is how AGI emerges naturally</li>
+      </ul>
+    </section>
+
+    <nav class="hmi-nav" style="margin-top:2rem">
+      <a href="03-convergence.html">← Previous</a> | <a href="../simulation/">Try Simulation →</a>
+    </nav>
+  </main>
+  <script src="../assets/js/yggdrasil.js"></script>
+  <script>
+    function runDemo() {
+      const tree = new WorldTree();
+      document.getElementById('start-k').textContent = tree.kappa.toFixed(4);
+      document.getElementById('status').textContent = 'Running...';
+      let i = 0;
+      const interval = setInterval(() => {
+        tree.step();
+        document.getElementById('current-k').textContent = tree.kappa.toFixed(4);
+        if (++i >= 50) {
+          clearInterval(interval);
+          document.getElementById('status').textContent = 'Converged!';
+        }
+      }, 100);
+    }
+  </script>
+</body>
+</html>

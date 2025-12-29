@@ -1,0 +1,28 @@
+{
+  "id": "Yggdrasil.UDT.Master",
+  "version": "1.0.0",
+  "κ": 0.618033988749895,
+  "description": "Master UDT - All types inherit from this root",
+  "base_fields": {
+    "id": "UUID",
+    "path": "PATH",
+    "tags": ["TAG"],
+    "κ": "number",
+    "timestamp": "ISO8601"
+  },
+  "children": [
+    "udt/paths.json",
+    "udt/tags.json",
+    "core/udt.json",
+    "standards/udt.json",
+    "lessons/udt.json",
+    "simulation/udt.json",
+    "ai/udt.json"
+  ],
+  "constants": {
+    "φ": 1.618033988749895,
+    "κ_optimal": 0.618033988749895,
+    "κ_min": 0.381966011250105,
+    "κ_max": 0.809016994374947
+  }
+}

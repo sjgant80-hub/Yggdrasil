@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISA-95 | Yggdrasil</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <nav class="hmi-nav">
+    <a href="../">Home</a> / <a href="./">Standards</a> / <span>ISA-95</span>
+  </nav>
+  <main class="hmi-panel">
+    <h1>ISA-95: Enterprise Integration</h1>
+    <p class="kappa-badge">Levels 0-4</p>
+
+    <section class="concept-card">
+      <h2>The Hierarchy</h2>
+      <ul>
+        <li><strong>L4</strong>: Business - ERP, BI (days-months)</li>
+        <li><strong>L3</strong>: MOM - MES, LIMS (shifts-days)</li>
+        <li><strong>L2</strong>: Control - SCADA, HMI (sec-hours)</li>
+        <li><strong>L1</strong>: Sensing - PLC, DCS (ms-sec)</li>
+        <li><strong>L0</strong>: Process - Sensors (continuous)</li>
+      </ul>
+    </section>
+
+    <section class="concept-card">
+      <h2>Key UDTs</h2>
+      <pre><code>PhysicalAsset: {id, path, parent, children}
+Equipment: extends PhysicalAsset + capability
+Material: {id, lot, sublots, props}
+ProcessSegment: {equipment, materials, params}</code></pre>
+    </section>
+
+    <section class="concept-card">
+      <h2>Data Flows</h2>
+      <p>L4→L3: Schedule, WorkOrder</p>
+      <p>L3→L4: Performance, Inventory</p>
+      <p>L3↔L2: Recipe, ProcessData</p>
+    </section>
+  </main>
+  <script src="../assets/js/yggdrasil.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "id": "Yggdrasil.Standards.UDT",
+  "parent": "../udt/master.json",
+  "description": "ISA industrial standards types",
+  "types": {
+    "ISA95": {"scope": "enterprise-control", "levels": [0,1,2,3,4]},
+    "ISA88": {"scope": "batch-control", "hierarchy": "procedural"},
+    "ISA101": {"scope": "hmi-design", "layers": [1,2,3,4,5]},
+    "ISA18": {"scope": "alarm-management", "priorities": [1,2,3,4]}
+  },
+  "pages": ["isa-95.html", "isa-88.html", "isa-101.html", "isa-18.html"]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "Yggdrasil.Simulation.UDT",
+  "parent": "../udt/master.json",
+  "description": "World Tree simulation types",
+  "types": {
+    "WorldTree": {
+      "kappa": "number",
+      "psi": "number",
+      "omega": "string",
+      "branches": ["WorldTree"],
+      "fruits": ["Fruit"],
+      "energy": "number",
+      "age": "number"
+    },
+    "Forest": {
+      "trees": ["WorldTree"],
+      "season": "number",
+      "climate": "number"
+    },
+    "Fruit": {
+      "type": "string",
+      "quality": "number",
+      "seeds": "number"
+    }
+  },
+  "pages": ["index.html", "world-tree.html"]
+}

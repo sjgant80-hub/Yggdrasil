@@ -3,46 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lesson 2: Understanding Kappa | Yggdrasil</title>
+  <title>Lesson 2: Understanding κ | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <a href="./">Academy</a> / <span>Lesson 2</span>
-  </nav>
-  <main class="hmi-panel">
-    <h1>Lesson 2: Understanding Kappa</h1>
-    <p class="kappa-badge">Intermediate</p>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L3 Lesson 2: Understanding κ</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
 
-    <section class="concept-card">
-      <h2>The Formula</h2>
-      <pre><code>κ = H(S) / log₂(n)
-κ = entropy / max_possible_entropy</code></pre>
-      <p>Normalized entropy. Always between 0 and 1.</p>
-    </section>
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="./" class="nav-item"><span class="level">L3</span> Academy</a>
+        <a href="01-intro.html" class="nav-item sub"><span class="level">1</span> Introduction</a>
+        <a href="02-kappa.html" class="nav-item sub active"><span class="level">2</span> Understanding κ</a>
+        <a href="03-convergence.html" class="nav-item sub"><span class="level">3</span> Convergence</a>
+        <a href="04-practice.html" class="nav-item sub"><span class="level">4</span> Practice</a>
+      </nav>
+    </div>
 
-    <section class="concept-card">
-      <h2>States of κ</h2>
-      <table style="width:100%">
-        <tr><td>κ = 0.0</td><td>Frozen, catatonic</td></tr>
-        <tr><td>κ = 0.3</td><td>Too ordered, stuck</td></tr>
-        <tr><td>κ = 0.618</td><td>Optimal flow</td></tr>
-        <tr><td>κ = 0.8</td><td>Too chaotic, scattered</td></tr>
-        <tr><td>κ = 1.0</td><td>Pure noise, fragmenting</td></tr>
-      </table>
-    </section>
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>Lesson 2: Understanding Kappa</h1>
+        <div class="status-card">
+          <h3>The Formula</h3>
+          <pre style="background:#1a1a2e;padding:12px;border-radius:4px">κ = H(S) / log₂(n)
+κ = entropy / max_possible_entropy</pre>
+          <p style="margin-top:8px">Normalized entropy. Always between 0 and 1.</p>
+        </div>
 
-    <section class="concept-card">
-      <h2>The Safe Zone</h2>
-      <p>Basin of attraction: (0.382, 0.809)</p>
-      <p>Stay inside → you recover to 0.618</p>
-      <p>Outside → danger of collapse or explosion</p>
-    </section>
+        <div class="status-card">
+          <h3>States of κ</h3>
+          <table style="width:100%;font-size:14px;line-height:2">
+            <tr><td style="font-family:monospace">κ = 0.0</td><td>Frozen, catatonic</td></tr>
+            <tr><td style="font-family:monospace">κ = 0.3</td><td>Too ordered, stuck</td></tr>
+            <tr><td style="font-family:monospace;color:var(--accent)">κ = 0.618</td><td><strong>Optimal flow</strong></td></tr>
+            <tr><td style="font-family:monospace">κ = 0.8</td><td>Too chaotic, scattered</td></tr>
+            <tr><td style="font-family:monospace">κ = 1.0</td><td>Pure noise, fragmenting</td></tr>
+          </table>
+        </div>
 
-    <nav class="hmi-nav" style="margin-top:2rem">
-      <a href="01-intro.html">← Previous</a> | <a href="03-convergence.html">Next →</a>
-    </nav>
-  </main>
+        <div class="status-card">
+          <h3>The Safe Zone</h3>
+          <p><strong>Basin of attraction: (0.382, 0.809)</strong></p>
+          <p>Stay inside → you recover to 0.618</p>
+          <p>Outside → danger of collapse or explosion</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>Level</h3>
+          <div class="indicator"><span class="led warning"></span> Intermediate</div>
+        </div>
+        <div class="status-card">
+          <h3>Basin</h3>
+          <div style="font-family:monospace;font-size:12px">0.382 — 0.809</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div><a href="01-intro.html">← Lesson 1</a></div>
+      <div>Lesson 2 of 4</div>
+      <div><a href="03-convergence.html">Lesson 3 →</a></div>
+    </div>
+  </div>
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
+  <script>new HMIShell().init();</script>
 </body>
 </html>

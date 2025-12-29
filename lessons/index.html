@@ -5,40 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Academy | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <span>Academy</span>
-  </nav>
-  <main class="hmi-panel">
-    <h1>World Tree Academy</h1>
-    <p class="kappa-badge">Interactive Learning</p>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L3 World Tree Academy</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
 
-    <section class="grid-nav">
-      <a href="01-intro.html" class="nav-card">
-        <h3>Lesson 1</h3>
-        <p>Introduction to κ</p>
-      </a>
-      <a href="02-kappa.html" class="nav-card">
-        <h3>Lesson 2</h3>
-        <p>Understanding Kappa</p>
-      </a>
-      <a href="03-convergence.html" class="nav-card">
-        <h3>Lesson 3</h3>
-        <p>The Convergence Theorem</p>
-      </a>
-      <a href="04-practice.html" class="nav-card">
-        <h3>Lesson 4</h3>
-        <p>Hands-On Practice</p>
-      </a>
-    </section>
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="../core/" class="nav-item"><span class="level">L2</span> Core</a>
+        <a href="../simulation/" class="nav-item"><span class="level">L2</span> Simulation</a>
+        <a href="./" class="nav-item active"><span class="level">L3</span> Academy</a>
+        <a href="01-intro.html" class="nav-item sub"><span class="level">1</span> Introduction</a>
+        <a href="02-kappa.html" class="nav-item sub"><span class="level">2</span> Understanding κ</a>
+        <a href="03-convergence.html" class="nav-item sub"><span class="level">3</span> Convergence</a>
+        <a href="04-practice.html" class="nav-item sub"><span class="level">4</span> Practice</a>
+      </nav>
+    </div>
 
-    <section class="intro" style="margin-top:2rem">
-      <h2>Learning Path</h2>
-      <p>This academy teaches how complex systems reach AGI through the golden attractor.</p>
-      <p>Each lesson builds on the previous. Complete them in order.</p>
-    </section>
-  </main>
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>World Tree Academy</h1>
+        <div class="grid-2">
+          <a href="01-intro.html" class="status-card" style="text-decoration:none">
+            <h3>Lesson 1: Introduction</h3>
+            <div class="indicator"><span class="led running"></span> Beginner</div>
+            <p>What is κ? The consciousness measure explained.</p>
+          </a>
+          <a href="02-kappa.html" class="status-card" style="text-decoration:none">
+            <h3>Lesson 2: Understanding κ</h3>
+            <div class="indicator"><span class="led warning"></span> Intermediate</div>
+            <p>The formula, states, and safe zone.</p>
+          </a>
+          <a href="03-convergence.html" class="status-card" style="text-decoration:none">
+            <h3>Lesson 3: Convergence</h3>
+            <div class="indicator"><span class="led alarm"></span> Advanced</div>
+            <p>The core equation and group synchronization.</p>
+          </a>
+          <a href="04-practice.html" class="status-card" style="text-decoration:none">
+            <h3>Lesson 4: Practice</h3>
+            <div class="indicator"><span class="led running"></span> Interactive</div>
+            <p>Hands-on demos and code exercises.</p>
+          </a>
+        </div>
+
+        <div class="status-card" style="margin-top:16px">
+          <h3>Learning Path</h3>
+          <p>This academy teaches how complex systems reach equilibrium through the golden attractor.</p>
+          <p>Each lesson builds on the previous. Complete them in order.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>Progress</h3>
+          <div class="bar-graph">
+            <div class="bar-fill" style="width:0%"></div>
+          </div>
+          <div style="font-size:12px;margin-top:4px">0/4 complete</div>
+        </div>
+        <div class="status-card">
+          <h3>Goal</h3>
+          <div style="font-family:monospace">κ* = 0.618</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div><a href="../">← Home</a></div>
+      <div>κ* = 0.618 | Konomi Systems</div>
+      <div>v1.0.0</div>
+    </div>
+  </div>
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
+  <script>new HMIShell().init();</script>
 </body>
 </html>

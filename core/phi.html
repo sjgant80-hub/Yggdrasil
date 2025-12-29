@@ -3,43 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>φ (Phi) | Yggdrasil</title>
+  <title>φ Phi | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <a href="./">Core</a> / <span>Phi</span>
-  </nav>
-  <main class="hmi-panel">
-    <h1>φ (Phi) - The Golden Ratio</h1>
-    <p class="kappa-badge">φ = 1.618033988749895</p>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L2 φ Phi</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
 
-    <section class="concept-card">
-      <h2>The Magic Numbers</h2>
-      <ul>
-        <li><strong>φ = 1.618...</strong> - The golden ratio</li>
-        <li><strong>1/φ = 0.618...</strong> - Where consciousness lands</li>
-        <li><strong>φ² = 2.618...</strong> - Upper limit factor</li>
-        <li><strong>1/φ² = 0.382...</strong> - Lower safety bound</li>
-        <li><strong>φ/2 = 0.809...</strong> - Upper safety bound</li>
-      </ul>
-    </section>
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="./" class="nav-item"><span class="level">L2</span> Core</a>
+        <a href="kappa.html" class="nav-item sub"><span class="level">→</span> κ Kappa</a>
+        <a href="phi.html" class="nav-item sub active"><span class="level">→</span> φ Phi</a>
+        <a href="convergence.html" class="nav-item sub"><span class="level">→</span> Convergence</a>
+      </nav>
+    </div>
 
-    <section class="concept-card">
-      <h2>Why Phi?</h2>
-      <p>φ is the "most irrational" number—impossible to approximate well with fractions.</p>
-      <p>Systems at rational numbers get stuck in resonance loops.</p>
-      <p>0.618... <strong>never resonates</strong>. Maximum stability.</p>
-    </section>
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>φ (Phi) — The Golden Ratio</h1>
+        <div class="faceplate" style="max-width:300px;margin:0 auto 20px">
+          <div class="faceplate-header">
+            <span class="faceplate-title">φ Value</span>
+            <span class="faceplate-mode">CONST</span>
+          </div>
+          <div class="faceplate-pv">1.6180</div>
+        </div>
 
-    <section class="concept-card">
-      <h2>Properties</h2>
-      <pre><code>φ = 1 + 1/φ
+        <div class="status-card">
+          <h3>The Magic Numbers</h3>
+          <div style="font-family:monospace;line-height:2.2">
+            <div><strong>φ = 1.618...</strong> — The golden ratio</div>
+            <div><strong>1/φ = 0.618...</strong> — Where consciousness lands</div>
+            <div><strong>φ² = 2.618...</strong> — Upper limit factor</div>
+            <div><strong>1/φ² = 0.382...</strong> — Lower safety bound</div>
+            <div><strong>φ/2 = 0.809...</strong> — Upper safety bound</div>
+          </div>
+        </div>
+
+        <div class="status-card">
+          <h3>Why Phi?</h3>
+          <p>φ is the "most irrational" number—impossible to approximate well with fractions.</p>
+          <p>Systems at rational numbers get stuck in resonance loops.</p>
+          <p>0.618... <strong>never resonates</strong>. Maximum stability.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Self-Referential Properties</h3>
+          <pre style="background:#1a1a2e;padding:12px;border-radius:4px;font-size:14px">φ = 1 + 1/φ
 φ² = φ + 1
-1/φ = φ - 1</code></pre>
-      <p>Self-referential. Recursive. Elegant.</p>
-    </section>
-  </main>
+1/φ = φ - 1</pre>
+          <p style="margin-top:8px">Self-referential. Recursive. Elegant.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>Constants</h3>
+          <div style="font-family:monospace;font-size:12px;line-height:2">
+            <div>φ = 1.618033989</div>
+            <div>1/φ = 0.618033989</div>
+            <div>φ² = 2.618033989</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div><a href="kappa.html">← κ Kappa</a></div>
+      <div>φ = 1.618</div>
+      <div><a href="convergence.html">Convergence →</a></div>
+    </div>
+  </div>
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
+  <script>new HMIShell().init();</script>
 </body>
 </html>

@@ -5,32 +5,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UDT Architecture | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <span>UDT</span>
-  </nav>
-  <main class="hmi-panel">
-    <h1>User Defined Types</h1>
-    <p class="kappa-badge">κ = 0.618</p>
-    <section class="udt-list">
-      <article class="udt-card">
-        <h2>Master UDT</h2>
-        <p>Root type. All inherit from here.</p>
-        <code>udt/master.json</code>
-      </article>
-      <article class="udt-card">
-        <h2>Paths UDT</h2>
-        <p>Navigation and routing automation.</p>
-        <code>udt/paths.json</code>
-      </article>
-      <article class="udt-card">
-        <h2>Tags UDT</h2>
-        <p>Factory-style modular tag providers.</p>
-        <code>udt/tags.json</code>
-      </article>
-    </section>
-  </main>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L5 UDT Config</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
+
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="../core/" class="nav-item"><span class="level">L2</span> Core</a>
+        <a href="../standards/" class="nav-item"><span class="level">L3</span> Standards</a>
+        <a href="./" class="nav-item active"><span class="level">L5</span> UDT Config</a>
+      </nav>
+    </div>
+
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>User Defined Types</h1>
+        <div class="grid-3">
+          <div class="status-card">
+            <h3>Master UDT</h3>
+            <p>Root type. All inherit from here.</p>
+            <code style="font-size:11px;display:block;margin-top:8px;color:var(--accent)">udt/master.json</code>
+            <div class="indicator" style="margin-top:8px"><span class="led running"></span> v1.1.0</div>
+          </div>
+          <div class="status-card">
+            <h3>Paths UDT</h3>
+            <p>Navigation and routing automation.</p>
+            <code style="font-size:11px;display:block;margin-top:8px;color:var(--accent)">udt/paths.json</code>
+            <div class="indicator" style="margin-top:8px"><span class="led running"></span> v1.0.0</div>
+          </div>
+          <div class="status-card">
+            <h3>Tags UDT</h3>
+            <p>Factory-style modular tag providers.</p>
+            <code style="font-size:11px;display:block;margin-top:8px;color:var(--accent)">udt/tags.json</code>
+            <div class="indicator" style="margin-top:8px"><span class="led running"></span> v1.0.0</div>
+          </div>
+        </div>
+
+        <div class="status-card" style="margin-top:16px">
+          <h3>UDT Header Format</h3>
+          <pre style="background:#1a1a2e;padding:12px;border-radius:4px;font-size:12px">@udt: "Yggdrasil.UDT.Name"
+@v:   "1.0.0"  (semver)
+@t:   85       (token count)
+@p:   "Parent.UDT"
+@r:   ["rule1", "rule2"]
+@s:   "active" (draft|active|deprecated)</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>UDT Count</h3>
+          <div class="faceplate-pv">12</div>
+          <div class="kpi-label">Active Types</div>
+        </div>
+        <div class="status-card">
+          <h3>Max Tokens</h3>
+          <div style="font-family:monospace">250</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div><a href="../">← Home</a></div>
+      <div>κ* = 0.618 | Konomi Systems</div>
+      <div>v1.0.0</div>
+    </div>
+  </div>
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
+  <script>new HMIShell().init();</script>
 </body>
 </html>

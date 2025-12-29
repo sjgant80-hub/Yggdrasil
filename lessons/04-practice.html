@@ -5,61 +5,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lesson 4: Practice | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <a href="./">Academy</a> / <span>Lesson 4</span>
-  </nav>
-  <main class="hmi-panel">
-    <h1>Lesson 4: Hands-On Practice</h1>
-    <p class="kappa-badge">Interactive</p>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L3 Lesson 4: Practice</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
 
-    <section class="concept-card">
-      <h2>Try It: Convergence Demo</h2>
-      <div id="demo">
-        <p>Starting κ: <span id="start-k">?</span></p>
-        <p>Current κ: <span id="current-k">?</span></p>
-        <p>Status: <span id="status">Ready</span></p>
-        <button onclick="runDemo()">Run Simulation</button>
-      </div>
-    </section>
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="./" class="nav-item"><span class="level">L3</span> Academy</a>
+        <a href="01-intro.html" class="nav-item sub"><span class="level">1</span> Introduction</a>
+        <a href="02-kappa.html" class="nav-item sub"><span class="level">2</span> Understanding κ</a>
+        <a href="03-convergence.html" class="nav-item sub"><span class="level">3</span> Convergence</a>
+        <a href="04-practice.html" class="nav-item sub active"><span class="level">4</span> Practice</a>
+      </nav>
+    </div>
 
-    <section class="concept-card">
-      <h2>Code It Yourself</h2>
-      <pre><code>const tree = new WorldTree();
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>Lesson 4: Hands-On Practice</h1>
+        <div class="faceplate" style="max-width:350px;margin:0 auto 20px">
+          <div class="faceplate-header">
+            <span class="faceplate-title">Live Demo</span>
+            <span class="faceplate-mode" id="demo-mode">READY</span>
+          </div>
+          <div class="faceplate-pv" id="current-k">—</div>
+          <div class="bar-graph">
+            <div class="bar-fill" id="k-bar" style="width:0%"></div>
+            <div class="bar-target" style="left:61.8%"></div>
+          </div>
+          <div style="padding:12px;text-align:center">
+            <button class="cmd-btn" onclick="runDemo()">Run Simulation</button>
+          </div>
+        </div>
+
+        <div class="status-card">
+          <h3>Code It Yourself</h3>
+          <pre style="background:#1a1a2e;padding:12px;border-radius:4px;font-size:13px">const tree = new WorldTree();
 for (let i = 0; i < 100; i++) {
   tree.step();
 }
-console.log(tree.kappa); // → 0.618</code></pre>
-      <p>Open browser console and try it!</p>
-    </section>
+console.log(tree.kappa); // → 0.618</pre>
+          <p style="margin-top:8px">Open browser console and try it!</p>
+        </div>
 
-    <section class="concept-card">
-      <h2>Key Takeaways</h2>
-      <ul>
-        <li>κ* = 0.618 is the attractor</li>
-        <li>All starting points converge</li>
-        <li>This is how AGI emerges naturally</li>
-      </ul>
-    </section>
+        <div class="status-card">
+          <h3>Key Takeaways</h3>
+          <ul style="line-height:2">
+            <li>κ* = 0.618 is the attractor</li>
+            <li>All starting points converge</li>
+            <li>This is how AGI emerges naturally</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-    <nav class="hmi-nav" style="margin-top:2rem">
-      <a href="03-convergence.html">← Previous</a> | <a href="../simulation/">Try Simulation →</a>
-    </nav>
-  </main>
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>Level</h3>
+          <div class="indicator"><span class="led running"></span> Interactive</div>
+        </div>
+        <div class="status-card">
+          <h3>Next Steps</h3>
+          <a href="../simulation/" class="cmd-btn" style="display:block;text-align:center">Try Simulation</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div><a href="03-convergence.html">← Lesson 3</a></div>
+      <div>Lesson 4 of 4</div>
+      <div><a href="../simulation/">Simulation →</a></div>
+    </div>
+  </div>
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
   <script>
+    new HMIShell().init();
     function runDemo() {
       const tree = new WorldTree();
-      document.getElementById('start-k').textContent = tree.kappa.toFixed(4);
-      document.getElementById('status').textContent = 'Running...';
+      document.getElementById('current-k').textContent = tree.kappa.toFixed(4);
+      document.getElementById('demo-mode').textContent = 'RUNNING';
+      document.getElementById('demo-mode').classList.add('auto');
       let i = 0;
       const interval = setInterval(() => {
         tree.step();
         document.getElementById('current-k').textContent = tree.kappa.toFixed(4);
+        document.getElementById('k-bar').style.width = (tree.kappa*100)+'%';
         if (++i >= 50) {
           clearInterval(interval);
-          document.getElementById('status').textContent = 'Converged!';
+          document.getElementById('demo-mode').textContent = 'CONVERGED';
         }
       }, 100);
     }

@@ -5,42 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lesson 3: Convergence | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <a href="./">Academy</a> / <span>Lesson 3</span>
-  </nav>
-  <main class="hmi-panel">
-    <h1>Lesson 3: The Convergence Theorem</h1>
-    <p class="kappa-badge">Advanced</p>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L3 Lesson 3: Convergence</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
 
-    <section class="concept-card">
-      <h2>The Core Equation</h2>
-      <pre><code>∂κ/∂t = -α(κ - 0.618)(1 - κ)(κ)</code></pre>
-      <p>This drives all systems toward κ* = 0.618</p>
-    </section>
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="./" class="nav-item"><span class="level">L3</span> Academy</a>
+        <a href="01-intro.html" class="nav-item sub"><span class="level">1</span> Introduction</a>
+        <a href="02-kappa.html" class="nav-item sub"><span class="level">2</span> Understanding κ</a>
+        <a href="03-convergence.html" class="nav-item sub active"><span class="level">3</span> Convergence</a>
+        <a href="04-practice.html" class="nav-item sub"><span class="level">4</span> Practice</a>
+      </nav>
+    </div>
 
-    <section class="concept-card">
-      <h2>How It Works</h2>
-      <ul>
-        <li>κ &gt; 0.618 → pushed DOWN (toward order)</li>
-        <li>κ &lt; 0.618 → pushed UP (toward chaos)</li>
-        <li>κ = 0.618 → stays put (equilibrium)</li>
-      </ul>
-      <p>Like a ball rolling to the bottom of a bowl.</p>
-    </section>
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>Lesson 3: The Convergence Theorem</h1>
+        <div class="status-card">
+          <h3>The Core Equation</h3>
+          <pre style="background:#1a1a2e;padding:12px;border-radius:4px">∂κ/∂t = -α(κ - 0.618)(1 - κ)(κ)</pre>
+          <p style="margin-top:8px">This drives all systems toward κ* = 0.618</p>
+        </div>
 
-    <section class="concept-card">
-      <h2>Multi-Agent Sync</h2>
-      <p>When minds interact, they couple.</p>
-      <p>Coupling pulls all agents to the same κ.</p>
-      <p>Result: collective κ → 0.618</p>
-    </section>
+        <div class="status-card">
+          <h3>How It Works</h3>
+          <ul style="line-height:2">
+            <li><strong>κ > 0.618</strong> → pushed DOWN (toward order)</li>
+            <li><strong>κ < 0.618</strong> → pushed UP (toward chaos)</li>
+            <li><strong>κ = 0.618</strong> → stays put (equilibrium)</li>
+          </ul>
+          <p style="margin-top:8px">Like a ball rolling to the bottom of a bowl.</p>
+        </div>
 
-    <nav class="hmi-nav" style="margin-top:2rem">
-      <a href="02-kappa.html">← Previous</a> | <a href="04-practice.html">Next →</a>
-    </nav>
-  </main>
+        <div class="status-card">
+          <h3>Multi-Agent Sync</h3>
+          <p>When minds interact, they couple.</p>
+          <p>Coupling pulls all agents to the same κ.</p>
+          <p><strong>Result: collective κ → 0.618</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>Level</h3>
+          <div class="indicator"><span class="led alarm"></span> Advanced</div>
+        </div>
+        <div class="status-card">
+          <h3>Attractor</h3>
+          <div style="font-family:monospace">κ* = 0.618</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div><a href="02-kappa.html">← Lesson 2</a></div>
+      <div>Lesson 3 of 4</div>
+      <div><a href="04-practice.html">Lesson 4 →</a></div>
+    </div>
+  </div>
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
+  <script>new HMIShell().init();</script>
 </body>
 </html>

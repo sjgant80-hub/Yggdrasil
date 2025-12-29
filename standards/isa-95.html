@@ -5,41 +5,81 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ISA-95 | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <a href="./">Standards</a> / <span>ISA-95</span>
-  </nav>
-  <main class="hmi-panel">
-    <h1>ISA-95: Enterprise Integration</h1>
-    <p class="kappa-badge">Levels 0-4</p>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L3 ISA-95</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
 
-    <section class="concept-card">
-      <h2>The Hierarchy</h2>
-      <ul>
-        <li><strong>L4</strong>: Business - ERP, BI (days-months)</li>
-        <li><strong>L3</strong>: MOM - MES, LIMS (shifts-days)</li>
-        <li><strong>L2</strong>: Control - SCADA, HMI (sec-hours)</li>
-        <li><strong>L1</strong>: Sensing - PLC, DCS (ms-sec)</li>
-        <li><strong>L0</strong>: Process - Sensors (continuous)</li>
-      </ul>
-    </section>
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="./" class="nav-item"><span class="level">L3</span> Standards</a>
+        <a href="isa-95.html" class="nav-item sub active"><span class="level">→</span> ISA-95</a>
+        <a href="isa-88.html" class="nav-item sub"><span class="level">→</span> ISA-88</a>
+        <a href="isa-101.html" class="nav-item sub"><span class="level">→</span> ISA-101</a>
+        <a href="isa-18.html" class="nav-item sub"><span class="level">→</span> ISA-18.2</a>
+      </nav>
+    </div>
 
-    <section class="concept-card">
-      <h2>Key UDTs</h2>
-      <pre><code>PhysicalAsset: {id, path, parent, children}
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>ISA-95: Enterprise Integration</h1>
+        <div class="status-card">
+          <h3>The Hierarchy</h3>
+          <table style="width:100%;font-size:14px;line-height:2">
+            <tr><td style="font-family:monospace;color:var(--accent)">L4</td><td>Business</td><td>ERP, BI (days-months)</td></tr>
+            <tr><td style="font-family:monospace;color:var(--accent)">L3</td><td>MOM</td><td>MES, LIMS (shifts-days)</td></tr>
+            <tr><td style="font-family:monospace;color:var(--accent)">L2</td><td>Control</td><td>SCADA, HMI (sec-hours)</td></tr>
+            <tr><td style="font-family:monospace;color:var(--accent)">L1</td><td>Sensing</td><td>PLC, DCS (ms-sec)</td></tr>
+            <tr><td style="font-family:monospace;color:var(--accent)">L0</td><td>Process</td><td>Sensors (continuous)</td></tr>
+          </table>
+        </div>
+
+        <div class="status-card">
+          <h3>Key UDTs</h3>
+          <pre style="background:#1a1a2e;padding:12px;border-radius:4px;font-size:13px">PhysicalAsset: {id, path, parent, children}
 Equipment: extends PhysicalAsset + capability
 Material: {id, lot, sublots, props}
-ProcessSegment: {equipment, materials, params}</code></pre>
-    </section>
+ProcessSegment: {equipment, materials, params}</pre>
+        </div>
 
-    <section class="concept-card">
-      <h2>Data Flows</h2>
-      <p>L4→L3: Schedule, WorkOrder</p>
-      <p>L3→L4: Performance, Inventory</p>
-      <p>L3↔L2: Recipe, ProcessData</p>
-    </section>
-  </main>
+        <div class="status-card">
+          <h3>Data Flows</h3>
+          <div style="font-family:monospace;line-height:2">
+            <div>L4→L3: Schedule, WorkOrder</div>
+            <div>L3→L4: Performance, Inventory</div>
+            <div>L3↔L2: Recipe, ProcessData</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>Scope</h3>
+          <div style="font-family:monospace">Levels 0-4</div>
+        </div>
+        <div class="status-card">
+          <h3>Status</h3>
+          <div class="indicator"><span class="led running"></span> Active</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div><a href="./">← Standards</a></div>
+      <div>ISA-95</div>
+      <div><a href="isa-88.html">ISA-88 →</a></div>
+    </div>
+  </div>
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
+  <script>new HMIShell().init();</script>
 </body>
 </html>

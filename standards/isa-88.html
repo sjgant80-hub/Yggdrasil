@@ -5,37 +5,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ISA-88 | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <a href="./">Standards</a> / <span>ISA-88</span>
-  </nav>
-  <main class="hmi-panel">
-    <h1>ISA-88: Batch Control</h1>
-    <p class="kappa-badge">Procedural Model</p>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L3 ISA-88</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
 
-    <section class="concept-card">
-      <h2>Equipment Model</h2>
-      <p>Enterprise → Site → Area → ProcessCell → Unit → EquipmentModule → ControlModule</p>
-    </section>
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="./" class="nav-item"><span class="level">L3</span> Standards</a>
+        <a href="isa-95.html" class="nav-item sub"><span class="level">→</span> ISA-95</a>
+        <a href="isa-88.html" class="nav-item sub active"><span class="level">→</span> ISA-88</a>
+        <a href="isa-101.html" class="nav-item sub"><span class="level">→</span> ISA-101</a>
+        <a href="isa-18.html" class="nav-item sub"><span class="level">→</span> ISA-18.2</a>
+      </nav>
+    </div>
 
-    <section class="concept-card">
-      <h2>Recipe Model</h2>
-      <p>GeneralRecipe → SiteRecipe → MasterRecipe → ControlRecipe</p>
-      <p>Procedure → UnitProcedure → Operation → Phase</p>
-    </section>
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>ISA-88: Batch Control</h1>
+        <div class="status-card">
+          <h3>Equipment Model</h3>
+          <div style="font-family:monospace;line-height:2;font-size:13px">
+            Enterprise → Site → Area → ProcessCell → Unit → EquipmentModule → ControlModule
+          </div>
+        </div>
 
-    <section class="concept-card">
-      <h2>Phase State Machine</h2>
-      <pre><code>IDLE → RUNNING → COMPLETE
-         ↓ HOLD
-      HOLDING → HELD → RESTART
-         ↓ STOP
-      STOPPING → STOPPED
-         ↓ ABORT
-      ABORTING → ABORTED</code></pre>
-    </section>
-  </main>
+        <div class="status-card">
+          <h3>Recipe Model</h3>
+          <div style="font-family:monospace;line-height:2;font-size:13px">
+            <div>GeneralRecipe → SiteRecipe → MasterRecipe → ControlRecipe</div>
+            <div style="margin-top:8px">Procedure → UnitProcedure → Operation → Phase</div>
+          </div>
+        </div>
+
+        <div class="status-card">
+          <h3>Phase State Machine</h3>
+          <pre style="background:#1a1a2e;padding:12px;border-radius:4px;font-size:12px">IDLE → RUNNING → COMPLETE
+       ↓ HOLD
+    HOLDING → HELD → RESTART
+       ↓ STOP
+   STOPPING → STOPPED
+       ↓ ABORT
+   ABORTING → ABORTED</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>Scope</h3>
+          <div style="font-family:monospace">Procedural</div>
+        </div>
+        <div class="status-card">
+          <h3>Status</h3>
+          <div class="indicator"><span class="led running"></span> Active</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div><a href="isa-95.html">← ISA-95</a></div>
+      <div>ISA-88</div>
+      <div><a href="isa-101.html">ISA-101 →</a></div>
+    </div>
+  </div>
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
+  <script>new HMIShell().init();</script>
 </body>
 </html>

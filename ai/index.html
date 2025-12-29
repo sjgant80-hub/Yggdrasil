@@ -5,52 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kono AI | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
   <link rel="stylesheet" href="../assets/css/ai-chat.css">
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <span>Kono AI</span>
-  </nav>
-
-  <div id="kono" style="display:flex;flex-direction:column;height:80vh;max-width:600px;margin:1rem auto;background:var(--panel);border-radius:12px;overflow:hidden">
-    <div class="ai-overlay">
-      <div class="ai-spinner"></div>
-      <div>Loading Kono AI...</div>
-      <div class="ai-progress"><div class="ai-progress-bar"></div></div>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L4 Kono AI</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
     </div>
 
-    <div class="ai-header">
-      <div class="ai-avatar">🌳</div>
-      <div style="flex:1">
-        <strong>Kono</strong>
-        <div class="ai-status">
-          <span class="ai-dot"></span>
-          <span class="ai-status-text">Loading...</span>
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="../core/" class="nav-item"><span class="level">L2</span> Core</a>
+        <a href="../lessons/" class="nav-item"><span class="level">L3</span> Academy</a>
+        <a href="./" class="nav-item active"><span class="level">L4</span> Kono AI</a>
+      </nav>
+    </div>
+
+    <div class="dock dock-center">
+      <div id="kono" style="display:flex;flex-direction:column;height:100%;background:var(--panel);border-radius:8px;overflow:hidden">
+        <div class="ai-overlay">
+          <div class="ai-spinner"></div>
+          <div>Loading Kono AI...</div>
+          <div class="ai-progress"><div class="ai-progress-bar"></div></div>
+        </div>
+
+        <div class="ai-header">
+          <div class="ai-avatar">🌳</div>
+          <div style="flex:1">
+            <strong>Kono</strong>
+            <div class="ai-status">
+              <span class="ai-dot"></span>
+              <span class="ai-status-text">Loading...</span>
+            </div>
+          </div>
+          <select id="model" style="padding:6px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:6px;color:#fff">
+            <option value="SmolLM2-360M-Instruct-q4f16_1-MLC">SmolLM2 360M</option>
+            <option value="Llama-3.2-1B-Instruct-q4f16_1-MLC">Llama 3.2 1B</option>
+          </select>
+        </div>
+
+        <div class="ai-messages">
+          <div class="ai-msg ai"><div class="bubble">I'm Kono, your κ=0.618 guide. Ask me about the golden attractor!</div></div>
+          <div class="ai-typing" style="display:none"><div class="dots"><span></span><span></span><span></span></div></div>
+        </div>
+
+        <div class="ai-input">
+          <div class="ai-input-row">
+            <textarea id="input" placeholder="Ask about κ..." rows="1"></textarea>
+            <button id="send" disabled>Send</button>
+          </div>
         </div>
       </div>
-      <select id="model" style="padding:6px;background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.1);border-radius:6px;color:#fff">
-        <option value="SmolLM2-360M-Instruct-q4f16_1-MLC">SmolLM2 360M</option>
-        <option value="Llama-3.2-1B-Instruct-q4f16_1-MLC">Llama 3.2 1B</option>
-      </select>
     </div>
 
-    <div class="ai-messages">
-      <div class="ai-msg ai"><div class="bubble">I'm Kono, your κ=0.618 guide. Ask me about the golden attractor!</div></div>
-      <div class="ai-typing" style="display:none"><div class="dots"><span></span><span></span><span></span></div></div>
-    </div>
-
-    <div class="ai-input">
-      <div class="ai-input-row">
-        <textarea id="input" placeholder="Ask about κ..." rows="1"></textarea>
-        <button id="send" disabled>Send</button>
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>Model</h3>
+          <div style="font-size:12px;font-family:monospace">WebLLM</div>
+        </div>
+        <div class="status-card">
+          <h3>Status</h3>
+          <div class="indicator" id="ai-status-ind"><span class="led warning"></span> Loading</div>
+        </div>
+        <div class="status-card">
+          <h3>κ Focus</h3>
+          <div style="font-family:monospace">0.618</div>
+        </div>
       </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div><a href="../">← Home</a></div>
+      <div>κ* = 0.618 | Konomi Systems</div>
+      <div>v1.0.0</div>
     </div>
   </div>
 
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
   <script type="module" src="../assets/js/ai-chat.js"></script>
   <script type="module">
     import '../assets/js/ai-chat.js';
+    new HMIShell().init();
     const ai = new KonoAI('kono');
     ai.loadModel();
     document.getElementById('send').onclick = () => {

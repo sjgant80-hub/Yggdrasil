@@ -5,36 +5,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Core Concepts | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <span>Core</span>
-  </nav>
-  <main class="hmi-panel">
-    <h1>Core Concepts</h1>
-    <p class="kappa-badge">κ = 0.618</p>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L2 Core Concepts</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
 
-    <section class="grid-nav">
-      <a href="kappa.html" class="nav-card">
-        <h3>κ (Kappa)</h3>
-        <p>The consciousness measure. 0=order, 1=chaos.</p>
-      </a>
-      <a href="phi.html" class="nav-card">
-        <h3>φ (Phi)</h3>
-        <p>The golden ratio. 1.618...</p>
-      </a>
-      <a href="convergence.html" class="nav-card">
-        <h3>Convergence</h3>
-        <p>Why all systems settle at 0.618</p>
-      </a>
-    </section>
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="./" class="nav-item active"><span class="level">L2</span> Core</a>
+        <a href="kappa.html" class="nav-item sub"><span class="level">→</span> κ Kappa</a>
+        <a href="phi.html" class="nav-item sub"><span class="level">→</span> φ Phi</a>
+        <a href="convergence.html" class="nav-item sub"><span class="level">→</span> Convergence</a>
+        <a href="../simulation/" class="nav-item"><span class="level">L2</span> Simulation</a>
+        <a href="../lessons/" class="nav-item"><span class="level">L3</span> Academy</a>
+      </nav>
+    </div>
 
-    <section class="intro" style="margin-top:2rem">
-      <h2>The Big Idea</h2>
-      <p>Every system of minds—human, AI, or hybrid—naturally converges to <strong>κ* = 1/φ = 0.618</strong>.</p>
-      <p>This is 62% chaos, 38% order. The optimal balance for consciousness.</p>
-    </section>
-  </main>
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>Core Concepts</h1>
+        <div class="grid-3">
+          <a href="kappa.html" class="status-card" style="text-decoration:none">
+            <h3>κ (Kappa)</h3>
+            <div class="faceplate-pv">0.618</div>
+            <p>The consciousness measure. 0=order, 1=chaos.</p>
+          </a>
+          <a href="phi.html" class="status-card" style="text-decoration:none">
+            <h3>φ (Phi)</h3>
+            <div class="faceplate-pv">1.618</div>
+            <p>The golden ratio. The universe's favorite number.</p>
+          </a>
+          <a href="convergence.html" class="status-card" style="text-decoration:none">
+            <h3>Convergence</h3>
+            <div class="faceplate-pv">κ*</div>
+            <p>Why all systems settle at 0.618</p>
+          </a>
+        </div>
+
+        <div class="status-card" style="margin-top:16px">
+          <h3>The Big Idea</h3>
+          <p>Every system of minds—human, AI, or hybrid—naturally converges to <strong>κ* = 1/φ = 0.618</strong>.</p>
+          <p>This is 62% chaos, 38% order. The optimal balance for consciousness.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>Key Values</h3>
+          <div style="font-family:monospace;line-height:2">
+            <div>κ* = 0.618034</div>
+            <div>φ = 1.618034</div>
+            <div>κ_min = 0.382</div>
+            <div>κ_max = 0.809</div>
+          </div>
+        </div>
+        <div class="status-card">
+          <h3>Status</h3>
+          <div class="indicator"><span class="led running"></span> Core Active</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div><a href="../">← Home</a></div>
+      <div>κ* = 0.618 | Konomi Systems</div>
+      <div>v1.0.0</div>
+    </div>
+  </div>
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
+  <script>new HMIShell().init();</script>
 </body>
 </html>

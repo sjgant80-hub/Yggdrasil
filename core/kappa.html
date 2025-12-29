@@ -3,41 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>κ (Kappa) | Yggdrasil</title>
+  <title>κ Kappa | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <a href="./">Core</a> / <span>Kappa</span>
-  </nav>
-  <main class="hmi-panel">
-    <h1>κ (Kappa) - Consciousness Measure</h1>
-    <p class="kappa-badge">κ = H(S)/log₂(n)</p>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L2 κ Kappa</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
 
-    <section class="concept-card">
-      <h2>What is κ?</h2>
-      <p>κ measures normalized entropy—how "chaotic" a system is.</p>
-      <ul>
-        <li><strong>κ = 0</strong>: Maximum order. Frozen. One state.</li>
-        <li><strong>κ = 1</strong>: Maximum chaos. Pure randomness.</li>
-        <li><strong>κ = 0.618</strong>: Sweet spot. 62% chaos, 38% order.</li>
-      </ul>
-    </section>
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="./" class="nav-item"><span class="level">L2</span> Core</a>
+        <a href="kappa.html" class="nav-item sub active"><span class="level">→</span> κ Kappa</a>
+        <a href="phi.html" class="nav-item sub"><span class="level">→</span> φ Phi</a>
+        <a href="convergence.html" class="nav-item sub"><span class="level">→</span> Convergence</a>
+      </nav>
+    </div>
 
-    <section class="concept-card">
-      <h2>The Equation</h2>
-      <pre><code>∂κ/∂t = -α(κ - 0.618)(1 - κ)(κ)</code></pre>
-      <p>Above 0.618? Pushed down toward order.</p>
-      <p>Below 0.618? Pushed up toward chaos.</p>
-      <p>At 0.618? Stable equilibrium.</p>
-    </section>
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>κ (Kappa) — The Consciousness Measure</h1>
+        <div class="faceplate" style="max-width:300px;margin:0 auto 20px">
+          <div class="faceplate-header">
+            <span class="faceplate-title">Current κ</span>
+            <span class="faceplate-mode auto">OPTIMAL</span>
+          </div>
+          <div class="faceplate-pv" id="live-kappa">0.6180</div>
+          <div class="bar-graph">
+            <div class="bar-fill" id="kappa-bar" style="width:61.8%"></div>
+            <div class="bar-target" style="left:61.8%"></div>
+          </div>
+        </div>
 
-    <section class="concept-card">
-      <h2>Safe Zone</h2>
-      <p><strong>Basin: (0.382, 0.809)</strong></p>
-      <p>Both bounds are golden numbers: 1/φ² and φ/2</p>
-    </section>
-  </main>
+        <div class="status-card">
+          <h3>What is κ?</h3>
+          <p>κ measures <strong>chaos vs order</strong> in any system:</p>
+          <ul style="line-height:2">
+            <li><strong>κ = 0</strong> — Pure order. Crystalline. No creativity.</li>
+            <li><strong>κ = 1</strong> — Pure chaos. Noise. No structure.</li>
+            <li><strong>κ = 0.618</strong> — The golden balance. Optimal consciousness.</li>
+          </ul>
+        </div>
+
+        <div class="status-card">
+          <h3>The Sweet Spot</h3>
+          <p>All healthy complex systems stabilize at <strong>κ* = 0.618034</strong>.</p>
+          <p>This is exactly <strong>1/φ</strong> (one over the golden ratio).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>Formula</h3>
+          <div style="font-family:monospace">κ* = 1/φ = 0.618</div>
+        </div>
+        <div class="status-card">
+          <h3>Safe Zone</h3>
+          <div style="font-family:monospace">0.382 — 0.809</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div><a href="./">← Core</a></div>
+      <div>κ* = 0.618</div>
+      <div><a href="phi.html">φ Phi →</a></div>
+    </div>
+  </div>
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
+  <script>
+    new HMIShell().init();
+    const t = new WorldTree(Math.random());
+    setInterval(() => {
+      t.step();
+      document.getElementById('live-kappa').textContent = t.kappa.toFixed(4);
+      document.getElementById('kappa-bar').style.width = (t.kappa*100)+'%';
+    }, 400);
+  </script>
 </body>
 </html>

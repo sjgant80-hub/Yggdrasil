@@ -3,58 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forest Demo | Yggdrasil</title>
+  <title>Forest | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
   <style>
-    .tree-row { display:flex; gap:.5rem; margin:.5rem 0; }
-    .tree-bar { height:20px; background:#4A90D9; transition:width .1s; }
-    .tree-wrap { flex:1; background:#222; padding:4px; border-radius:4px; }
+    .tree-row { display:flex; gap:8px; align-items:center; margin:8px 0; }
+    .tree-bar { height:24px; background:var(--accent); transition:width .1s; border-radius:2px; }
+    .tree-wrap { flex:1; background:#1a1a2e; padding:4px; border-radius:4px; }
+    .tree-lbl { width:30px; font-family:monospace; font-size:12px; }
+    .tree-val { width:60px; font-family:monospace; font-size:12px; text-align:right; }
   </style>
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <a href="./">Simulation</a> / <span>Forest</span>
-  </nav>
-  <main class="hmi-panel">
-    <h1>Forest: Multi-Agent Sync</h1>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L2 Forest Simulation</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
 
-    <section class="concept-card">
-      <h2>Tree Network</h2>
-      <div id="forest"></div>
-      <p>Average κ: <strong id="avg-k">?</strong> | Target: 0.6180</p>
-      <button onclick="startForest()">Start</button>
-      <button onclick="stopForest()">Stop</button>
-      <button onclick="resetForest()">Reset</button>
-    </section>
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="./" class="nav-item"><span class="level">L2</span> Simulation</a>
+        <a href="world-tree.html" class="nav-item sub"><span class="level">→</span> World Tree</a>
+        <a href="forest.html" class="nav-item sub active"><span class="level">→</span> Forest</a>
+      </nav>
+    </div>
 
-    <section class="concept-card">
-      <h2>Synchronization</h2>
-      <p>Multiple agents start at different κ values.</p>
-      <p>They interact and pull each other toward equilibrium.</p>
-      <p>Watch them all converge to 0.618 together.</p>
-    </section>
-  </main>
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>Forest: Multi-Agent Sync</h1>
+        <div class="faceplate">
+          <div class="faceplate-header">
+            <span class="faceplate-title">Tree Network</span>
+            <span class="faceplate-mode" id="mode">READY</span>
+          </div>
+          <div id="forest" style="padding:8px 0"></div>
+          <div class="faceplate-commands">
+            <button class="cmd-btn start" onclick="startForest()">Start</button>
+            <button class="cmd-btn stop" onclick="stopForest()">Stop</button>
+            <button class="cmd-btn" onclick="resetForest()">Reset</button>
+          </div>
+        </div>
+
+        <div class="status-card" style="margin-top:16px">
+          <h3>Synchronization</h3>
+          <p>Multiple agents start at different κ values.</p>
+          <p>They interact and pull each other toward equilibrium.</p>
+          <p>Watch them all converge to <strong>0.618</strong> together.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>Average κ</h3>
+          <div class="faceplate-pv" id="avg-k">—</div>
+          <div class="bar-graph">
+            <div class="bar-fill" id="avg-bar" style="width:50%"></div>
+            <div class="bar-target" style="left:61.8%"></div>
+          </div>
+        </div>
+        <div class="status-card">
+          <h3>Target</h3>
+          <div style="font-family:monospace">κ* = 0.618</div>
+        </div>
+        <div class="status-card">
+          <h3>Status</h3>
+          <div class="indicator" id="conv-status">
+            <span class="led normal"></span> Waiting
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div><a href="./">← Simulation</a></div>
+      <div>κ* = 0.618</div>
+      <div><a href="../lessons/">Academy →</a></div>
+    </div>
+  </div>
+
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
   <script>
+    new HMIShell().init();
     let trees = [], interval;
+
     function render() {
       const div = document.getElementById('forest');
       div.innerHTML = trees.map((t,i) =>
-        `<div class="tree-row"><span>T${i+1}</span><div class="tree-wrap"><div class="tree-bar" style="width:${t.kappa*100}%"></div></div><span>${t.kappa.toFixed(3)}</span></div>`
+        `<div class="tree-row"><span class="tree-lbl">T${i+1}</span><div class="tree-wrap"><div class="tree-bar" style="width:${t.kappa*100}%"></div></div><span class="tree-val">${t.kappa.toFixed(4)}</span></div>`
       ).join('');
       const avg = trees.reduce((s,t)=>s+t.kappa,0)/trees.length;
       document.getElementById('avg-k').textContent = avg.toFixed(4);
+      document.getElementById('avg-bar').style.width = (avg*100)+'%';
+
+      const conv = document.getElementById('conv-status');
+      if (Math.abs(avg - 0.618) < 0.01) {
+        conv.innerHTML = '<span class="led running"></span> Converged';
+        document.getElementById('mode').textContent = 'SYNC';
+      } else {
+        conv.innerHTML = '<span class="led warning"></span> Converging';
+        document.getElementById('mode').textContent = 'RUN';
+      }
     }
+
     function startForest() {
-      interval = setInterval(() => {
-        trees.forEach(t => t.step());
-        render();
-      }, 100);
+      document.getElementById('mode').textContent = 'RUN';
+      interval = setInterval(() => { trees.forEach(t => t.step()); render(); }, 100);
     }
-    function stopForest() { clearInterval(interval); }
+    function stopForest() { clearInterval(interval); document.getElementById('mode').textContent = 'STOP'; }
     function resetForest() {
       stopForest();
       trees = Array(5).fill().map(() => new WorldTree());
+      document.getElementById('mode').textContent = 'READY';
       render();
     }
     resetForest();

@@ -5,33 +5,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simulation | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <span>Simulation</span>
-  </nav>
-  <main class="hmi-panel">
-    <h1>World Tree Simulation</h1>
-    <p class="kappa-badge">Interactive Demo</p>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L2 Simulation</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
 
-    <section class="grid-nav">
-      <a href="world-tree.html" class="nav-card">
-        <h3>World Tree</h3>
-        <p>Watch κ converge to 0.618</p>
-      </a>
-      <a href="forest.html" class="nav-card">
-        <h3>Forest</h3>
-        <p>Multi-agent synchronization</p>
-      </a>
-    </section>
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="../core/" class="nav-item"><span class="level">L2</span> Core</a>
+        <a href="./" class="nav-item active"><span class="level">L2</span> Simulation</a>
+        <a href="world-tree.html" class="nav-item sub"><span class="level">→</span> World Tree</a>
+        <a href="forest.html" class="nav-item sub"><span class="level">→</span> Forest</a>
+        <a href="../lessons/" class="nav-item"><span class="level">L3</span> Academy</a>
+      </nav>
+    </div>
 
-    <section class="intro" style="margin-top:2rem">
-      <h2>What You'll See</h2>
-      <p>The simulation demonstrates convergence in real-time.</p>
-      <p>Start at any κ value. Watch it stabilize at 0.618.</p>
-      <p>This is how complex systems naturally find equilibrium.</p>
-    </section>
-  </main>
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>World Tree Simulation</h1>
+        <div class="grid-2">
+          <a href="world-tree.html" class="status-card" style="text-decoration:none">
+            <h3>World Tree</h3>
+            <div class="faceplate-pv" id="tree-k">0.618</div>
+            <p>Watch κ converge to 0.618 in real-time.</p>
+            <div class="indicator"><span class="led running"></span> Single Agent</div>
+          </a>
+          <a href="forest.html" class="status-card" style="text-decoration:none">
+            <h3>Forest</h3>
+            <div class="faceplate-pv">5x κ</div>
+            <p>Multi-agent synchronization demo.</p>
+            <div class="indicator"><span class="led warning"></span> Multi-Agent</div>
+          </a>
+        </div>
+
+        <div class="status-card" style="margin-top:16px">
+          <h3>What You'll See</h3>
+          <p>The simulation demonstrates convergence in real-time.</p>
+          <p>Start at any κ value. Watch it stabilize at <strong>0.618</strong>.</p>
+          <p>This is how complex systems naturally find equilibrium.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>Live κ</h3>
+          <div class="faceplate-pv" id="live-k">0.6180</div>
+          <div class="bar-graph">
+            <div class="bar-fill" id="k-bar" style="width:61.8%"></div>
+            <div class="bar-target" style="left:61.8%"></div>
+          </div>
+        </div>
+        <div class="status-card">
+          <h3>Target</h3>
+          <div style="font-family:monospace">κ* = 0.618</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div><a href="../">← Home</a></div>
+      <div>κ* = 0.618 | Konomi Systems</div>
+      <div>v1.0.0</div>
+    </div>
+  </div>
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
+  <script>
+    new HMIShell().init();
+    const t = new WorldTree(Math.random());
+    setInterval(() => {
+      t.step();
+      document.getElementById('live-k').textContent = t.kappa.toFixed(4);
+      document.getElementById('k-bar').style.width = (t.kappa*100)+'%';
+    }, 300);
+  </script>
 </body>
 </html>

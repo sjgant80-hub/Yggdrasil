@@ -5,43 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ISA-18.2 | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <a href="./">Standards</a> / <span>ISA-18.2</span>
-  </nav>
-  <main class="hmi-panel">
-    <h1>ISA-18.2: Alarm Management</h1>
-    <p class="kappa-badge">Alert Lifecycle</p>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L3 ISA-18.2</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
 
-    <section class="concept-card">
-      <h2>Alarm Priorities</h2>
-      <ul>
-        <li><strong>P1 Emergency</strong>: &lt;1min response</li>
-        <li><strong>P2 High</strong>: &lt;10min response</li>
-        <li><strong>P3 Medium</strong>: &lt;1hr response</li>
-        <li><strong>P4 Low</strong>: Shift awareness</li>
-      </ul>
-    </section>
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="./" class="nav-item"><span class="level">L3</span> Standards</a>
+        <a href="isa-95.html" class="nav-item sub"><span class="level">→</span> ISA-95</a>
+        <a href="isa-88.html" class="nav-item sub"><span class="level">→</span> ISA-88</a>
+        <a href="isa-101.html" class="nav-item sub"><span class="level">→</span> ISA-101</a>
+        <a href="isa-18.html" class="nav-item sub active"><span class="level">→</span> ISA-18.2</a>
+      </nav>
+    </div>
 
-    <section class="concept-card">
-      <h2>State Machine</h2>
-      <pre><code>NORMAL → [trigger] → UNACK_ALARM
-                          ↓ [ack]
-                     ACKED_ALARM
-                          ↓ [clear]
-                        NORMAL</code></pre>
-    </section>
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>ISA-18.2: Alarm Management</h1>
+        <div class="status-card">
+          <h3>Alarm Priorities</h3>
+          <table style="width:100%;font-size:14px;line-height:2">
+            <tr><td><span class="led alarm"></span> <strong>P1</strong></td><td>Emergency</td><td>&lt;1min response</td></tr>
+            <tr><td><span class="led alarm"></span> <strong>P2</strong></td><td>High</td><td>&lt;10min response</td></tr>
+            <tr><td><span class="led warning"></span> <strong>P3</strong></td><td>Medium</td><td>&lt;1hr response</td></tr>
+            <tr><td><span class="led normal"></span> <strong>P4</strong></td><td>Low</td><td>Shift awareness</td></tr>
+          </table>
+        </div>
 
-    <section class="concept-card">
-      <h2>Rules</h2>
-      <ul>
-        <li>Every alarm must be documented</li>
-        <li>Every alarm must be actionable</li>
-        <li>Target: &lt;6 alarms/operator/hour</li>
-      </ul>
-    </section>
-  </main>
+        <div class="status-card">
+          <h3>State Machine</h3>
+          <pre style="background:#1a1a2e;padding:12px;border-radius:4px;font-size:12px">NORMAL → [trigger] → UNACK_ALARM
+                        ↓ [ack]
+                   ACKED_ALARM
+                        ↓ [clear]
+                      NORMAL</pre>
+        </div>
+
+        <div class="status-card">
+          <h3>Rules</h3>
+          <ul style="line-height:2">
+            <li>Every alarm must be documented</li>
+            <li>Every alarm must be actionable</li>
+            <li>Target: &lt;6 alarms/operator/hour</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>Scope</h3>
+          <div style="font-family:monospace">Alerts</div>
+        </div>
+        <div class="status-card">
+          <h3>Current</h3>
+          <div class="alarm-banner">
+            <span class="alarm-count zero">0</span>
+            <span style="font-size:11px">Alarms</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div><a href="isa-101.html">← ISA-101</a></div>
+      <div>ISA-18.2</div>
+      <div><a href="../">Home →</a></div>
+    </div>
+  </div>
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
+  <script>new HMIShell().init();</script>
 </body>
 </html>

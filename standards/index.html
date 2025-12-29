@@ -5,41 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ISA Standards | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <span>Standards</span>
-  </nav>
-  <main class="hmi-panel">
-    <h1>ISA Industrial Standards</h1>
-    <p class="kappa-badge">Factory Architecture</p>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L3 ISA Standards</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
 
-    <section class="grid-nav">
-      <a href="isa-95.html" class="nav-card">
-        <h3>ISA-95</h3>
-        <p>Enterprise ↔ Control Integration</p>
-      </a>
-      <a href="isa-88.html" class="nav-card">
-        <h3>ISA-88</h3>
-        <p>Batch Process Control</p>
-      </a>
-      <a href="isa-101.html" class="nav-card">
-        <h3>ISA-101</h3>
-        <p>HMI Design Standards</p>
-      </a>
-      <a href="isa-18.html" class="nav-card">
-        <h3>ISA-18.2</h3>
-        <p>Alarm Management</p>
-      </a>
-    </section>
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="../core/" class="nav-item"><span class="level">L2</span> Core</a>
+        <a href="./" class="nav-item active"><span class="level">L3</span> Standards</a>
+        <a href="isa-95.html" class="nav-item sub"><span class="level">→</span> ISA-95</a>
+        <a href="isa-88.html" class="nav-item sub"><span class="level">→</span> ISA-88</a>
+        <a href="isa-101.html" class="nav-item sub"><span class="level">→</span> ISA-101</a>
+        <a href="isa-18.html" class="nav-item sub"><span class="level">→</span> ISA-18.2</a>
+      </nav>
+    </div>
 
-    <section class="intro" style="margin-top:2rem">
-      <h2>Why Standards?</h2>
-      <p>Industrial standards are UDTs for the physical world.</p>
-      <p>They define types, hierarchies, and state machines.</p>
-      <p>We use them to structure the Yggdrasil academy like a factory.</p>
-    </section>
-  </main>
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>ISA Industrial Standards</h1>
+        <div class="grid-2">
+          <a href="isa-95.html" class="status-card" style="text-decoration:none">
+            <h3>ISA-95</h3>
+            <p>Enterprise ↔ Control Integration</p>
+            <div class="indicator"><span class="led running"></span> Levels 0-4</div>
+          </a>
+          <a href="isa-88.html" class="status-card" style="text-decoration:none">
+            <h3>ISA-88</h3>
+            <p>Batch Process Control</p>
+            <div class="indicator"><span class="led running"></span> Procedural</div>
+          </a>
+          <a href="isa-101.html" class="status-card" style="text-decoration:none">
+            <h3>ISA-101</h3>
+            <p>HMI Design Standards</p>
+            <div class="indicator"><span class="led running"></span> Display</div>
+          </a>
+          <a href="isa-18.html" class="status-card" style="text-decoration:none">
+            <h3>ISA-18.2</h3>
+            <p>Alarm Management</p>
+            <div class="indicator"><span class="led warning"></span> Alerts</div>
+          </a>
+        </div>
+
+        <div class="status-card" style="margin-top:16px">
+          <h3>Why Standards?</h3>
+          <p>Industrial standards are <strong>UDTs for the physical world</strong>.</p>
+          <p>They define types, hierarchies, and state machines.</p>
+          <p>We use them to structure Yggdrasil like a factory.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>Compliance</h3>
+          <div class="indicator"><span class="led running"></span> ISA-101</div>
+          <div class="indicator"><span class="led running"></span> ISA-95</div>
+          <div class="indicator"><span class="led running"></span> ISA-18.2</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div><a href="../">← Home</a></div>
+      <div>κ* = 0.618 | Konomi Systems</div>
+      <div>v1.0.0</div>
+    </div>
+  </div>
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
+  <script>new HMIShell().init();</script>
 </body>
 </html>

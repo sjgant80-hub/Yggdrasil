@@ -1,8 +1,10 @@
 {
   "@udt": "HMI.NavItem",
-  "@t": 25,
+  "@v": "1.0.0",
+  "@t": 28,
   "@p": "HMI.Component",
   "@r": ["ISA-101"],
+  "@s": "active",
   "props": ["href", "level", "label", "active"],
   "html": "<a href=\"{{href}}\" class=\"nav-item {{active}}\"><span class=\"level\">{{level}}</span> {{label}}</a>"
 }

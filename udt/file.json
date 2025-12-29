@@ -1,18 +1,21 @@
 {
-  "id": "Yggdrasil.UDT.File",
-  "description": "File header UDT for all files",
+  "@udt": "Yggdrasil.UDT.File",
+  "@v": "1.0.0",
+  "@t": 85,
+  "description": "File header UDT with versioning",
   "schema": {
-    "header": {
-      "id": "string",
-      "tokens": "number",
-      "parent": "string|null",
-      "requires": ["string"],
-      "exports": ["string"],
-      "rules": ["string"],
-      "log": ["string"]
-    }
+    "@udt": "string",
+    "@v": "semver",
+    "@t": "number",
+    "@p": "string|null",
+    "@r": ["string"],
+    "@s": "draft|active|deprecated"
   },
-  "format": "/* @udt {id} @t {tokens} @p {parent} @r {rules} */",
-  "example": "/* @udt HMI.Faceplate @t 45 @p HMI.Component @r ISA-101 */",
+  "format": "{ \"@udt\": \"ID\", \"@v\": \"1.0.0\", \"@t\": 50, \"@p\": \"Parent\", \"@r\": [], \"@s\": \"active\" }",
+  "statuses": {
+    "draft": "In development, may change",
+    "active": "Stable, production ready",
+    "deprecated": "Scheduled for removal"
+  },
   "maxTokens": 250
 }

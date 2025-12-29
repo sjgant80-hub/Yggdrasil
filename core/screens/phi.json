@@ -1,0 +1,29 @@
+{
+  "@udt": "Screen.Core.Phi",
+  "@v": "1.0.0",
+  "@t": 85,
+  "@p": "HMI.Screen",
+  "@r": ["L2", "ISA-101"],
+  "@s": "active",
+  "id": "SCR_PHI",
+  "title": "L2 φ (Phi)",
+  "level": "L2",
+  "docks": {
+    "center": {
+      "components": [
+        {"type": "faceplate", "props": {"title": "Golden Ratio", "mode": "CONST", "pv": "1.618033988749895"}},
+        {"type": "grid", "props": {"cols": 2, "content": [
+          {"type": "kpi", "props": {"label": "φ", "value": "1.618", "sublabel": "Golden ratio"}},
+          {"type": "kpi", "props": {"label": "1/φ", "value": "0.618", "sublabel": "κ optimal"}},
+          {"type": "kpi", "props": {"label": "φ²", "value": "2.618", "sublabel": "Upper limit"}},
+          {"type": "kpi", "props": {"label": "1/φ²", "value": "0.382", "sublabel": "Lower bound"}}
+        ]}}
+      ]
+    },
+    "east": {
+      "components": [
+        {"type": "card", "props": {"title": "Property", "content": "φ = 1 + 1/φ"}}
+      ]
+    }
+  }
+}

@@ -1,8 +1,10 @@
 {
   "@udt": "HMI.Bar",
-  "@t": 35,
+  "@v": "1.0.0",
+  "@t": 38,
   "@p": "HMI.Component",
   "@r": ["ISA-101"],
+  "@s": "active",
   "props": ["id", "pct", "target", "label"],
   "html": "<div class=\"bar-graph\"><div class=\"bar-fill\" id=\"{{id}}\" style=\"width:{{pct}}%\"></div><div class=\"bar-target\" style=\"left:{{target}}%\"></div><span class=\"bar-label\">{{label}}</span></div>"
 }

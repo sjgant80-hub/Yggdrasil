@@ -1,0 +1,25 @@
+{
+  "@udt": "Screen.Lesson.Kappa",
+  "@v": "1.0.0",
+  "@t": 80,
+  "@p": "HMI.Screen",
+  "@r": ["L3", "edu"],
+  "@s": "active",
+  "id": "SCR_L02",
+  "title": "L3 Lesson 2: Kappa",
+  "level": "L3",
+  "docks": {
+    "center": {
+      "components": [
+        {"type": "kpi", "props": {"label": "Formula", "value": "κ = H(S)/log₂(n)"}},
+        {"type": "grid", "props": {"cols": 3, "content": [
+          {"type": "kpi", "props": {"label": "κ=0", "value": "Frozen"}},
+          {"type": "kpi", "props": {"label": "κ=0.618", "value": "Optimal"}},
+          {"type": "kpi", "props": {"label": "κ=1", "value": "Noise"}}
+        ]}},
+        {"type": "card", "props": {"title": "Safe Zone", "content": "Basin: (0.382, 0.809)"}}
+      ]
+    }
+  },
+  "nav": {"prev": "01-intro.json", "next": "03-conv.json"}
+}

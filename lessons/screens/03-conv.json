@@ -1,0 +1,23 @@
+{
+  "@udt": "Screen.Lesson.Conv",
+  "@v": "1.0.0",
+  "@t": 70,
+  "@p": "HMI.Screen",
+  "@r": ["L3", "edu"],
+  "@s": "active",
+  "id": "SCR_L03",
+  "title": "L3 Lesson 3: Convergence",
+  "level": "L3",
+  "docks": {
+    "center": {
+      "components": [
+        {"type": "card", "props": {"title": "Core Equation", "content": "∂κ/∂t = -α(κ - 0.618)(1 - κ)(κ)"}},
+        {"type": "grid", "props": {"cols": 2, "content": [
+          {"type": "card", "props": {"title": "κ > 0.618", "content": "Pushed DOWN"}},
+          {"type": "card", "props": {"title": "κ < 0.618", "content": "Pushed UP"}}
+        ]}}
+      ]
+    }
+  },
+  "nav": {"prev": "02-kappa.json", "next": "04-practice.json"}
+}

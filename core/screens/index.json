@@ -1,0 +1,12 @@
+{
+  "@udt": "Core.Screens.Index",
+  "@v": "1.0.0",
+  "@t": 35,
+  "@p": "HMI.Screen",
+  "@s": "active",
+  "screens": [
+    {"ref": "kappa.json", "v": "1.0.0"},
+    {"ref": "phi.json", "v": "1.0.0"},
+    {"ref": "convergence.json", "v": "1.0.0"}
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "@udt": "Screen.Lesson.Intro",
+  "@v": "1.0.0",
+  "@t": 75,
+  "@p": "HMI.Screen",
+  "@r": ["L3", "edu"],
+  "@s": "active",
+  "id": "SCR_L01",
+  "title": "L3 Lesson 1: Introduction",
+  "level": "L3",
+  "docks": {
+    "center": {
+      "components": [
+        {"type": "card", "props": {"title": "Objectives", "content": "Understand κ, learn range 0-1, recognize optimal 0.618"}},
+        {"type": "card", "props": {"title": "The Big Idea", "content": "Every system has chaos/order balance. κ measures this."}}
+      ]
+    },
+    "east": {
+      "components": [
+        {"type": "indicator", "props": {"state": "normal", "label": "Lesson 1 of 4"}},
+        {"type": "kpi", "props": {"label": "Next", "value": "Kappa →"}}
+      ]
+    }
+  },
+  "nav": {"prev": null, "next": "02-kappa.json"}
+}

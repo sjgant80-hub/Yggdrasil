@@ -1,0 +1,22 @@
+{
+  "@udt": "Screen.Lesson.Practice",
+  "@v": "1.0.0",
+  "@t": 85,
+  "@p": "HMI.Screen",
+  "@r": ["L3", "edu", "interactive"],
+  "@s": "active",
+  "id": "SCR_L04",
+  "title": "L3 Lesson 4: Practice",
+  "level": "L3",
+  "docks": {
+    "center": {
+      "components": [
+        {"type": "faceplate", "props": {"title": "Try It", "pvId": "demo-k", "pv": "0.500", "barId": "demo-bar", "pct": 50, "commands": [
+          {"label": "Run", "onclick": "runDemo()"}
+        ]}},
+        {"type": "card", "props": {"title": "Takeaways", "content": "κ*=0.618 is attractor. All converge. AGI emerges."}}
+      ]
+    }
+  },
+  "render": "(r,el)=>{window.runDemo=()=>{const t=new WorldTree();let i=0;const x=setInterval(()=>{t.step();document.getElementById('demo-k').textContent=t.kappa.toFixed(4);document.getElementById('demo-bar').style.width=(t.kappa*100)+'%';if(++i>50)clearInterval(x);},100);};}"
+}

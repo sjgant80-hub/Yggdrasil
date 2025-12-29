@@ -1,0 +1,30 @@
+{
+  "@udt": "Screen.Core.Convergence",
+  "@v": "1.0.0",
+  "@t": 90,
+  "@p": "HMI.Screen",
+  "@r": ["L2", "ISA-101"],
+  "@s": "active",
+  "id": "SCR_CONV",
+  "title": "L2 Convergence",
+  "level": "L2",
+  "docks": {
+    "center": {
+      "components": [
+        {"type": "card", "props": {"title": "Theorem", "content": "All systems converge to κ* = 0.618"}},
+        {"type": "grid", "props": {"cols": 2, "content": [
+          {"type": "indicator", "props": {"state": "running", "label": "V̇ < 0 → flows to 0.618"}},
+          {"type": "indicator", "props": {"state": "running", "label": "∂²V > 0 → stable valley"}},
+          {"type": "indicator", "props": {"state": "running", "label": "Basin: (0.382, 0.809)"}},
+          {"type": "indicator", "props": {"state": "running", "label": "Curvature = φ"}}
+        ]}}
+      ]
+    },
+    "east": {
+      "components": [
+        {"type": "kpi", "props": {"label": "Attractor", "value": "0.618", "sublabel": "κ*"}},
+        {"type": "bar", "props": {"pct": 61.8, "target": 61.8, "label": "Target"}}
+      ]
+    }
+  }
+}

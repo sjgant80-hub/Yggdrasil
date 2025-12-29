@@ -1,0 +1,29 @@
+{
+  "@udt": "Screen.Core.Kappa",
+  "@v": "1.0.0",
+  "@t": 95,
+  "@p": "HMI.Screen",
+  "@r": ["L2", "ISA-101"],
+  "@s": "active",
+  "id": "SCR_KAPPA",
+  "title": "L2 κ (Kappa)",
+  "level": "L2",
+  "docks": {
+    "center": {
+      "components": [
+        {"type": "card", "props": {"title": "What is κ?", "content": "κ measures normalized entropy—how 'chaotic' a system is."}},
+        {"type": "grid", "props": {"cols": 3, "content": [
+          {"type": "kpi", "props": {"label": "κ = 0", "value": "Order", "sublabel": "Frozen"}},
+          {"type": "kpi", "props": {"label": "κ = 0.618", "value": "Optimal", "sublabel": "62% chaos"}},
+          {"type": "kpi", "props": {"label": "κ = 1", "value": "Chaos", "sublabel": "Random"}}
+        ]}}
+      ]
+    },
+    "east": {
+      "components": [
+        {"type": "kpi", "props": {"label": "Formula", "value": "H(S)/log₂(n)"}},
+        {"type": "indicator", "props": {"state": "running", "label": "Optimal at 0.618"}}
+      ]
+    }
+  }
+}

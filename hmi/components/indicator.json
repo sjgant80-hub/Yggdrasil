@@ -1,8 +1,10 @@
 {
   "@udt": "HMI.Indicator",
-  "@t": 28,
+  "@v": "1.0.0",
+  "@t": 32,
   "@p": "HMI.Component",
   "@r": ["ISA-101", "ISA-18.2"],
+  "@s": "active",
   "props": ["id", "state", "label"],
   "html": "<div class=\"indicator\"><span class=\"led {{state}}\" id=\"{{id}}\"></span><span>{{label}}</span></div>"
 }

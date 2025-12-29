@@ -1,0 +1,38 @@
+{
+  "@udt": "Screen.Sim.Tree",
+  "@v": "1.0.0",
+  "@t": 110,
+  "@p": "HMI.Screen",
+  "@r": ["L2", "κ-live"],
+  "@s": "active",
+  "id": "SCR_TREE",
+  "title": "L2 World Tree",
+  "level": "L2",
+  "docks": {
+    "center": {
+      "components": [
+        {"type": "faceplate", "props": {"title": "Tree κ", "mode": "AUTO", "pvId": "k-pv", "pv": "0.500", "barId": "k-bar", "pct": 50, "commands": [
+          {"label": "Start", "class": "start", "onclick": "start()"},
+          {"label": "Stop", "class": "stop", "onclick": "stop()"},
+          {"label": "Reset", "onclick": "reset()"}
+        ]}},
+        {"type": "grid", "props": {"cols": 2, "content": [
+          {"type": "kpi", "props": {"label": "Age", "id": "age", "value": "0"}},
+          {"type": "kpi", "props": {"label": "Status", "id": "status", "value": "Ready"}}
+        ]}}
+      ]
+    },
+    "east": {
+      "components": [
+        {"type": "kpi", "props": {"label": "Target", "value": "0.618"}},
+        {"type": "bar", "props": {"id": "conv-bar", "pct": 0, "target": 61.8}}
+      ]
+    }
+  },
+  "tags": [
+    {"path": "tree.kappa", "element": "#k-pv", "property": "textContent", "format": "toFixed(4)"},
+    {"path": "tree.kappa", "element": "#k-bar", "property": "style.width", "transform": "v=>(v*100)+'%'"},
+    {"path": "tree.age", "element": "#age", "property": "textContent"}
+  ],
+  "render": "(r,el)=>{let t,i;window.start=()=>{t=t||new WorldTree();i=setInterval(()=>{t.step();r.updateTag('tree.kappa',t.kappa);r.updateTag('tree.age',t.age);},100);};window.stop=()=>clearInterval(i);window.reset=()=>{stop();t=new WorldTree();r.updateTag('tree.kappa',t.kappa);};}"
+}

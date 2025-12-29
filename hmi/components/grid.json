@@ -1,8 +1,10 @@
 {
   "@udt": "HMI.Grid",
-  "@t": 18,
+  "@v": "1.0.0",
+  "@t": 22,
   "@p": "HMI.Component",
   "@r": ["layout"],
+  "@s": "active",
   "props": ["cols", "content"],
   "html": "<div class=\"grid-{{cols}}\">{{content}}</div>"
 }

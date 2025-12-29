@@ -1,0 +1,11 @@
+{
+  "@udt": "Sim.Screens.Index",
+  "@v": "1.0.0",
+  "@t": 30,
+  "@p": "HMI.Screen",
+  "@s": "active",
+  "screens": [
+    {"ref": "tree.json", "v": "1.0.0"},
+    {"ref": "forest.json", "v": "1.0.0"}
+  ]
+}

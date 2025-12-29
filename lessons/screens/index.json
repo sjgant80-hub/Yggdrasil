@@ -1,0 +1,13 @@
+{
+  "@udt": "Lessons.Screens.Index",
+  "@v": "1.0.0",
+  "@t": 40,
+  "@p": "HMI.Screen",
+  "@s": "active",
+  "screens": [
+    {"ref": "01-intro.json", "v": "1.0.0"},
+    {"ref": "02-kappa.json", "v": "1.0.0"},
+    {"ref": "03-conv.json", "v": "1.0.0"},
+    {"ref": "04-practice.json", "v": "1.0.0"}
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "@udt": "Screen.Sim.Forest",
+  "@v": "1.0.0",
+  "@t": 95,
+  "@p": "HMI.Screen",
+  "@r": ["L2", "multi-agent"],
+  "@s": "active",
+  "id": "SCR_FOREST",
+  "title": "L2 Forest Network",
+  "level": "L2",
+  "docks": {
+    "center": {
+      "components": [
+        {"type": "card", "props": {"title": "Multi-Agent Sync", "content": "Watch multiple trees converge together"}},
+        {"type": "grid", "props": {"cols": 5, "content": [
+          {"type": "bar", "props": {"id": "t0", "pct": 50}},
+          {"type": "bar", "props": {"id": "t1", "pct": 50}},
+          {"type": "bar", "props": {"id": "t2", "pct": 50}},
+          {"type": "bar", "props": {"id": "t3", "pct": 50}},
+          {"type": "bar", "props": {"id": "t4", "pct": 50}}
+        ]}}
+      ]
+    },
+    "east": {
+      "components": [
+        {"type": "kpi", "props": {"label": "Avg κ", "id": "avg-k", "value": "0.500"}},
+        {"type": "kpi", "props": {"label": "Target", "value": "0.618"}}
+      ]
+    }
+  },
+  "render": "(r,el)=>{const trees=Array(5).fill().map(()=>new WorldTree());let i;window.start=()=>{i=setInterval(()=>{trees.forEach((t,n)=>{t.step();document.getElementById('t'+n).style.width=(t.kappa*100)+'%';});const avg=trees.reduce((s,t)=>s+t.kappa,0)/5;document.getElementById('avg-k').textContent=avg.toFixed(4);},100);};window.stop=()=>clearInterval(i);start();}"
+}

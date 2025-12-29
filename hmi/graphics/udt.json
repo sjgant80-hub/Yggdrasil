@@ -1,0 +1,50 @@
+{
+  "id": "Yggdrasil.HMI.Graphics.UDT",
+  "parent": "../udt.json",
+  "description": "ISA-101 Tag Graphics and Visual Elements",
+  "types": {
+    "TagBinding": {
+      "path": "PATH",
+      "element": "string",
+      "property": "value|fill|visibility|rotation",
+      "transform": "function|null"
+    },
+    "Indicator": {
+      "type": "led|bar|gauge|numeric",
+      "tag": "TagBinding",
+      "states": {
+        "normal": {"color": "#808080"},
+        "running": {"color": "#00AA00"},
+        "warning": {"color": "#FFCC00"},
+        "alarm": {"color": "#CC0000"},
+        "fault": {"color": "#CC0000", "blink": true}
+      }
+    },
+    "Trend": {
+      "tags": ["TagBinding"],
+      "timespan": "Duration",
+      "scales": [{"min": "number", "max": "number", "auto": "boolean"}]
+    },
+    "Faceplate": {
+      "equipment": "PATH",
+      "pv": ["TagBinding"],
+      "sp": ["TagBinding"],
+      "commands": ["Command"],
+      "mode": "TagBinding",
+      "state": "TagBinding"
+    },
+    "Command": {
+      "label": "string",
+      "tag": "PATH",
+      "value": "any",
+      "confirm": "boolean"
+    },
+    "KPI": {
+      "label": "string",
+      "value": "TagBinding",
+      "unit": "string",
+      "target": "number|null",
+      "format": "string"
+    }
+  }
+}

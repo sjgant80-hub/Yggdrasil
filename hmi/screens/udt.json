@@ -1,0 +1,36 @@
+{
+  "id": "Yggdrasil.HMI.Screens.UDT",
+  "parent": "../udt.json",
+  "description": "Screen instance definitions",
+  "instances": {
+    "overview": {
+      "id": "SCR_OVERVIEW",
+      "title": "Yggdrasil Overview",
+      "level": "L1",
+      "tags": [
+        {"path": "SIM.Forest.avgKappa", "element": "#kappa-gauge", "property": "value"},
+        {"path": "SIM.Forest.treeCount", "element": "#tree-count", "property": "value"},
+        {"path": "SIM.Forest.season", "element": "#season", "property": "value"}
+      ]
+    },
+    "simulation": {
+      "id": "SCR_SIM",
+      "title": "World Tree Simulation",
+      "level": "L2",
+      "tags": [
+        {"path": "SIM.Tree.kappa", "element": "#kappa-bar", "property": "value"},
+        {"path": "SIM.Tree.age", "element": "#age-display", "property": "value"},
+        {"path": "SIM.Tree.energy", "element": "#energy-bar", "property": "value"}
+      ]
+    },
+    "detail": {
+      "id": "SCR_DETAIL",
+      "title": "κ Analysis",
+      "level": "L3",
+      "tags": [
+        {"path": "SIM.Tree.kappa", "element": "#kappa-trend", "property": "data"},
+        {"path": "CORE.Phi.value", "element": "#phi-display", "property": "value"}
+      ]
+    }
+  }
+}

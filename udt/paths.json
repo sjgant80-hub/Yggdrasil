@@ -23,6 +23,7 @@
     "/lessons": {"title": "Academy", "hmi": "lessons/index.html"},
     "/simulation": {"title": "Simulation", "hmi": "simulation/index.html"},
     "/ai": {"title": "Kono AI", "hmi": "ai/index.html"},
-    "/prompts": {"title": "Prompts", "hmi": "prompts/index.html"}
+    "/prompts": {"title": "Prompts", "hmi": "prompts/index.html"},
+    "/hmi": {"title": "HMI Config", "hmi": "hmi/index.html"}
   }
 }

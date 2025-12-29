@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HMI Configuration | Yggdrasil</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/scada.css">
+</head>
+<body>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L5 HMI Configuration</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
+
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="./" class="nav-item active"><span class="level">L5</span> HMI Config</a>
+        <a href="graphics/" class="nav-item"><span class="level">L5</span> Graphics</a>
+        <a href="screens/" class="nav-item"><span class="level">L5</span> Screens</a>
+        <a href="templates/" class="nav-item"><span class="level">L5</span> Templates</a>
+      </nav>
+    </div>
+
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>HMI Architecture</h1>
+
+        <div class="grid-2">
+          <div class="status-card">
+            <h3>Layout UDT</h3>
+            <pre style="font-size:11px;background:#333;padding:12px;border-radius:4px;overflow:auto">
+{
+  "docks": {
+    "north": "Header",
+    "south": "Footer",
+    "east":  "Status",
+    "west":  "Nav",
+    "center": "Content"
+  }
+}</pre>
+          </div>
+
+          <div class="status-card">
+            <h3>ISA-101 Layers</h3>
+            <div style="font-size:12px;line-height:2">
+              <div><span class="level">L1</span> Overview - Plant KPIs</div>
+              <div><span class="level">L2</span> Area - Process flows</div>
+              <div><span class="level">L3</span> Unit - Faceplates</div>
+              <div><span class="level">L4</span> Detail - Diagnostics</div>
+              <div><span class="level">L5</span> Support - Config</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-3" style="margin-top:16px">
+          <div class="faceplate">
+            <div class="faceplate-header">
+              <span class="faceplate-title">Screens</span>
+            </div>
+            <div class="faceplate-pv">3</div>
+            <div class="kpi-label" style="text-align:center">Defined</div>
+          </div>
+
+          <div class="faceplate">
+            <div class="faceplate-header">
+              <span class="faceplate-title">Tag Bindings</span>
+            </div>
+            <div class="faceplate-pv">12</div>
+            <div class="kpi-label" style="text-align:center">Active</div>
+          </div>
+
+          <div class="faceplate">
+            <div class="faceplate-header">
+              <span class="faceplate-title">Graphics</span>
+            </div>
+            <div class="faceplate-pv">6</div>
+            <div class="kpi-label" style="text-align:center">Types</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>ISA-101 Colors</h3>
+          <div style="display:flex;flex-direction:column;gap:4px;font-size:11px">
+            <div class="indicator"><span class="led normal"></span> Normal</div>
+            <div class="indicator"><span class="led running"></span> Running</div>
+            <div class="indicator"><span class="led warning"></span> Warning</div>
+            <div class="indicator"><span class="led alarm"></span> Alarm</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div class="alarm-banner">
+        <span class="alarm-count zero">0</span>
+        <span>Active Alarms</span>
+      </div>
+      <div>κ* = 0.618 | © 2024 Konomi Systems</div>
+      <div>v1.0.0 | ISA-101</div>
+    </div>
+  </div>
+
+  <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
+  <script>new HMIShell().init();</script>
+</body>
+</html>

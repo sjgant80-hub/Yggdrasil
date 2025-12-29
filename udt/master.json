@@ -17,7 +17,8 @@
     "standards/udt.json",
     "lessons/udt.json",
     "simulation/udt.json",
-    "ai/udt.json"
+    "ai/udt.json",
+    "hmi/udt.json"
   ],
   "constants": {
     "φ": 1.618033988749895,

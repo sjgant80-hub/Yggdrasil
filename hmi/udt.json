@@ -1,0 +1,40 @@
+{
+  "id": "Yggdrasil.HMI.UDT",
+  "parent": "../udt/master.json",
+  "description": "ISA-101 HMI Layout and Graphics Types",
+  "types": {
+    "Layout": {
+      "id": "string",
+      "docks": {
+        "north": "Dock",
+        "south": "Dock",
+        "east": "Dock",
+        "west": "Dock",
+        "center": "Dock"
+      }
+    },
+    "Dock": {
+      "id": "string",
+      "position": "north|south|east|west|center",
+      "size": "number",
+      "collapsed": "boolean",
+      "components": ["Component"]
+    },
+    "Screen": {
+      "id": "string",
+      "title": "string",
+      "level": "L1|L2|L3|L4|L5",
+      "layout": "Layout",
+      "tags": ["TagBinding"],
+      "alarms": ["AlarmBinding"]
+    },
+    "Component": {
+      "type": "nav|status|trend|faceplate|alarm|kpi",
+      "config": "object"
+    }
+  },
+  "children": [
+    "hmi/graphics/udt.json",
+    "hmi/screens/udt.json"
+  ]
+}

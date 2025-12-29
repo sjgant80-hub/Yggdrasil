@@ -1,0 +1,368 @@
+/* SCADA HMI Styles | ISA-101 Compliant | κ=0.618 */
+
+:root {
+  /* ISA-101 State Colors */
+  --isa-normal: #707070;
+  --isa-running: #00AA00;
+  --isa-stopped: #404040;
+  --isa-warning: #FFCC00;
+  --isa-alarm: #CC0000;
+  --isa-fault: #CC0000;
+  --isa-maint: #0066CC;
+  --isa-manual: #FF6600;
+  --isa-transition: #00CCCC;
+
+  /* HMI Background (ISA-101: neutral gray) */
+  --hmi-bg: #505050;
+  --hmi-panel: #606060;
+  --hmi-dock: #454545;
+  --hmi-border: #707070;
+  --hmi-text: #E0E0E0;
+  --hmi-text-dim: #A0A0A0;
+
+  /* Accent */
+  --accent: #00AAFF;
+  --accent-dim: #006699;
+}
+
+/* === DOCK LAYOUT === */
+.hmi-shell {
+  display: grid;
+  grid-template-areas:
+    "north north north"
+    "west center east"
+    "south south south";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: auto 1fr auto;
+  height: 100vh;
+  background: var(--hmi-bg);
+  gap: 1px;
+}
+
+.dock { background: var(--hmi-dock); }
+.dock-north { grid-area: north; }
+.dock-south { grid-area: south; }
+.dock-east { grid-area: east; min-width: 280px; }
+.dock-west { grid-area: west; min-width: 200px; }
+.dock-center { grid-area: center; overflow: auto; }
+
+/* === HEADER BAR (North) === */
+.dock-north {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  height: 48px;
+  border-bottom: 2px solid var(--hmi-border);
+}
+
+.hmi-logo {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hmi-title {
+  flex: 1;
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.hmi-clock {
+  font-family: 'Consolas', monospace;
+  font-size: 14px;
+  color: var(--hmi-text);
+}
+
+/* === NAV TREE (West) === */
+.nav-tree {
+  padding: 8px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  color: var(--hmi-text);
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 13px;
+  border-left: 3px solid transparent;
+}
+
+.nav-item:hover { background: rgba(255,255,255,0.05); }
+.nav-item.active {
+  background: rgba(0,170,255,0.1);
+  border-left-color: var(--accent);
+}
+
+.nav-item .level {
+  font-size: 10px;
+  padding: 2px 6px;
+  background: var(--hmi-panel);
+  border-radius: 3px;
+  color: var(--hmi-text-dim);
+}
+
+/* === STATUS PANEL (East) === */
+.status-panel {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.status-card {
+  background: var(--hmi-panel);
+  border-radius: 6px;
+  padding: 12px;
+  border: 1px solid var(--hmi-border);
+}
+
+.status-card h3 {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--hmi-text-dim);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+/* === KPI DISPLAY === */
+.kpi-value {
+  font-size: 32px;
+  font-weight: 300;
+  font-family: 'Consolas', monospace;
+  color: var(--hmi-text);
+}
+
+.kpi-unit {
+  font-size: 12px;
+  color: var(--hmi-text-dim);
+  margin-left: 4px;
+}
+
+.kpi-label {
+  font-size: 11px;
+  color: var(--hmi-text-dim);
+  margin-top: 4px;
+}
+
+/* === INDICATOR LIGHTS === */
+.indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.led {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.3);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.2);
+}
+
+.led.normal { background: var(--isa-normal); }
+.led.running { background: var(--isa-running); box-shadow: 0 0 8px var(--isa-running); }
+.led.warning { background: var(--isa-warning); }
+.led.alarm { background: var(--isa-alarm); animation: blink 0.5s infinite; }
+.led.fault { background: var(--isa-fault); animation: blink 0.25s infinite; }
+
+@keyframes blink { 50% { opacity: 0.3; } }
+
+/* === BAR GRAPH === */
+.bar-graph {
+  height: 24px;
+  background: #333;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-dim), var(--accent));
+  transition: width 0.3s ease;
+}
+
+.bar-target {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--isa-running);
+}
+
+.bar-label {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  font-family: monospace;
+}
+
+/* === GAUGE === */
+.gauge {
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+
+.gauge-arc {
+  fill: none;
+  stroke: #333;
+  stroke-width: 8;
+}
+
+.gauge-value {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s;
+}
+
+.gauge-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-number {
+  font-size: 24px;
+  font-family: monospace;
+}
+
+/* === FOOTER BAR (South) === */
+.dock-south {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  height: 36px;
+  border-top: 1px solid var(--hmi-border);
+  font-size: 11px;
+  color: var(--hmi-text-dim);
+}
+
+.alarm-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.alarm-count {
+  padding: 2px 8px;
+  background: var(--isa-alarm);
+  border-radius: 3px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.alarm-count.zero {
+  background: var(--isa-normal);
+}
+
+/* === MAIN CONTENT === */
+.hmi-content {
+  padding: 16px;
+}
+
+.hmi-content h1 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--hmi-border);
+}
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+/* === FACEPLATE === */
+.faceplate {
+  background: var(--hmi-panel);
+  border: 1px solid var(--hmi-border);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.faceplate-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--hmi-border);
+}
+
+.faceplate-title {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.faceplate-mode {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--isa-running);
+  color: #fff;
+}
+
+.faceplate-mode.manual { background: var(--isa-manual); }
+.faceplate-mode.auto { background: var(--isa-running); }
+
+.faceplate-pv {
+  font-size: 28px;
+  font-family: monospace;
+  text-align: center;
+  margin: 16px 0;
+}
+
+.faceplate-sp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.faceplate-sp input {
+  flex: 1;
+  padding: 6px 10px;
+  background: #333;
+  border: 1px solid var(--hmi-border);
+  border-radius: 4px;
+  color: var(--hmi-text);
+  font-family: monospace;
+}
+
+.faceplate-commands {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.cmd-btn {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid var(--hmi-border);
+  border-radius: 4px;
+  background: var(--hmi-dock);
+  color: var(--hmi-text);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.cmd-btn:hover { background: var(--hmi-panel); }
+.cmd-btn.start { border-color: var(--isa-running); }
+.cmd-btn.stop { border-color: var(--isa-alarm); }

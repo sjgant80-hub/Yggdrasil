@@ -3,57 +3,162 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>World Tree Demo | Yggdrasil</title>
+  <title>World Tree | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
-  <style>
-    #viz { background:#222; padding:1rem; border-radius:8px; }
-    #bar { height:30px; background:linear-gradient(90deg,#4A90D9,#50C878); transition:width .1s; }
-    .metrics { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1rem 0; }
-  </style>
+  <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
 <body>
-  <nav class="hmi-nav">
-    <a href="../">Home</a> / <a href="./">Simulation</a> / <span>World Tree</span>
-  </nav>
-  <main class="hmi-panel">
-    <h1>World Tree Convergence</h1>
+  <div class="hmi-shell">
+    <div class="dock dock-north">
+      <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
+      <div class="hmi-title">L2 World Tree Simulation</div>
+      <div class="hmi-clock" id="clock">--:--:--</div>
+    </div>
 
-    <section class="concept-card">
-      <h2>κ Visualization</h2>
-      <div id="viz">
-        <div id="bar" style="width:50%"></div>
-      </div>
-      <div class="metrics">
-        <div>κ: <strong id="k-val">0.5000</strong></div>
-        <div>Target: <strong>0.6180</strong></div>
-        <div>Chaos: <span id="chaos">50.0%</span></div>
-        <div>Order: <span id="order">50.0%</span></div>
-        <div>Age: <span id="age">0</span></div>
-        <div>Status: <span id="stat">Ready</span></div>
-      </div>
-      <button onclick="start()">Start</button>
-      <button onclick="stop()">Stop</button>
-      <button onclick="reset()">Reset</button>
-    </section>
+    <div class="dock dock-west">
+      <nav class="nav-tree">
+        <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
+        <a href="./" class="nav-item"><span class="level">L2</span> Simulation</a>
+        <a href="world-tree.html" class="nav-item active"><span class="level">L2</span> World Tree</a>
+        <a href="forest.html" class="nav-item"><span class="level">L2</span> Forest</a>
+      </nav>
+    </div>
 
-    <section class="concept-card">
-      <h2>How It Works</h2>
-      <p>The tree starts at a random κ (chaos level).</p>
-      <p>Each step applies: ∂κ/∂t = -α(κ-0.618)(1-κ)(κ)</p>
-      <p>Watch it converge to the golden attractor.</p>
-    </section>
-  </main>
+    <div class="dock dock-center">
+      <div class="hmi-content">
+        <h1>World Tree Convergence</h1>
+
+        <div class="grid-2">
+          <div class="faceplate">
+            <div class="faceplate-header">
+              <span class="faceplate-title">Tree κ</span>
+              <span class="faceplate-mode auto" id="mode">AUTO</span>
+            </div>
+            <div class="faceplate-pv" id="kappa-pv">0.5000</div>
+            <div class="bar-graph">
+              <div class="bar-fill" id="kappa-bar" style="width:50%"></div>
+              <div class="bar-target" style="left:61.8%"></div>
+            </div>
+            <div class="faceplate-commands">
+              <button class="cmd-btn start" onclick="start()">Start</button>
+              <button class="cmd-btn stop" onclick="stop()">Stop</button>
+              <button class="cmd-btn" onclick="reset()">Reset</button>
+            </div>
+          </div>
+
+          <div class="faceplate">
+            <div class="faceplate-header">
+              <span class="faceplate-title">Tree Stats</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:8px 0">
+              <div>
+                <div class="kpi-label">Age</div>
+                <div class="kpi-value" id="age" style="font-size:24px">0</div>
+              </div>
+              <div>
+                <div class="kpi-label">Status</div>
+                <div id="status" style="font-size:14px;margin-top:4px">
+                  <span class="led normal"></span> Ready
+                </div>
+              </div>
+              <div>
+                <div class="kpi-label">Chaos</div>
+                <div id="chaos" style="font-size:18px;font-family:monospace">50.0%</div>
+              </div>
+              <div>
+                <div class="kpi-label">Order</div>
+                <div id="order" style="font-size:18px;font-family:monospace">50.0%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="status-card" style="margin-top:16px">
+          <h3>Convergence Equation</h3>
+          <pre style="font-size:13px;background:#333;padding:12px;border-radius:4px">∂κ/∂t = -α(κ - 0.618)(1 - κ)(κ)
+
+Above 0.618 → pushed DOWN toward order
+Below 0.618 → pushed UP toward chaos
+At 0.618    → stable equilibrium</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-east">
+      <div class="status-panel">
+        <div class="status-card">
+          <h3>Target</h3>
+          <div class="kpi-value">0.6180</div>
+          <div class="kpi-label">κ* = 1/φ</div>
+        </div>
+        <div class="status-card">
+          <h3>Safe Zone</h3>
+          <div style="font-size:12px;font-family:monospace">
+            <div>Min: 0.382</div>
+            <div>Max: 0.809</div>
+          </div>
+        </div>
+        <div class="status-card">
+          <h3>Convergence</h3>
+          <div class="indicator" id="conv-status">
+            <span class="led normal"></span>
+            <span>Waiting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dock dock-south">
+      <div class="alarm-banner">
+        <span class="alarm-count zero" id="alarm-count">0</span>
+        <span>Active Alarms</span>
+      </div>
+      <div>κ* = 0.618 | © 2024 Konomi Systems</div>
+      <div>v1.0.0 | ISA-101</div>
+    </div>
+  </div>
+
   <script src="../assets/js/yggdrasil.js"></script>
+  <script src="../assets/js/hmi.js"></script>
   <script>
+    const hmi = new HMIShell();
+    hmi.init();
+
     let tree, interval;
+
     function update() {
-      document.getElementById('k-val').textContent = tree.kappa.toFixed(4);
-      document.getElementById('bar').style.width = (tree.kappa * 100) + '%';
+      const k = tree.kappa;
+      document.getElementById('kappa-pv').textContent = k.toFixed(4);
+      document.getElementById('kappa-bar').style.width = (k * 100) + '%';
+      document.getElementById('age').textContent = tree.age;
       document.getElementById('chaos').textContent = tree.chaosPercent + '%';
       document.getElementById('order').textContent = tree.orderPercent + '%';
-      document.getElementById('age').textContent = tree.age;
-      document.getElementById('stat').textContent = tree.status;
+
+      const status = document.getElementById('status');
+      const conv = document.getElementById('conv-status');
+      const alarm = document.getElementById('alarm-count');
+
+      if (Math.abs(k - 0.618) < 0.01) {
+        status.innerHTML = '<span class="led running"></span> Optimal';
+        conv.innerHTML = '<span class="led running"></span> Converged';
+        document.getElementById('mode').textContent = 'OPTIMAL';
+        alarm.textContent = '0';
+        alarm.classList.add('zero');
+      } else if (k < 0.382 || k > 0.809) {
+        status.innerHTML = '<span class="led alarm"></span> Out of Range';
+        conv.innerHTML = '<span class="led alarm"></span> Danger';
+        document.getElementById('mode').textContent = 'ALARM';
+        alarm.textContent = '1';
+        alarm.classList.remove('zero');
+      } else {
+        status.innerHTML = '<span class="led warning"></span> Converging';
+        conv.innerHTML = '<span class="led warning"></span> In Progress';
+        document.getElementById('mode').textContent = 'RUN';
+        alarm.textContent = '0';
+        alarm.classList.add('zero');
+      }
     }
+
     function start() {
       if (!tree) tree = new WorldTree();
       interval = setInterval(() => { tree.step(); update(); }, 100);

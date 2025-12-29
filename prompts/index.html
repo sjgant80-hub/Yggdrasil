@@ -26,33 +26,33 @@
 
     <div class="dock dock-center">
       <div class="hmi-content">
-        <h1>Build Prompts</h1>
-        <div class="status-card">
-          <h3>Original Build Prompt</h3>
-          <p><a href="build-prompt.md" style="color:var(--accent)">build-prompt.md</a></p>
-          <p>The original specification for building this site.</p>
+        <p style="font-size:13px;color:var(--accent);margin-bottom:4px">DEVELOPER TOOLS — REFERENCE</p>
+        <h1>Build Reference</h1>
+
+        <div class="status-card" style="background:rgba(74,144,217,0.1);border-left:3px solid var(--accent);margin-bottom:16px">
+          <h3>How This Was Built</h3>
+          <p>This site was generated from prompts using κ = 0.618 as the core concept.</p>
+          <p style="margin-top:8px">Every design choice reflects balance. Structure + flexibility.</p>
         </div>
 
         <div class="status-card">
-          <h3>Key Constants</h3>
-          <div style="font-family:monospace;line-height:2">
-            <div>κ* = 0.618033988749895</div>
-            <div>φ = 1.618033988749895</div>
-            <div>α = 2.854 (convergence speed)</div>
-            <div>Basin: (0.382, 0.809)</div>
-          </div>
+          <h3>Core Constants</h3>
+          <table style="width:100%;font-family:monospace;font-size:13px">
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)"><td style="padding:6px 0;color:var(--accent)">κ*</td><td>0.618033988749895</td></tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)"><td style="padding:6px 0;color:var(--accent)">φ</td><td>1.618033988749895</td></tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)"><td style="padding:6px 0;color:var(--accent)">α</td><td>2.854 (convergence)</td></tr>
+            <tr><td style="padding:6px 0;color:var(--accent)">Basin</td><td>(0.382, 0.809)</td></tr>
+          </table>
         </div>
 
         <div class="status-card">
-          <h3>Architecture</h3>
-          <pre style="background:#1a1a2e;padding:12px;border-radius:4px;font-size:13px">/udt        - Type definitions
-/core       - Core concepts
-/standards  - ISA standards
-/lessons    - Academy
-/simulation - Demos
-/prompts    - This section
-/ai         - Kono AI chat
-/hmi        - SCADA components</pre>
+          <h3>Site Architecture</h3>
+          <pre style="background:#1a1a2e;padding:12px;border-radius:4px;font-size:12px">/core       → Concepts (κ, φ, convergence)
+/simulation → Live proofs
+/lessons    → STAR learning path
+/standards  → ISA framework
+/ai         → Kono assistant
+/udt        → Type definitions</pre>
         </div>
       </div>
     </div>
@@ -67,9 +67,9 @@
     </div>
 
     <div class="dock dock-south">
-      <div><a href="../">← Home</a></div>
-      <div>κ* = 0.618 | Konomi Systems</div>
-      <div>v1.0.0</div>
+      <div><a href="../udt/">← UDT Config</a></div>
+      <div>Reference | κ* = 0.618</div>
+      <div><a href="../">Home →</a></div>
     </div>
   </div>
   <script src="../assets/js/yggdrasil.js"></script>

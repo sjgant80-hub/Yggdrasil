@@ -28,30 +28,39 @@
 
     <div class="dock dock-center">
       <div class="hmi-content">
-        <h1>Lesson 2: Understanding Kappa</h1>
+        <p style="font-size:13px;color:var(--isa-warning);margin-bottom:4px">LESSON 2 — TASK</p>
+        <h1>How to Measure Balance</h1>
+
+        <div class="status-card" style="background:rgba(255,204,0,0.1);border-left:3px solid var(--isa-warning)">
+          <h3>The Task</h3>
+          <p>We need a <strong>number</strong> that measures chaos vs order.</p>
+          <p style="margin-top:8px">That number is κ (kappa) = normalized entropy.</p>
+        </div>
+
         <div class="status-card">
           <h3>The Formula</h3>
           <pre style="background:#1a1a2e;padding:12px;border-radius:4px">κ = H(S) / log₂(n)
 κ = entropy / max_possible_entropy</pre>
-          <p style="margin-top:8px">Normalized entropy. Always between 0 and 1.</p>
+          <p style="margin-top:8px">Result: a number between 0 and 1.</p>
         </div>
 
         <div class="status-card">
-          <h3>States of κ</h3>
-          <table style="width:100%;font-size:14px;line-height:2">
-            <tr><td style="font-family:monospace">κ = 0.0</td><td>Frozen, catatonic</td></tr>
-            <tr><td style="font-family:monospace">κ = 0.3</td><td>Too ordered, stuck</td></tr>
-            <tr><td style="font-family:monospace;color:var(--accent)">κ = 0.618</td><td><strong>Optimal flow</strong></td></tr>
-            <tr><td style="font-family:monospace">κ = 0.8</td><td>Too chaotic, scattered</td></tr>
-            <tr><td style="font-family:monospace">κ = 1.0</td><td>Pure noise, fragmenting</td></tr>
+          <h3>What κ Values Mean</h3>
+          <table style="width:100%;font-size:14px">
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)"><td style="padding:6px 0;font-family:monospace">κ = 0.0</td><td>Frozen, stuck</td></tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)"><td style="padding:6px 0;font-family:monospace">κ = 0.382</td><td>Safe zone minimum</td></tr>
+            <tr style="background:rgba(74,144,217,0.2)"><td style="padding:6px 0;font-family:monospace;color:var(--accent)">κ = 0.618</td><td><strong>Optimal flow</strong></td></tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)"><td style="padding:6px 0;font-family:monospace">κ = 0.809</td><td>Safe zone maximum</td></tr>
+            <tr><td style="padding:6px 0;font-family:monospace">κ = 1.0</td><td>Pure noise</td></tr>
           </table>
         </div>
 
-        <div class="status-card">
-          <h3>The Safe Zone</h3>
-          <p><strong>Basin of attraction: (0.382, 0.809)</strong></p>
-          <p>Stay inside → you recover to 0.618</p>
-          <p>Outside → danger of collapse or explosion</p>
+        <div class="status-card" style="border-left:3px solid var(--isa-alarm)">
+          <h3>Next: The Action</h3>
+          <p>We can measure. But <strong>how do systems get to 0.618?</strong></p>
+          <div style="margin-top:12px">
+            <a href="03-convergence.html" class="cmd-btn">Lesson 3: The Mechanism →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -59,12 +68,19 @@
     <div class="dock dock-east">
       <div class="status-panel">
         <div class="status-card">
-          <h3>Level</h3>
-          <div class="indicator"><span class="led warning"></span> Intermediate</div>
+          <h3>STAR Phase</h3>
+          <div class="indicator"><span class="led warning"></span> Task</div>
         </div>
         <div class="status-card">
-          <h3>Basin</h3>
+          <h3>Safe Zone</h3>
           <div style="font-family:monospace;font-size:12px">0.382 — 0.809</div>
+        </div>
+        <div class="status-card">
+          <h3>Progress</h3>
+          <div class="indicator"><span class="led running"></span> Situation</div>
+          <div class="indicator"><span class="led running"></span> Task</div>
+          <div class="indicator"><span class="led normal"></span> Action</div>
+          <div class="indicator"><span class="led normal"></span> Result</div>
         </div>
       </div>
     </div>

@@ -26,35 +26,38 @@
 
     <div class="dock dock-center">
       <div class="hmi-content">
+        <p style="font-size:13px;color:var(--accent);margin-bottom:4px">DEVELOPER TOOLS — TYPE SYSTEM</p>
         <h1>User Defined Types</h1>
+
+        <div class="status-card" style="background:rgba(74,144,217,0.1);border-left:3px solid var(--accent);margin-bottom:16px">
+          <h3>What Are UDTs?</h3>
+          <p>UDTs are <strong>reusable templates</strong> that define structure, behavior, and rules.</p>
+          <p style="margin-top:8px">Like ISA-95 for code. Like φ for chaos. Structure enables balance.</p>
+        </div>
+
         <div class="grid-3">
           <div class="status-card">
             <h3>Master UDT</h3>
-            <p>Root type. All inherit from here.</p>
-            <code style="font-size:11px;display:block;margin-top:8px;color:var(--accent)">udt/master.json</code>
+            <p>Root type. All inherit.</p>
             <div class="indicator" style="margin-top:8px"><span class="led running"></span> v1.1.0</div>
           </div>
           <div class="status-card">
             <h3>Paths UDT</h3>
-            <p>Navigation and routing automation.</p>
-            <code style="font-size:11px;display:block;margin-top:8px;color:var(--accent)">udt/paths.json</code>
+            <p>Navigation routing.</p>
             <div class="indicator" style="margin-top:8px"><span class="led running"></span> v1.0.0</div>
           </div>
           <div class="status-card">
             <h3>Tags UDT</h3>
-            <p>Factory-style modular tag providers.</p>
-            <code style="font-size:11px;display:block;margin-top:8px;color:var(--accent)">udt/tags.json</code>
+            <p>Modular providers.</p>
             <div class="indicator" style="margin-top:8px"><span class="led running"></span> v1.0.0</div>
           </div>
         </div>
 
         <div class="status-card" style="margin-top:16px">
-          <h3>UDT Header Format</h3>
+          <h3>Header Format</h3>
           <pre style="background:#1a1a2e;padding:12px;border-radius:4px;font-size:12px">@udt: "Yggdrasil.UDT.Name"
 @v:   "1.0.0"  (semver)
-@t:   85       (token count)
-@p:   "Parent.UDT"
-@r:   ["rule1", "rule2"]
+@t:   85       (token count, max 250)
 @s:   "active" (draft|active|deprecated)</pre>
         </div>
       </div>
@@ -75,9 +78,9 @@
     </div>
 
     <div class="dock dock-south">
-      <div><a href="../">← Home</a></div>
-      <div>κ* = 0.618 | Konomi Systems</div>
-      <div>v1.0.0</div>
+      <div><a href="../ai/">← Kono AI</a></div>
+      <div>Developer Tools | UDTs</div>
+      <div><a href="../prompts/">Prompts →</a></div>
     </div>
   </div>
   <script src="../assets/js/yggdrasil.js"></script>

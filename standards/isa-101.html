@@ -28,35 +28,39 @@
 
     <div class="dock dock-center">
       <div class="hmi-content">
-        <h1>ISA-101: HMI Design</h1>
-        <div class="status-card">
-          <h3>Principles</h3>
-          <ul style="line-height:2">
-            <li>Situational awareness > aesthetics</li>
-            <li>Consistency > novelty</li>
-            <li>Gray background: reduce fatigue</li>
-            <li>Color = meaning, not decoration</li>
-          </ul>
+        <p style="font-size:13px;color:var(--accent);margin-bottom:4px">STANDARD 3 — INTERFACE</p>
+        <h1>ISA-101: Human Displays</h1>
+
+        <div class="status-card" style="background:rgba(74,144,217,0.1);border-left:3px solid var(--accent)">
+          <h3>The Purpose</h3>
+          <p>Humans are part of the control loop.</p>
+          <p style="margin-top:8px">ISA-101 ensures they <strong>see clearly</strong> and <strong>act correctly</strong>.</p>
         </div>
 
         <div class="status-card">
-          <h3>Display Layers</h3>
-          <table style="width:100%;font-size:14px;line-height:2">
-            <tr><td style="font-family:monospace;color:var(--accent)">L1</td><td>Overview</td><td>Plant KPIs</td></tr>
-            <tr><td style="font-family:monospace;color:var(--accent)">L2</td><td>Area</td><td>Process flows</td></tr>
-            <tr><td style="font-family:monospace;color:var(--accent)">L3</td><td>Unit</td><td>Equipment faceplate</td></tr>
-            <tr><td style="font-family:monospace;color:var(--accent)">L4</td><td>Detail</td><td>Diagnostics</td></tr>
-            <tr><td style="font-family:monospace;color:var(--accent)">L5</td><td>Support</td><td>Maintenance</td></tr>
-          </table>
+          <h3>Core Principles</h3>
+          <p>• <strong>Situational awareness</strong> > aesthetics</p>
+          <p>• <strong>Consistency</strong> > novelty</p>
+          <p>• <strong>Gray background</strong>: reduce fatigue</p>
+          <p>• <strong>Color = meaning</strong>, not decoration</p>
         </div>
 
         <div class="status-card">
-          <h3>Color Meanings</h3>
+          <h3>Color Meanings (Used Here)</h3>
           <div style="line-height:2.2">
-            <div><span class="led normal"></span> <strong>Gray</strong>: Normal state</div>
+            <div><span class="led normal"></span> <strong>Gray</strong>: Normal/inactive</div>
             <div><span class="led running"></span> <strong>Green</strong>: Running/OK</div>
             <div><span class="led warning"></span> <strong>Yellow</strong>: Warning</div>
-            <div><span class="led alarm"></span> <strong>Red</strong>: Alarm/Fault</div>
+            <div><span class="led alarm"></span> <strong>Red</strong>: Alarm/fault</div>
+          </div>
+          <p style="margin-top:8px;font-size:12px;opacity:0.7">This site follows ISA-101 color standards.</p>
+        </div>
+
+        <div class="status-card" style="border-left:3px solid var(--isa-alarm)">
+          <h3>Next: Alarms</h3>
+          <p>Good displays show state. But what happens when κ <strong>drifts</strong>?</p>
+          <div style="margin-top:12px">
+            <a href="isa-18.html" class="cmd-btn">ISA-18.2: Alarms →</a>
           </div>
         </div>
       </div>

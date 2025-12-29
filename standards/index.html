@@ -29,35 +29,45 @@
 
     <div class="dock dock-center">
       <div class="hmi-content">
-        <h1>ISA Industrial Standards</h1>
+        <p style="font-size:13px;color:var(--accent);margin-bottom:4px">THE FRAMEWORK — REAL-WORLD APPLICATION</p>
+        <h1>Battle-Tested Standards</h1>
+
+        <div class="status-card" style="background:rgba(74,144,217,0.1);border-left:3px solid var(--accent);margin-bottom:16px">
+          <h3>From Theory to Industry</h3>
+          <p>You understand κ = 0.618. Now see how <strong>industry structures complex systems</strong>.</p>
+          <p style="margin-top:8px">These standards are proven in factories, refineries, and power plants.</p>
+        </div>
+
         <div class="grid-2">
-          <a href="isa-95.html" class="status-card" style="text-decoration:none">
-            <h3>ISA-95</h3>
-            <p>Enterprise ↔ Control Integration</p>
-            <div class="indicator"><span class="led running"></span> Levels 0-4</div>
+          <a href="isa-95.html" class="status-card" style="text-decoration:none;border-left:3px solid var(--isa-running)">
+            <h3>ISA-95 — Hierarchy</h3>
+            <p>How systems organize into levels (L0-L4).</p>
+            <div class="indicator"><span class="led running"></span> Structure</div>
           </a>
-          <a href="isa-88.html" class="status-card" style="text-decoration:none">
-            <h3>ISA-88</h3>
-            <p>Batch Process Control</p>
-            <div class="indicator"><span class="led running"></span> Procedural</div>
+          <a href="isa-88.html" class="status-card" style="text-decoration:none;border-left:3px solid var(--isa-warning)">
+            <h3>ISA-88 — Procedures</h3>
+            <p>How processes execute step by step.</p>
+            <div class="indicator"><span class="led warning"></span> Behavior</div>
           </a>
-          <a href="isa-101.html" class="status-card" style="text-decoration:none">
-            <h3>ISA-101</h3>
-            <p>HMI Design Standards</p>
-            <div class="indicator"><span class="led running"></span> Display</div>
+          <a href="isa-101.html" class="status-card" style="text-decoration:none;border-left:3px solid var(--accent)">
+            <h3>ISA-101 — Display</h3>
+            <p>How humans see and interact with systems.</p>
+            <div class="indicator"><span class="led running"></span> Interface</div>
           </a>
-          <a href="isa-18.html" class="status-card" style="text-decoration:none">
-            <h3>ISA-18.2</h3>
-            <p>Alarm Management</p>
-            <div class="indicator"><span class="led warning"></span> Alerts</div>
+          <a href="isa-18.html" class="status-card" style="text-decoration:none;border-left:3px solid var(--isa-alarm)">
+            <h3>ISA-18.2 — Alarms</h3>
+            <p>How systems alert when κ leaves safe zone.</p>
+            <div class="indicator"><span class="led alarm"></span> Alerts</div>
           </a>
         </div>
 
         <div class="status-card" style="margin-top:16px">
-          <h3>Why Standards?</h3>
-          <p>Industrial standards are <strong>UDTs for the physical world</strong>.</p>
-          <p>They define types, hierarchies, and state machines.</p>
-          <p>We use them to structure Yggdrasil like a factory.</p>
+          <h3>The Connection to κ</h3>
+          <p><strong>ISA standards are equilibrium tools.</strong> They help systems maintain κ ≈ 0.618:</p>
+          <p style="margin-top:8px">• <strong>ISA-95:</strong> Hierarchy keeps complexity balanced</p>
+          <p>• <strong>ISA-88:</strong> Procedures ensure consistent behavior</p>
+          <p>• <strong>ISA-101:</strong> Good HMI = fast human response</p>
+          <p>• <strong>ISA-18.2:</strong> Alarms trigger when κ drifts</p>
         </div>
       </div>
     </div>
@@ -74,9 +84,9 @@
     </div>
 
     <div class="dock dock-south">
-      <div><a href="../">← Home</a></div>
-      <div>κ* = 0.618 | Konomi Systems</div>
-      <div>v1.0.0</div>
+      <div><a href="../lessons/">← Academy</a></div>
+      <div>Industrial Standards | κ = 0.618</div>
+      <div><a href="isa-95.html">Start →</a></div>
     </div>
   </div>
   <script src="../assets/js/yggdrasil.js"></script>

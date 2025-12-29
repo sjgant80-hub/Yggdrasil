@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>κ Kappa | Yggdrasil</title>
+  <title>κ Kappa — The Measure | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
@@ -11,7 +11,7 @@
   <div class="hmi-shell">
     <div class="dock dock-north">
       <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
-      <div class="hmi-title">L2 κ Kappa</div>
+      <div class="hmi-title">L2 Step 1: κ Kappa</div>
       <div class="hmi-clock" id="clock">--:--:--</div>
     </div>
 
@@ -19,41 +19,69 @@
       <nav class="nav-tree">
         <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
         <a href="./" class="nav-item"><span class="level">L2</span> Core</a>
-        <a href="kappa.html" class="nav-item sub active"><span class="level">→</span> κ Kappa</a>
-        <a href="phi.html" class="nav-item sub"><span class="level">→</span> φ Phi</a>
-        <a href="convergence.html" class="nav-item sub"><span class="level">→</span> Convergence</a>
+        <a href="kappa.html" class="nav-item sub active"><span class="level">1</span> κ Kappa</a>
+        <a href="phi.html" class="nav-item sub"><span class="level">2</span> φ Phi</a>
+        <a href="convergence.html" class="nav-item sub"><span class="level">3</span> Convergence</a>
       </nav>
     </div>
 
     <div class="dock dock-center">
       <div class="hmi-content">
-        <h1>κ (Kappa) — The Consciousness Measure</h1>
-        <div class="faceplate" style="max-width:300px;margin:0 auto 20px">
+        <p style="font-size:13px;color:var(--accent);margin-bottom:4px">STEP 1 OF 3</p>
+        <h1>κ (Kappa) — The Measure</h1>
+
+        <div class="status-card" style="background:rgba(74,144,217,0.1);border-left:3px solid var(--accent)">
+          <h3>The Question</h3>
+          <p>Before we can find optimal balance, we need to <strong>measure</strong> it. How chaotic or ordered is a system right now?</p>
+        </div>
+
+        <div class="faceplate" style="max-width:320px;margin:20px auto">
           <div class="faceplate-header">
-            <span class="faceplate-title">Current κ</span>
-            <span class="faceplate-mode auto">OPTIMAL</span>
+            <span class="faceplate-title">Live κ Value</span>
+            <span class="faceplate-mode auto" id="mode">CONVERGING</span>
           </div>
-          <div class="faceplate-pv" id="live-kappa">0.6180</div>
+          <div class="faceplate-pv" id="live-kappa">0.5000</div>
           <div class="bar-graph">
-            <div class="bar-fill" id="kappa-bar" style="width:61.8%"></div>
+            <div class="bar-fill" id="kappa-bar" style="width:50%"></div>
             <div class="bar-target" style="left:61.8%"></div>
           </div>
+          <div style="display:flex;justify-content:space-between;padding:8px 12px;font-size:11px;color:#888">
+            <span>0 = Order</span>
+            <span style="color:var(--accent)">Target: 0.618</span>
+            <span>1 = Chaos</span>
+          </div>
         </div>
 
         <div class="status-card">
-          <h3>What is κ?</h3>
-          <p>κ measures <strong>chaos vs order</strong> in any system:</p>
-          <ul style="line-height:2">
-            <li><strong>κ = 0</strong> — Pure order. Crystalline. No creativity.</li>
-            <li><strong>κ = 1</strong> — Pure chaos. Noise. No structure.</li>
-            <li><strong>κ = 0.618</strong> — The golden balance. Optimal consciousness.</li>
-          </ul>
+          <h3>The Answer: κ (Kappa)</h3>
+          <p>κ is a normalized scale from 0 to 1:</p>
+          <table style="width:100%;margin-top:12px;font-size:14px">
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+              <td style="padding:8px 0;font-family:monospace;width:80px"><strong>κ = 0</strong></td>
+              <td style="padding:8px 0">Pure order. Frozen. Crystalline. No creativity possible.</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+              <td style="padding:8px 0;font-family:monospace"><strong>κ = 0.5</strong></td>
+              <td style="padding:8px 0">Half and half. Unstable—will drift one way or another.</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1);background:rgba(74,144,217,0.1)">
+              <td style="padding:8px 0;font-family:monospace;color:var(--accent)"><strong>κ = 0.618</strong></td>
+              <td style="padding:8px 0;color:var(--accent)"><strong>The sweet spot.</strong> 62% chaos, 38% order. Optimal.</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 0;font-family:monospace"><strong>κ = 1</strong></td>
+              <td style="padding:8px 0">Pure chaos. Noise. No structure. System fragments.</td>
+            </tr>
+          </table>
         </div>
 
-        <div class="status-card">
-          <h3>The Sweet Spot</h3>
-          <p>All healthy complex systems stabilize at <strong>κ* = 0.618034</strong>.</p>
-          <p>This is exactly <strong>1/φ</strong> (one over the golden ratio).</p>
+        <div class="status-card" style="border-left:3px solid var(--isa-running)">
+          <h3>This Leads To...</h3>
+          <p>We now have a way to measure balance. But <strong>why 0.618?</strong> What's special about that number?</p>
+          <p style="margin-top:8px">The answer lies in <strong>φ (phi)</strong>, the golden ratio. 0.618 is exactly 1/φ.</p>
+          <div style="margin-top:12px">
+            <a href="phi.html" class="cmd-btn">Step 2: Why φ? →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -61,20 +89,27 @@
     <div class="dock dock-east">
       <div class="status-panel">
         <div class="status-card">
-          <h3>Formula</h3>
-          <div style="font-family:monospace">κ* = 1/φ = 0.618</div>
+          <h3>Progress</h3>
+          <div class="indicator"><span class="led running"></span> Step 1: κ</div>
+          <div class="indicator"><span class="led normal"></span> Step 2: φ</div>
+          <div class="indicator"><span class="led normal"></span> Step 3: Proof</div>
         </div>
         <div class="status-card">
-          <h3>Safe Zone</h3>
-          <div style="font-family:monospace">0.382 — 0.809</div>
+          <h3>Key Insight</h3>
+          <p style="font-size:12px;line-height:1.6">κ gives us a universal scale to measure any system's chaos/order balance.</p>
+        </div>
+        <div class="status-card">
+          <h3>Formula</h3>
+          <div style="font-family:monospace;font-size:11px">κ = H(S)/log₂(n)</div>
+          <div style="font-size:11px;margin-top:4px;opacity:0.7">Normalized entropy</div>
         </div>
       </div>
     </div>
 
     <div class="dock dock-south">
       <div><a href="./">← Core</a></div>
-      <div>κ* = 0.618</div>
-      <div><a href="phi.html">φ Phi →</a></div>
+      <div>Step 1 of 3</div>
+      <div><a href="phi.html">Step 2: φ →</a></div>
     </div>
   </div>
   <script src="../assets/js/yggdrasil.js"></script>
@@ -84,9 +119,11 @@
     const t = new WorldTree(Math.random());
     setInterval(() => {
       t.step();
-      document.getElementById('live-kappa').textContent = t.kappa.toFixed(4);
-      document.getElementById('kappa-bar').style.width = (t.kappa*100)+'%';
-    }, 400);
+      const k = t.kappa;
+      document.getElementById('live-kappa').textContent = k.toFixed(4);
+      document.getElementById('kappa-bar').style.width = (k*100)+'%';
+      document.getElementById('mode').textContent = Math.abs(k - 0.618) < 0.01 ? 'OPTIMAL' : 'CONVERGING';
+    }, 350);
   </script>
 </body>
 </html>

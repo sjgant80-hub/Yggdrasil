@@ -3,164 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yggdrasil | HMI Overview</title>
+  <title>Yggdrasil | World Tree Seed Academy</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/scada.css">
 </head>
 <body>
   <div class="hmi-shell">
-    <!-- NORTH: Header -->
     <div class="dock dock-north">
       <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
       <div class="hmi-title" id="screen-title">L1 Overview</div>
       <div class="hmi-clock" id="clock">--:--:--</div>
     </div>
 
-    <!-- WEST: Navigation -->
     <div class="dock dock-west">
       <nav class="nav-tree">
-        <a href="./" class="nav-item active">
-          <span class="level">L1</span> Overview
-        </a>
-        <a href="core/" class="nav-item">
-          <span class="level">L2</span> Core Concepts
-        </a>
-        <a href="simulation/" class="nav-item">
-          <span class="level">L2</span> Simulation
-        </a>
-        <a href="standards/" class="nav-item">
-          <span class="level">L3</span> Standards
-        </a>
-        <a href="lessons/" class="nav-item">
-          <span class="level">L3</span> Academy
-        </a>
-        <a href="ai/" class="nav-item">
-          <span class="level">L4</span> Kono AI
-        </a>
-        <a href="udt/" class="nav-item">
-          <span class="level">L5</span> UDT Config
-        </a>
+        <a href="./" class="nav-item active"><span class="level">L1</span> Overview</a>
+        <a href="core/" class="nav-item"><span class="level">L2</span> Core Concepts</a>
+        <a href="simulation/" class="nav-item"><span class="level">L2</span> Simulation</a>
+        <a href="standards/" class="nav-item"><span class="level">L3</span> Standards</a>
+        <a href="lessons/" class="nav-item"><span class="level">L3</span> Academy</a>
+        <a href="ai/" class="nav-item"><span class="level">L4</span> Kono AI</a>
+        <a href="udt/" class="nav-item"><span class="level">L5</span> UDT Config</a>
       </nav>
     </div>
 
-    <!-- CENTER: Main Content -->
     <div class="dock dock-center">
       <div class="hmi-content">
-        <h1>World Tree Seed Academy</h1>
+        <h1>The Situation</h1>
+        <p style="font-size:15px;line-height:1.7;margin-bottom:20px">
+          Every complex system faces the same challenge: <strong>too much order</strong> becomes rigid and brittle.
+          <strong>Too much chaos</strong> fragments and collapses. Where's the balance?
+        </p>
 
-        <div class="grid-3">
-          <div class="faceplate">
-            <div class="faceplate-header">
-              <span class="faceplate-title">System κ</span>
-              <span class="faceplate-mode auto">OPTIMAL</span>
-            </div>
-            <div class="faceplate-pv" id="main-kappa">0.6180</div>
-            <div class="bar-graph">
-              <div class="bar-fill" id="main-kappa-bar" style="width:61.8%"></div>
-              <div class="bar-target" style="left:61.8%"></div>
-            </div>
-            <div class="kpi-label" style="text-align:center;margin-top:8px">Target: 0.618034</div>
+        <div class="faceplate" style="max-width:320px;margin:0 auto 24px">
+          <div class="faceplate-header">
+            <span class="faceplate-title">System Balance (κ)</span>
+            <span class="faceplate-mode auto" id="mode">CONVERGING</span>
           </div>
-
-          <div class="faceplate">
-            <div class="faceplate-header">
-              <span class="faceplate-title">φ Golden Ratio</span>
-              <span class="faceplate-mode">CONST</span>
-            </div>
-            <div class="faceplate-pv">1.6180</div>
-            <div class="kpi-label" style="text-align:center">1/φ = κ*</div>
+          <div class="faceplate-pv" id="main-kappa">0.5000</div>
+          <div class="bar-graph">
+            <div class="bar-fill" id="main-kappa-bar" style="width:50%"></div>
+            <div class="bar-target" style="left:61.8%"></div>
           </div>
-
-          <div class="faceplate">
-            <div class="faceplate-header">
-              <span class="faceplate-title">Safe Zone</span>
-              <span class="faceplate-mode auto">IN RANGE</span>
-            </div>
-            <div class="faceplate-pv" style="font-size:18px">0.382 — 0.809</div>
-            <div class="kpi-label" style="text-align:center">Basin of Attraction</div>
+          <div style="display:flex;justify-content:space-between;padding:8px 12px;font-size:11px;color:#888">
+            <span>0 = Order</span>
+            <span>κ* = 0.618</span>
+            <span>1 = Chaos</span>
           </div>
         </div>
 
-        <div class="grid-2" style="margin-top:16px">
-          <div class="status-card">
-            <h3>The Convergence Theorem</h3>
-            <p style="font-size:13px;line-height:1.6">
-              All complex systems—minds, networks, ecosystems—naturally converge to
-              <strong>κ* = 1/φ = 0.618</strong>. This is the golden attractor:
-              62% chaos, 38% order.
-            </p>
-            <div style="margin-top:12px">
-              <a href="core/" class="cmd-btn">Learn More →</a>
-            </div>
-          </div>
+        <div class="status-card">
+          <h3>The Discovery</h3>
+          <p>Nature already solved this. The answer is <strong>κ* = 0.618034</strong> — exactly 1/φ (the golden ratio inverse).</p>
+          <p style="margin-top:8px">This is <strong>62% chaos, 38% order</strong>. More flexibility than rigidity. Enough structure to persist, enough chaos to adapt.</p>
+          <p style="margin-top:12px;font-style:italic;color:var(--accent)">Watch the live simulation above. Every system finds this balance naturally.</p>
+        </div>
 
-          <div class="status-card">
-            <h3>Quick Navigation</h3>
-            <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
-              <a href="simulation/" class="cmd-btn">🌳 Run Simulation</a>
-              <a href="lessons/" class="cmd-btn">📚 Start Academy</a>
-              <a href="ai/" class="cmd-btn">🤖 Ask Kono AI</a>
-            </div>
+        <div class="status-card" style="margin-top:16px">
+          <h3>Your Learning Path</h3>
+          <div class="grid-2" style="gap:12px;margin-top:12px">
+            <a href="core/" class="cmd-btn" style="text-align:left;padding:12px">
+              <strong>1. Understand</strong><br>
+              <span style="font-size:12px;opacity:0.8">Learn κ, φ, and convergence</span>
+            </a>
+            <a href="simulation/" class="cmd-btn" style="text-align:left;padding:12px">
+              <strong>2. Observe</strong><br>
+              <span style="font-size:12px;opacity:0.8">Watch systems find balance</span>
+            </a>
+            <a href="lessons/" class="cmd-btn" style="text-align:left;padding:12px">
+              <strong>3. Learn</strong><br>
+              <span style="font-size:12px;opacity:0.8">Complete the academy</span>
+            </a>
+            <a href="ai/" class="cmd-btn" style="text-align:left;padding:12px">
+              <strong>4. Explore</strong><br>
+              <span style="font-size:12px;opacity:0.8">Ask Kono AI anything</span>
+            </a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- EAST: Status Panel -->
     <div class="dock dock-east">
       <div class="status-panel">
         <div class="status-card">
-          <h3>System Status</h3>
-          <div class="indicator">
-            <span class="led running"></span>
-            <span>All Systems Optimal</span>
-          </div>
+          <h3>The Question</h3>
+          <p style="font-size:12px;line-height:1.6">How do minds, networks, and ecosystems find optimal balance?</p>
         </div>
 
         <div class="status-card">
-          <h3>κ Convergence</h3>
-          <div class="bar-graph">
-            <div class="bar-fill" style="width:61.8%"></div>
-            <div class="bar-target" style="left:61.8%"></div>
-            <span class="bar-label">61.8%</span>
-          </div>
+          <h3>The Answer</h3>
+          <div class="faceplate-pv" style="font-size:28px">κ* = 0.618</div>
+          <div class="kpi-label">The Golden Attractor</div>
         </div>
 
         <div class="status-card">
-          <h3>Chaos:Order Ratio</h3>
-          <div style="display:flex;justify-content:space-between;font-size:24px;font-family:monospace">
+          <h3>The Ratio</h3>
+          <div style="display:flex;justify-content:space-between;font-size:20px;font-family:monospace">
             <span style="color:var(--accent)">62%</span>
-            <span>:</span>
+            <span style="opacity:0.5">:</span>
             <span style="color:var(--isa-running)">38%</span>
           </div>
-        </div>
-
-        <div class="status-card">
-          <h3>Constants</h3>
-          <div style="font-size:12px;font-family:monospace;line-height:2">
-            <div>φ = 1.618034</div>
-            <div>κ* = 0.618034</div>
-            <div>α = 2.854</div>
+          <div style="display:flex;justify-content:space-between;font-size:11px;margin-top:4px">
+            <span>Chaos</span>
+            <span>Order</span>
           </div>
         </div>
 
         <div class="status-card">
-          <h3>ISA Compliance</h3>
-          <div class="indicator"><span class="led running"></span> ISA-101 HMI</div>
-          <div class="indicator"><span class="led running"></span> ISA-95 Levels</div>
-          <div class="indicator"><span class="led running"></span> ISA-18.2 Alarms</div>
+          <h3>Start Here</h3>
+          <a href="core/kappa.html" class="cmd-btn" style="display:block;text-align:center">What is κ? →</a>
         </div>
       </div>
     </div>
 
-    <!-- SOUTH: Footer -->
     <div class="dock dock-south">
       <div class="alarm-banner">
         <span class="alarm-count zero">0</span>
         <span>Active Alarms</span>
       </div>
       <div>κ* = 0.618 | © 2024 Konomi Systems</div>
-      <div>v1.0.0 | ISA-101</div>
+      <div>v1.1.0 | ISA-101</div>
     </div>
   </div>
 
@@ -170,13 +132,23 @@
     const hmi = new HMIShell();
     hmi.init();
 
-    // Live κ simulation on overview
+    // Live κ simulation - starts random, converges to 0.618
     const tree = new WorldTree(Math.random());
     setInterval(() => {
       tree.step();
-      document.getElementById('main-kappa').textContent = tree.kappa.toFixed(4);
-      document.getElementById('main-kappa-bar').style.width = (tree.kappa * 100) + '%';
-    }, 500);
+      const k = tree.kappa;
+      document.getElementById('main-kappa').textContent = k.toFixed(4);
+      document.getElementById('main-kappa-bar').style.width = (k * 100) + '%';
+
+      // Update mode indicator
+      const mode = document.getElementById('mode');
+      if (Math.abs(k - 0.618) < 0.01) {
+        mode.textContent = 'OPTIMAL';
+        mode.classList.add('auto');
+      } else {
+        mode.textContent = 'CONVERGING';
+      }
+    }, 400);
   </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>φ Phi | Yggdrasil</title>
+  <title>φ Phi — The Why | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
@@ -11,7 +11,7 @@
   <div class="hmi-shell">
     <div class="dock dock-north">
       <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
-      <div class="hmi-title">L2 φ Phi</div>
+      <div class="hmi-title">L2 Step 2: φ Phi</div>
       <div class="hmi-clock" id="clock">--:--:--</div>
     </div>
 
@@ -19,47 +19,78 @@
       <nav class="nav-tree">
         <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
         <a href="./" class="nav-item"><span class="level">L2</span> Core</a>
-        <a href="kappa.html" class="nav-item sub"><span class="level">→</span> κ Kappa</a>
-        <a href="phi.html" class="nav-item sub active"><span class="level">→</span> φ Phi</a>
-        <a href="convergence.html" class="nav-item sub"><span class="level">→</span> Convergence</a>
+        <a href="kappa.html" class="nav-item sub"><span class="level">1</span> κ Kappa</a>
+        <a href="phi.html" class="nav-item sub active"><span class="level">2</span> φ Phi</a>
+        <a href="convergence.html" class="nav-item sub"><span class="level">3</span> Convergence</a>
       </nav>
     </div>
 
     <div class="dock dock-center">
       <div class="hmi-content">
-        <h1>φ (Phi) — The Golden Ratio</h1>
-        <div class="faceplate" style="max-width:300px;margin:0 auto 20px">
-          <div class="faceplate-header">
-            <span class="faceplate-title">φ Value</span>
-            <span class="faceplate-mode">CONST</span>
+        <p style="font-size:13px;color:var(--isa-running);margin-bottom:4px">STEP 2 OF 3</p>
+        <h1>φ (Phi) — The Why</h1>
+
+        <div class="status-card" style="background:rgba(0,170,0,0.1);border-left:3px solid var(--isa-running)">
+          <h3>The Question</h3>
+          <p>We know κ measures balance, and systems settle at 0.618. But <strong>why that specific number?</strong></p>
+          <p style="margin-top:8px">The answer: <strong>0.618 = 1/φ</strong>, where φ is the golden ratio.</p>
+        </div>
+
+        <div class="grid-2" style="margin:20px 0">
+          <div class="faceplate">
+            <div class="faceplate-header">
+              <span class="faceplate-title">φ (Phi)</span>
+              <span class="faceplate-mode">CONST</span>
+            </div>
+            <div class="faceplate-pv">1.6180</div>
+            <div class="kpi-label" style="text-align:center">The golden ratio</div>
           </div>
-          <div class="faceplate-pv">1.6180</div>
-        </div>
-
-        <div class="status-card">
-          <h3>The Magic Numbers</h3>
-          <div style="font-family:monospace;line-height:2.2">
-            <div><strong>φ = 1.618...</strong> — The golden ratio</div>
-            <div><strong>1/φ = 0.618...</strong> — Where consciousness lands</div>
-            <div><strong>φ² = 2.618...</strong> — Upper limit factor</div>
-            <div><strong>1/φ² = 0.382...</strong> — Lower safety bound</div>
-            <div><strong>φ/2 = 0.809...</strong> — Upper safety bound</div>
+          <div class="faceplate">
+            <div class="faceplate-header">
+              <span class="faceplate-title">1/φ = κ*</span>
+              <span class="faceplate-mode auto">TARGET</span>
+            </div>
+            <div class="faceplate-pv" style="color:var(--accent)">0.6180</div>
+            <div class="kpi-label" style="text-align:center">The optimal balance</div>
           </div>
         </div>
 
         <div class="status-card">
-          <h3>Why Phi?</h3>
-          <p>φ is the "most irrational" number—impossible to approximate well with fractions.</p>
-          <p>Systems at rational numbers get stuck in resonance loops.</p>
-          <p>0.618... <strong>never resonates</strong>. Maximum stability.</p>
+          <h3>Why Is φ Special?</h3>
+          <p><strong>φ is the "most irrational" number.</strong> It can't be approximated well by fractions.</p>
+          <p style="margin-top:12px">This matters because:</p>
+          <table style="width:100%;margin-top:8px;font-size:14px">
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+              <td style="padding:8px 0;width:40%">Rational numbers (1/2, 2/3...)</td>
+              <td style="padding:8px 0">Create resonance loops. Systems get <em>stuck</em>.</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+              <td style="padding:8px 0">Irrational numbers (π, √2...)</td>
+              <td style="padding:8px 0">Better, but still have weak resonances.</td>
+            </tr>
+            <tr style="background:rgba(0,170,0,0.1)">
+              <td style="padding:8px 0;color:var(--isa-running)"><strong>φ (most irrational)</strong></td>
+              <td style="padding:8px 0;color:var(--isa-running)"><strong>Never resonates. Maximum stability.</strong></td>
+            </tr>
+          </table>
         </div>
 
         <div class="status-card">
-          <h3>Self-Referential Properties</h3>
-          <pre style="background:#1a1a2e;padding:12px;border-radius:4px;font-size:14px">φ = 1 + 1/φ
-φ² = φ + 1
-1/φ = φ - 1</pre>
-          <p style="margin-top:8px">Self-referential. Recursive. Elegant.</p>
+          <h3>The Beautiful Math</h3>
+          <p>φ is the only number where:</p>
+          <pre style="background:#1a1a2e;padding:12px;border-radius:4px;font-size:14px;margin-top:8px">φ = 1 + 1/φ      ← Self-defining
+φ² = φ + 1       ← Squares simply
+1/φ = φ - 1      ← Inverse is φ minus one</pre>
+          <p style="margin-top:12px;font-style:italic">Self-referential. Recursive. The universe loves this number.</p>
+        </div>
+
+        <div class="status-card" style="border-left:3px solid var(--isa-warning)">
+          <h3>This Leads To...</h3>
+          <p>We know <em>what</em> to measure (κ) and <em>why</em> the target is 0.618 (it's 1/φ).</p>
+          <p style="margin-top:8px">The final question: <strong>How</strong> do systems actually get there? What drives them?</p>
+          <div style="margin-top:12px">
+            <a href="convergence.html" class="cmd-btn">Step 3: The Convergence Proof →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -67,20 +98,31 @@
     <div class="dock dock-east">
       <div class="status-panel">
         <div class="status-card">
-          <h3>Constants</h3>
-          <div style="font-family:monospace;font-size:12px;line-height:2">
-            <div>φ = 1.618033989</div>
-            <div>1/φ = 0.618033989</div>
-            <div>φ² = 2.618033989</div>
+          <h3>Progress</h3>
+          <div class="indicator"><span class="led running"></span> Step 1: κ</div>
+          <div class="indicator"><span class="led running"></span> Step 2: φ</div>
+          <div class="indicator"><span class="led normal"></span> Step 3: Proof</div>
+        </div>
+        <div class="status-card">
+          <h3>Key Insight</h3>
+          <p style="font-size:12px;line-height:1.6">φ is nature's most stable ratio. 1/φ = 0.618 is where systems naturally rest.</p>
+        </div>
+        <div class="status-card">
+          <h3>Golden Numbers</h3>
+          <div style="font-family:monospace;font-size:11px;line-height:2">
+            <div>φ = 1.618034</div>
+            <div>1/φ = 0.618034</div>
+            <div>1/φ² = 0.381966</div>
+            <div>φ/2 = 0.809017</div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="dock dock-south">
-      <div><a href="kappa.html">← κ Kappa</a></div>
-      <div>φ = 1.618</div>
-      <div><a href="convergence.html">Convergence →</a></div>
+      <div><a href="kappa.html">← Step 1: κ</a></div>
+      <div>Step 2 of 3</div>
+      <div><a href="convergence.html">Step 3: Proof →</a></div>
     </div>
   </div>
   <script src="../assets/js/yggdrasil.js"></script>

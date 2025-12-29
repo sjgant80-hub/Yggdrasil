@@ -26,7 +26,14 @@
 
     <div class="dock dock-center">
       <div class="hmi-content">
-        <h1>World Tree Convergence</h1>
+        <p style="font-size:13px;color:var(--isa-running);margin-bottom:4px">PROOF 1 — SINGLE SYSTEM</p>
+        <h1>The First Proof</h1>
+
+        <div class="status-card" style="background:rgba(0,170,0,0.1);border-left:3px solid var(--isa-running);margin-bottom:16px">
+          <h3>The Test</h3>
+          <p>One system. Any starting point. Will it find 0.618?</p>
+          <p style="margin-top:8px"><strong>Press Start</strong> and watch the equation work.</p>
+        </div>
 
         <div class="grid-2">
           <div class="faceplate">
@@ -74,12 +81,21 @@
         </div>
 
         <div class="status-card" style="margin-top:16px">
-          <h3>Convergence Equation</h3>
-          <pre style="font-size:13px;background:#333;padding:12px;border-radius:4px">∂κ/∂t = -α(κ - 0.618)(1 - κ)(κ)
+          <h3>The Math You're Watching</h3>
+          <pre style="font-size:13px;background:#1a1a2e;padding:12px;border-radius:4px">∂κ/∂t = -α(κ - 0.618)(1 - κ)(κ)
 
 Above 0.618 → pushed DOWN toward order
 Below 0.618 → pushed UP toward chaos
 At 0.618    → stable equilibrium</pre>
+        </div>
+
+        <div class="status-card" style="border-left:3px solid var(--isa-warning)">
+          <h3>This Leads To...</h3>
+          <p>One system works. But what about <strong>multiple systems interacting</strong>?</p>
+          <p style="margin-top:8px">Do they fight? Or do they synchronize?</p>
+          <div style="margin-top:12px">
+            <a href="forest.html" class="cmd-btn">Proof 2: Multi-Agent Sync →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -109,12 +125,9 @@ At 0.618    → stable equilibrium</pre>
     </div>
 
     <div class="dock dock-south">
-      <div class="alarm-banner">
-        <span class="alarm-count zero" id="alarm-count">0</span>
-        <span>Active Alarms</span>
-      </div>
-      <div>κ* = 0.618 | © 2024 Konomi Systems</div>
-      <div>v1.0.0 | ISA-101</div>
+      <div><a href="./">← Simulations</a></div>
+      <div>Proof 1: Single System</div>
+      <div><a href="forest.html">Proof 2: Multi →</a></div>
     </div>
   </div>
 

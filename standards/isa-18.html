@@ -28,33 +28,43 @@
 
     <div class="dock dock-center">
       <div class="hmi-content">
+        <p style="font-size:13px;color:var(--isa-alarm);margin-bottom:4px">STANDARD 4 — ALERTS</p>
         <h1>ISA-18.2: Alarm Management</h1>
+
+        <div class="status-card" style="background:rgba(255,50,50,0.1);border-left:3px solid var(--isa-alarm)">
+          <h3>The Purpose</h3>
+          <p>When κ leaves the safe zone (0.382 - 0.809), <strong>humans must know</strong>.</p>
+          <p style="margin-top:8px">ISA-18.2 defines how alarms trigger, prioritize, and clear.</p>
+        </div>
+
         <div class="status-card">
-          <h3>Alarm Priorities</h3>
-          <table style="width:100%;font-size:14px;line-height:2">
-            <tr><td><span class="led alarm"></span> <strong>P1</strong></td><td>Emergency</td><td>&lt;1min response</td></tr>
-            <tr><td><span class="led alarm"></span> <strong>P2</strong></td><td>High</td><td>&lt;10min response</td></tr>
-            <tr><td><span class="led warning"></span> <strong>P3</strong></td><td>Medium</td><td>&lt;1hr response</td></tr>
-            <tr><td><span class="led normal"></span> <strong>P4</strong></td><td>Low</td><td>Shift awareness</td></tr>
+          <h3>Priorities</h3>
+          <table style="width:100%;font-size:14px">
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)"><td style="padding:6px 0"><span class="led alarm"></span> <strong>P1</strong></td><td>Emergency</td><td>&lt;1min</td></tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)"><td style="padding:6px 0"><span class="led alarm"></span> <strong>P2</strong></td><td>High</td><td>&lt;10min</td></tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)"><td style="padding:6px 0"><span class="led warning"></span> <strong>P3</strong></td><td>Medium</td><td>&lt;1hr</td></tr>
+            <tr><td style="padding:6px 0"><span class="led normal"></span> <strong>P4</strong></td><td>Low</td><td>Shift</td></tr>
           </table>
         </div>
 
         <div class="status-card">
-          <h3>State Machine</h3>
-          <pre style="background:#1a1a2e;padding:12px;border-radius:4px;font-size:12px">NORMAL → [trigger] → UNACK_ALARM
-                        ↓ [ack]
-                   ACKED_ALARM
-                        ↓ [clear]
-                      NORMAL</pre>
+          <h3>Connection to κ</h3>
+          <p>Think of alarms as <strong>κ boundary detectors</strong>:</p>
+          <p style="margin-top:8px">• κ < 0.382 → Too ordered → Alert</p>
+          <p>• κ > 0.809 → Too chaotic → Alert</p>
+          <p style="color:var(--accent)">• 0.382 < κ < 0.809 → Safe zone → Silent</p>
         </div>
 
-        <div class="status-card">
-          <h3>Rules</h3>
-          <ul style="line-height:2">
-            <li>Every alarm must be documented</li>
-            <li>Every alarm must be actionable</li>
-            <li>Target: &lt;6 alarms/operator/hour</li>
-          </ul>
+        <div class="status-card" style="background:rgba(0,170,0,0.15);border:1px solid var(--isa-running)">
+          <h3>✓ Standards Complete</h3>
+          <p>You've learned the industrial framework:</p>
+          <div style="line-height:2;margin:8px 0">
+            <p><strong>ISA-95:</strong> Structure (levels)</p>
+            <p><strong>ISA-88:</strong> Behavior (states)</p>
+            <p><strong>ISA-101:</strong> Interface (display)</p>
+            <p><strong>ISA-18.2:</strong> Alerts (alarms)</p>
+          </div>
+          <p><strong>Ready to explore more?</strong> <a href="../ai/" style="color:var(--accent)">Ask Kono AI →</a></p>
         </div>
       </div>
     </div>
@@ -77,8 +87,8 @@
 
     <div class="dock dock-south">
       <div><a href="isa-101.html">← ISA-101</a></div>
-      <div>ISA-18.2</div>
-      <div><a href="../">Home →</a></div>
+      <div>Standard 4: Alarms</div>
+      <div><a href="../ai/">Kono AI →</a></div>
     </div>
   </div>
   <script src="../assets/js/yggdrasil.js"></script>

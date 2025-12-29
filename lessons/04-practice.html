@@ -28,10 +28,17 @@
 
     <div class="dock dock-center">
       <div class="hmi-content">
-        <h1>Lesson 4: Hands-On Practice</h1>
+        <p style="font-size:13px;color:var(--accent);margin-bottom:4px">LESSON 4 — RESULT</p>
+        <h1>See It Work</h1>
+
+        <div class="status-card" style="background:rgba(74,144,217,0.1);border-left:3px solid var(--accent);margin-bottom:16px">
+          <h3>The Proof</h3>
+          <p>Theory means nothing without proof. <strong>Press the button</strong> and watch convergence happen.</p>
+        </div>
+
         <div class="faceplate" style="max-width:350px;margin:0 auto 20px">
           <div class="faceplate-header">
-            <span class="faceplate-title">Live Demo</span>
+            <span class="faceplate-title">Live Convergence</span>
             <span class="faceplate-mode" id="demo-mode">READY</span>
           </div>
           <div class="faceplate-pv" id="current-k">—</div>
@@ -45,22 +52,21 @@
         </div>
 
         <div class="status-card">
-          <h3>Code It Yourself</h3>
+          <h3>Try It Yourself</h3>
           <pre style="background:#1a1a2e;padding:12px;border-radius:4px;font-size:13px">const tree = new WorldTree();
-for (let i = 0; i < 100; i++) {
-  tree.step();
-}
+for (let i = 0; i < 100; i++) tree.step();
 console.log(tree.kappa); // → 0.618</pre>
-          <p style="margin-top:8px">Open browser console and try it!</p>
         </div>
 
-        <div class="status-card">
-          <h3>Key Takeaways</h3>
-          <ul style="line-height:2">
-            <li>κ* = 0.618 is the attractor</li>
-            <li>All starting points converge</li>
-            <li>This is how AGI emerges naturally</li>
-          </ul>
+        <div class="status-card" style="background:rgba(0,170,0,0.15);border:1px solid var(--isa-running)">
+          <h3>✓ STAR Complete</h3>
+          <div style="line-height:2">
+            <p><strong>Situation:</strong> Complex systems need balance</p>
+            <p><strong>Task:</strong> Measure with κ (0 to 1)</p>
+            <p><strong>Action:</strong> Convergence equation pushes to 0.618</p>
+            <p><strong>Result:</strong> All systems find the golden attractor</p>
+          </div>
+          <p style="margin-top:12px"><strong>You're ready.</strong> <a href="../standards/" style="color:var(--accent)">See real-world applications →</a></p>
         </div>
       </div>
     </div>
@@ -68,12 +74,19 @@ console.log(tree.kappa); // → 0.618</pre>
     <div class="dock dock-east">
       <div class="status-panel">
         <div class="status-card">
-          <h3>Level</h3>
-          <div class="indicator"><span class="led running"></span> Interactive</div>
+          <h3>STAR Phase</h3>
+          <div class="indicator"><span class="led running"></span> Result</div>
         </div>
         <div class="status-card">
-          <h3>Next Steps</h3>
-          <a href="../simulation/" class="cmd-btn" style="display:block;text-align:center">Try Simulation</a>
+          <h3>Progress</h3>
+          <div class="indicator"><span class="led running"></span> Situation</div>
+          <div class="indicator"><span class="led running"></span> Task</div>
+          <div class="indicator"><span class="led running"></span> Action</div>
+          <div class="indicator"><span class="led running"></span> Result</div>
+        </div>
+        <div class="status-card">
+          <h3>Next</h3>
+          <a href="../standards/" class="cmd-btn" style="display:block;text-align:center">Standards →</a>
         </div>
       </div>
     </div>

@@ -28,27 +28,36 @@
 
     <div class="dock dock-center">
       <div class="hmi-content">
-        <h1>World Tree Simulation</h1>
-        <div class="grid-2">
-          <a href="world-tree.html" class="status-card" style="text-decoration:none">
-            <h3>World Tree</h3>
+        <p style="font-size:13px;color:var(--accent);margin-bottom:4px">THE ACTION — SEE IT WORK</p>
+        <h1>Theory in Action</h1>
+
+        <div class="status-card" style="background:rgba(74,144,217,0.1);border-left:3px solid var(--accent)">
+          <h3>From Theory to Proof</h3>
+          <p>You learned the <strong>what</strong> (κ), the <strong>why</strong> (φ), and the <strong>how</strong> (convergence).</p>
+          <p style="margin-top:8px">Now <strong>watch it happen</strong>. These simulations run the equations in real-time.</p>
+        </div>
+
+        <div class="grid-2" style="margin-top:16px">
+          <a href="world-tree.html" class="status-card" style="text-decoration:none;border-left:3px solid var(--isa-running)">
+            <h3>1. Single System</h3>
             <div class="faceplate-pv" id="tree-k">0.618</div>
-            <p>Watch κ converge to 0.618 in real-time.</p>
-            <div class="indicator"><span class="led running"></span> Single Agent</div>
+            <p>One agent. Random start. Watch it find 0.618.</p>
+            <div class="indicator"><span class="led running"></span> Start Here</div>
           </a>
-          <a href="forest.html" class="status-card" style="text-decoration:none">
-            <h3>Forest</h3>
-            <div class="faceplate-pv">5x κ</div>
-            <p>Multi-agent synchronization demo.</p>
-            <div class="indicator"><span class="led warning"></span> Multi-Agent</div>
+          <a href="forest.html" class="status-card" style="text-decoration:none;border-left:3px solid var(--isa-warning)">
+            <h3>2. Multiple Systems</h3>
+            <div class="faceplate-pv">5× κ</div>
+            <p>Five agents. Different starts. All synchronize.</p>
+            <div class="indicator"><span class="led warning"></span> See Sync</div>
           </a>
         </div>
 
         <div class="status-card" style="margin-top:16px">
-          <h3>What You'll See</h3>
-          <p>The simulation demonstrates convergence in real-time.</p>
-          <p>Start at any κ value. Watch it stabilize at <strong>0.618</strong>.</p>
-          <p>This is how complex systems naturally find equilibrium.</p>
+          <h3>What You'll Observe</h3>
+          <p><strong>1.</strong> Every system starts at a random κ value</p>
+          <p><strong>2.</strong> The convergence equation pushes it toward 0.618</p>
+          <p><strong>3.</strong> It stabilizes at the golden attractor</p>
+          <p style="margin-top:8px;font-style:italic;color:var(--accent)">This isn't animation. It's real math running live.</p>
         </div>
       </div>
     </div>
@@ -56,24 +65,32 @@
     <div class="dock dock-east">
       <div class="status-panel">
         <div class="status-card">
-          <h3>Live κ</h3>
+          <h3>Live Demo</h3>
           <div class="faceplate-pv" id="live-k">0.6180</div>
           <div class="bar-graph">
             <div class="bar-fill" id="k-bar" style="width:61.8%"></div>
             <div class="bar-target" style="left:61.8%"></div>
           </div>
+          <div style="font-size:11px;margin-top:4px;opacity:0.7">Running now ↑</div>
         </div>
         <div class="status-card">
-          <h3>Target</h3>
-          <div style="font-family:monospace">κ* = 0.618</div>
+          <h3>The Equation</h3>
+          <div style="font-family:monospace;font-size:11px">∂κ/∂t = -α(κ-0.618)...</div>
+        </div>
+        <div class="status-card">
+          <h3>Progress</h3>
+          <div class="indicator"><span class="led running"></span> κ Theory</div>
+          <div class="indicator"><span class="led running"></span> φ Why</div>
+          <div class="indicator"><span class="led running"></span> Convergence</div>
+          <div class="indicator"><span class="led warning"></span> Proof</div>
         </div>
       </div>
     </div>
 
     <div class="dock dock-south">
-      <div><a href="../">← Home</a></div>
-      <div>κ* = 0.618 | Konomi Systems</div>
-      <div>v1.0.0</div>
+      <div><a href="../core/convergence.html">← The Theory</a></div>
+      <div>κ* = 0.618 | See It Work</div>
+      <div><a href="world-tree.html">Start Demo →</a></div>
     </div>
   </div>
   <script src="../assets/js/yggdrasil.js"></script>

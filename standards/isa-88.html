@@ -28,20 +28,13 @@
 
     <div class="dock dock-center">
       <div class="hmi-content">
-        <h1>ISA-88: Batch Control</h1>
-        <div class="status-card">
-          <h3>Equipment Model</h3>
-          <div style="font-family:monospace;line-height:2;font-size:13px">
-            Enterprise → Site → Area → ProcessCell → Unit → EquipmentModule → ControlModule
-          </div>
-        </div>
+        <p style="font-size:13px;color:var(--isa-warning);margin-bottom:4px">STANDARD 2 — BEHAVIOR</p>
+        <h1>ISA-88: Procedures</h1>
 
-        <div class="status-card">
-          <h3>Recipe Model</h3>
-          <div style="font-family:monospace;line-height:2;font-size:13px">
-            <div>GeneralRecipe → SiteRecipe → MasterRecipe → ControlRecipe</div>
-            <div style="margin-top:8px">Procedure → UnitProcedure → Operation → Phase</div>
-          </div>
+        <div class="status-card" style="background:rgba(255,204,0,0.1);border-left:3px solid var(--isa-warning)">
+          <h3>The Purpose</h3>
+          <p>Systems need <strong>repeatable behavior</strong>.</p>
+          <p style="margin-top:8px">ISA-88 defines how procedures execute as state machines.</p>
         </div>
 
         <div class="status-card">
@@ -53,6 +46,21 @@
    STOPPING → STOPPED
        ↓ ABORT
    ABORTING → ABORTED</pre>
+          <p style="margin-top:8px;font-size:12px;opacity:0.7">Every phase follows these states. Predictable. Reliable.</p>
+        </div>
+
+        <div class="status-card">
+          <h3>Connection to κ</h3>
+          <p>State machines <strong>prevent chaotic behavior</strong>.</p>
+          <p style="margin-top:8px">They constrain κ by limiting possible transitions. Order without rigidity.</p>
+        </div>
+
+        <div class="status-card" style="border-left:3px solid var(--accent)">
+          <h3>Next: Display</h3>
+          <p>Behavior runs. But humans need to <strong>see</strong> it.</p>
+          <div style="margin-top:12px">
+            <a href="isa-101.html" class="cmd-btn">ISA-101: HMI Design →</a>
+          </div>
         </div>
       </div>
     </div>

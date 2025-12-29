@@ -28,32 +28,32 @@
 
     <div class="dock dock-center">
       <div class="hmi-content">
-        <h1>ISA-95: Enterprise Integration</h1>
+        <p style="font-size:13px;color:var(--isa-running);margin-bottom:4px">STANDARD 1 — STRUCTURE</p>
+        <h1>ISA-95: The Hierarchy</h1>
+
+        <div class="status-card" style="background:rgba(0,170,0,0.1);border-left:3px solid var(--isa-running)">
+          <h3>The Purpose</h3>
+          <p>Complex systems need <strong>levels of abstraction</strong>.</p>
+          <p style="margin-top:8px">ISA-95 defines 5 levels, from physical sensors to business planning.</p>
+        </div>
+
         <div class="status-card">
-          <h3>The Hierarchy</h3>
-          <table style="width:100%;font-size:14px;line-height:2">
-            <tr><td style="font-family:monospace;color:var(--accent)">L4</td><td>Business</td><td>ERP, BI (days-months)</td></tr>
-            <tr><td style="font-family:monospace;color:var(--accent)">L3</td><td>MOM</td><td>MES, LIMS (shifts-days)</td></tr>
-            <tr><td style="font-family:monospace;color:var(--accent)">L2</td><td>Control</td><td>SCADA, HMI (sec-hours)</td></tr>
-            <tr><td style="font-family:monospace;color:var(--accent)">L1</td><td>Sensing</td><td>PLC, DCS (ms-sec)</td></tr>
-            <tr><td style="font-family:monospace;color:var(--accent)">L0</td><td>Process</td><td>Sensors (continuous)</td></tr>
+          <h3>The Levels</h3>
+          <table style="width:100%;font-size:14px">
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)"><td style="padding:6px 0;font-family:monospace;color:var(--accent)">L4</td><td>Business</td><td>ERP, BI (days-months)</td></tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)"><td style="padding:6px 0;font-family:monospace;color:var(--accent)">L3</td><td>Operations</td><td>MES (shifts-days)</td></tr>
+            <tr style="background:rgba(74,144,217,0.2)"><td style="padding:6px 0;font-family:monospace;color:var(--accent)">L2</td><td>Control</td><td>SCADA, HMI (sec-hrs)</td></tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)"><td style="padding:6px 0;font-family:monospace;color:var(--accent)">L1</td><td>Sensing</td><td>PLC, DCS (ms-sec)</td></tr>
+            <tr><td style="padding:6px 0;font-family:monospace;color:var(--accent)">L0</td><td>Process</td><td>Sensors (continuous)</td></tr>
           </table>
+          <p style="margin-top:8px;font-size:12px;opacity:0.7">This site operates at L2 — human-readable control displays.</p>
         </div>
 
-        <div class="status-card">
-          <h3>Key UDTs</h3>
-          <pre style="background:#1a1a2e;padding:12px;border-radius:4px;font-size:13px">PhysicalAsset: {id, path, parent, children}
-Equipment: extends PhysicalAsset + capability
-Material: {id, lot, sublots, props}
-ProcessSegment: {equipment, materials, params}</pre>
-        </div>
-
-        <div class="status-card">
-          <h3>Data Flows</h3>
-          <div style="font-family:monospace;line-height:2">
-            <div>L4→L3: Schedule, WorkOrder</div>
-            <div>L3→L4: Performance, Inventory</div>
-            <div>L3↔L2: Recipe, ProcessData</div>
+        <div class="status-card" style="border-left:3px solid var(--isa-warning)">
+          <h3>Next: Behavior</h3>
+          <p>Structure tells us <strong>where</strong>. Procedures tell us <strong>how</strong>.</p>
+          <div style="margin-top:12px">
+            <a href="isa-88.html" class="cmd-btn">ISA-88: Procedures →</a>
           </div>
         </div>
       </div>

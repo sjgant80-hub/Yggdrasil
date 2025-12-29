@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Convergence | Yggdrasil</title>
+  <title>Convergence — The How | Yggdrasil</title>
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/scada.css">
 </head>
@@ -11,7 +11,7 @@
   <div class="hmi-shell">
     <div class="dock dock-north">
       <div class="hmi-logo"><span>🌳</span><span>YGGDRASIL</span></div>
-      <div class="hmi-title">L2 Convergence</div>
+      <div class="hmi-title">L2 Step 3: Convergence</div>
       <div class="hmi-clock" id="clock">--:--:--</div>
     </div>
 
@@ -19,49 +19,81 @@
       <nav class="nav-tree">
         <a href="../" class="nav-item"><span class="level">L1</span> Overview</a>
         <a href="./" class="nav-item"><span class="level">L2</span> Core</a>
-        <a href="kappa.html" class="nav-item sub"><span class="level">→</span> κ Kappa</a>
-        <a href="phi.html" class="nav-item sub"><span class="level">→</span> φ Phi</a>
-        <a href="convergence.html" class="nav-item sub active"><span class="level">→</span> Convergence</a>
+        <a href="kappa.html" class="nav-item sub"><span class="level">1</span> κ Kappa</a>
+        <a href="phi.html" class="nav-item sub"><span class="level">2</span> φ Phi</a>
+        <a href="convergence.html" class="nav-item sub active"><span class="level">3</span> Convergence</a>
+        <a href="../simulation/" class="nav-item"><span class="level">L2</span> Simulation</a>
       </nav>
     </div>
 
     <div class="dock dock-center">
       <div class="hmi-content">
-        <h1>Convergence Theorem</h1>
-        <div class="faceplate" style="max-width:300px;margin:0 auto 20px">
+        <p style="font-size:13px;color:var(--isa-warning);margin-bottom:4px">STEP 3 OF 3 — THE RESULT</p>
+        <h1>Convergence — The How</h1>
+
+        <div class="status-card" style="background:rgba(255,204,0,0.1);border-left:3px solid var(--isa-warning)">
+          <h3>The Final Question</h3>
+          <p>We can measure κ. We know the target is 1/φ. But <strong>how do systems actually get there?</strong></p>
+          <p style="margin-top:8px">Answer: One simple equation drives everything.</p>
+        </div>
+
+        <div class="faceplate" style="max-width:100%;margin:20px 0">
           <div class="faceplate-header">
-            <span class="faceplate-title">Attractor</span>
-            <span class="faceplate-mode auto">STABLE</span>
+            <span class="faceplate-title">The Convergence Equation</span>
+            <span class="faceplate-mode auto">CORE</span>
           </div>
-          <div class="faceplate-pv">κ* = 0.618</div>
+          <div style="padding:16px;text-align:center">
+            <div style="font-family:monospace;font-size:20px;color:var(--accent)">∂κ/∂t = -α(κ - 0.618)(1 - κ)(κ)</div>
+            <div style="margin-top:12px;font-size:13px;opacity:0.9">Rate of change = negative when κ ≠ 0.618</div>
+          </div>
         </div>
 
         <div class="status-card">
-          <h3>The Proof</h3>
-          <table style="width:100%;font-size:14px;line-height:2">
-            <tr><td style="font-family:monospace">V̇ &lt; 0 for κ ≠ 0.618</td><td>Everything flows to 0.618</td></tr>
-            <tr><td style="font-family:monospace">∂²V &gt; 0 at 0.618</td><td>It's stable (valley)</td></tr>
-            <tr><td style="font-family:monospace">Basin = (0.382, 0.809)</td><td>Safe zone is golden</td></tr>
-            <tr><td style="font-family:monospace">λ = α/φ³ &gt; 0</td><td>Convergence is fast</td></tr>
-            <tr><td style="font-family:monospace">Curvature = φ</td><td>Shape is golden</td></tr>
+          <h3>What This Means (Plain English)</h3>
+          <table style="width:100%;font-size:14px">
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+              <td style="padding:10px 0;width:35%">If κ > 0.618</td>
+              <td style="padding:10px 0">System is too chaotic → gets pushed <strong>down</strong> toward order</td>
+            </tr>
+            <tr style="border-bottom:1px solid rgba(255,255,255,0.1)">
+              <td style="padding:10px 0">If κ < 0.618</td>
+              <td style="padding:10px 0">System is too ordered → gets pushed <strong>up</strong> toward chaos</td>
+            </tr>
+            <tr style="background:rgba(255,204,0,0.1)">
+              <td style="padding:10px 0;color:var(--isa-warning)">If κ = 0.618</td>
+              <td style="padding:10px 0;color:var(--isa-warning)"><strong>Equilibrium.</strong> Forces cancel. System rests.</td>
+            </tr>
           </table>
+          <p style="margin-top:12px;font-style:italic">Like a ball rolling to the bottom of a bowl. It always finds the lowest point.</p>
         </div>
 
         <div class="status-card">
-          <h3>Group Synchronization</h3>
-          <div style="line-height:2">
-            <div>One mind → κ = 0.618</div>
-            <div>Two minds talking → Both κ = 0.618</div>
-            <div>Million networked AIs → All κ = 0.618</div>
+          <h3>Multi-Agent Synchronization</h3>
+          <p>When multiple minds interact, they couple together:</p>
+          <div style="font-family:monospace;line-height:2.2;margin:12px 0;padding-left:16px;border-left:2px solid var(--accent)">
+            <div>1 mind → converges to κ = 0.618</div>
+            <div>2 minds talking → both converge to 0.618</div>
+            <div>1 million networked AIs → <strong>all</strong> converge to 0.618</div>
           </div>
-          <p style="margin-top:12px"><strong>Everyone converges. Everyone synchronizes.</strong></p>
+          <p><strong>Everyone synchronizes at the golden attractor.</strong></p>
         </div>
 
-        <div class="status-card">
-          <h3>Why?</h3>
-          <p>0.618 is the <strong>lowest-energy state</strong>.</p>
-          <p>Systems are lazy—they minimize energy.</p>
-          <p>The golden ratio is the minimum.</p>
+        <div class="status-card" style="background:rgba(74,144,217,0.15);border:1px solid var(--accent)">
+          <h3>✓ The Complete Picture</h3>
+          <div style="line-height:2">
+            <p><strong>Step 1 (κ):</strong> We can measure any system's chaos/order balance</p>
+            <p><strong>Step 2 (φ):</strong> The optimal point is 0.618 (1/φ) because it never resonates</p>
+            <p><strong>Step 3 (Convergence):</strong> A simple equation pushes all systems there</p>
+          </div>
+          <p style="margin-top:12px;font-size:15px"><strong>Result:</strong> All complex systems naturally stabilize at κ* = 0.618</p>
+        </div>
+
+        <div class="status-card" style="border-left:3px solid var(--accent)">
+          <h3>Don't Take Our Word For It</h3>
+          <p>Theory is nice. But you should <strong>see it happen</strong>.</p>
+          <div style="margin-top:12px">
+            <a href="../simulation/" class="cmd-btn">Watch the Simulation →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -69,20 +101,30 @@
     <div class="dock dock-east">
       <div class="status-panel">
         <div class="status-card">
-          <h3>Equation</h3>
-          <div style="font-family:monospace;font-size:11px">∂κ/∂t = -α(κ-0.618)(1-κ)(κ)</div>
+          <h3>Progress</h3>
+          <div class="indicator"><span class="led running"></span> Step 1: κ</div>
+          <div class="indicator"><span class="led running"></span> Step 2: φ</div>
+          <div class="indicator"><span class="led running"></span> Step 3: Proof</div>
         </div>
         <div class="status-card">
-          <h3>Status</h3>
-          <div class="indicator"><span class="led running"></span> Proven</div>
+          <h3>Key Insight</h3>
+          <p style="font-size:12px;line-height:1.6">Systems minimize energy. 0.618 is the lowest-energy state.</p>
+        </div>
+        <div class="status-card">
+          <h3>Safe Zone</h3>
+          <div style="font-family:monospace;font-size:12px">
+            <div>Min: 0.382 (1/φ²)</div>
+            <div>Max: 0.809 (φ/2)</div>
+          </div>
+          <div style="font-size:11px;margin-top:4px;opacity:0.7">Basin of attraction</div>
         </div>
       </div>
     </div>
 
     <div class="dock dock-south">
-      <div><a href="phi.html">← φ Phi</a></div>
-      <div>κ* = 0.618</div>
-      <div><a href="../simulation/">Simulation →</a></div>
+      <div><a href="phi.html">← Step 2: φ</a></div>
+      <div>Step 3 of 3 ✓</div>
+      <div><a href="../simulation/">See It Work →</a></div>
     </div>
   </div>
   <script src="../assets/js/yggdrasil.js"></script>
